@@ -29,4 +29,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Requirements
 
-@angular-material-extensions/google-maps-autocomplete
+npm i @agm/core
+npm i -D @types/googlemaps 
+ng add @angular-material-extensions/google-maps-autocomplete
+npm install --save @angular-material-extensions/google-maps-autocomplete
+npm i @angular/animations
+npm i @angular/forms
+npm i @angular/cdk @angular/material @angular/animations @angular/forms 
