@@ -8,7 +8,10 @@ import { MapsComponent } from './maps/maps.component';
 import { MatToolbarModule, MatButtonModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './components/header/header.component'
+
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -30,8 +33,12 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     CommonModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
-    })
+      apiKey: '',
+      libraries: ['places']
+    }),
+    MatGoogleMapsAutocompleteModule.forRoot(),
+    MatGoogleMapsAutocompleteModule,
+    AgmCoreModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
