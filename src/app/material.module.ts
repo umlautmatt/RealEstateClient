@@ -8,22 +8,23 @@ import { MatInputModule,
 
 @NgModule({
 declarations: [],
+
 imports: [
 CommonModule,
 MatToolbarModule,
 MatInputModule,
 MatButtonModule,
 MatFormFieldModule,
-
 MatTableModule
 ],
-exports: [
 
+exports: [
 MatToolbarModule,
 MatInputModule,   
 MatButtonModule,
 MatFormFieldModule,
 MatTableModule
 ]
+
 })
 export class MaterialModule { }
