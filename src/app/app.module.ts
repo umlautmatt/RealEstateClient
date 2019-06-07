@@ -9,6 +9,15 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule, 
+          MatButtonModule, 
+          MatToolbarModule, 
+          MatFormFieldModule, 
+          MatTableModule,
+          MatDialogModule } from '@angular/material';
+
+
+
 
 import { AppComponent } from './app.component';
 import { MapsComponent } from './maps/maps.component';
@@ -33,21 +42,11 @@ import { MainPropDeleteComponent } from './components/listings/MainProp/main-pro
 import { MainPropUpdateComponent } from './components/listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
 import { RentService } from './Services/rent.service';
-
-import {
-  MatToolbarModule,
-  MatButtonModule,
-  MatFormFieldModule,
-  MatInputModule
-} from '@angular/material';
+import { AuthService } from './Services/auth.service';
+import { BuyService } from './Services/buy.service';
 import { AuthService } from './Services/auth.service';
 
 
-const routes = [
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: '**', component: RegisterComponent }
-];
 
 @NgModule({
   declarations: [
@@ -85,6 +84,16 @@ const routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    
+    //Material Modules
+    MatToolbarModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatDialogModule,
+
+    //Map Modules
     AgmCoreModule.forRoot({
       apiKey: '',
       libraries: ['places']
@@ -99,8 +108,14 @@ const routes = [
   ],
   providers: [
     AuthService,
-    RentService
+    RentService,
+    BuyService
   ],
-  bootstrap: [AppComponent]
+
+  bootstrap: [AppComponent],
+  entryComponents: [
+    BuyDetailsComponent
+  ]
+
 })
 export class AppModule { }
