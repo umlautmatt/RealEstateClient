@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
-import { MaterialModule } from './material.module';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,7 +13,6 @@ import { MatInputModule,
           MatFormFieldModule, 
           MatTableModule,
           MatDialogModule } from '@angular/material';
-
 
 
 
@@ -41,26 +38,12 @@ import { MainPropCreateComponent } from './components/listings/MainProp/main-pro
 import { MainPropDeleteComponent } from './components/listings/MainProp/main-prop-delete/main-prop-delete.component';
 import { MainPropUpdateComponent } from './components/listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { AuthService } from './Services/auth.service';
-import { BuyService } from './Services/buy.service';
-=======
-import { RentService } from './Services/rent.service';
->>>>>>> a7daa7ac730cb59eae66543e05b5d3d3e4529513
 
-import {
-  MatToolbarModule,
-  MatButtonModule,
-  MatFormFieldModule,
-  MatInputModule
-} from '@angular/material';
-=======
+
 import { RentService } from './Services/rent.service';
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
->>>>>>> 7ee67cb54f092a74fe348834472349b7acf644e6
-import { AuthService } from './Services/auth.service';
+
 
 
 
@@ -93,10 +76,8 @@ import { AuthService } from './Services/auth.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
     FormsModule,
     CommonModule,
-    MaterialModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -113,42 +94,17 @@ import { AuthService } from './Services/auth.service';
     AgmCoreModule.forRoot({
       apiKey: '',
       libraries: ['places']
-    }),
+      }),
     MatGoogleMapsAutocompleteModule.forRoot(),
     MatGoogleMapsAutocompleteModule,
-<<<<<<< HEAD
-<<<<<<< HEAD
     AgmCoreModule.forRoot()
     ],
-  providers: [BuyService],
-  bootstrap: [AppComponent],
-  entryComponents: [
-    BuyDetailsComponent
-  ]
-=======
-=======
->>>>>>> 7ee67cb54f092a74fe348834472349b7acf644e6
-    AgmCoreModule.forRoot(),
-    MatToolbarModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule
-  ],
-  providers: [
-    AuthService,
-    RentService,
-    BuyService
-  ],
-<<<<<<< HEAD
-  bootstrap: [AppComponent]
->>>>>>> a7daa7ac730cb59eae66543e05b5d3d3e4529513
-=======
 
-  bootstrap: [AppComponent],
-  entryComponents: [
-    BuyDetailsComponent
-  ]
+    providers: [AuthService, RentService, BuyService],
+    bootstrap: [AppComponent],
+    entryComponents: [
+      BuyDetailsComponent
+    ]
 
->>>>>>> 7ee67cb54f092a74fe348834472349b7acf644e6
 })
 export class AppModule { }
