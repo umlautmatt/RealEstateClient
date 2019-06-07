@@ -4,4 +4,5 @@ export interface Token {
     userName: string;
     expires_in: number;
     issued: Date;
+    expires: Date;
 }

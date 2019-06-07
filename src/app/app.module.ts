@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { MaterialModule } from './material.module';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,6 +34,20 @@ import { MainPropUpdateComponent } from './components/listings/MainProp/main-pro
 import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
 import { RentService } from './Services/rent.service';
 
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule
+} from '@angular/material';
+import { AuthService } from './Services/auth.service';
+
+
+const routes = [
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: RegisterComponent }
+];
 
 @NgModule({
   declarations: [
@@ -58,11 +73,12 @@ import { RentService } from './Services/rent.service';
     MainPropDeleteComponent,
     MainPropUpdateComponent,
     MainPropDetailsComponent
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot(routes),
     FormsModule,
     CommonModule,
     MaterialModule,
@@ -75,9 +91,16 @@ import { RentService } from './Services/rent.service';
     }),
     MatGoogleMapsAutocompleteModule.forRoot(),
     MatGoogleMapsAutocompleteModule,
-    AgmCoreModule.forRoot()
+    AgmCoreModule.forRoot(),
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [RentService],
+  providers: [
+    AuthService,
+    RentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
