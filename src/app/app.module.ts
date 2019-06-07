@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { MaterialModule } from './material.module';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -40,8 +41,11 @@ import { MainPropCreateComponent } from './components/listings/MainProp/main-pro
 import { MainPropDeleteComponent } from './components/listings/MainProp/main-prop-delete/main-prop-delete.component';
 import { MainPropUpdateComponent } from './components/listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
+import { RentService } from './Services/rent.service';
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
+import { AuthService } from './Services/auth.service';
+
 
 
 @NgModule({
@@ -68,11 +72,12 @@ import { BuyService } from './Services/buy.service';
     MainPropDeleteComponent,
     MainPropUpdateComponent,
     MainPropDetailsComponent
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot(routes),
     FormsModule,
     CommonModule,
     MaterialModule,
@@ -95,12 +100,22 @@ import { BuyService } from './Services/buy.service';
     }),
     MatGoogleMapsAutocompleteModule.forRoot(),
     MatGoogleMapsAutocompleteModule,
-    AgmCoreModule.forRoot()
-    ],
-  providers: [BuyService],
+    AgmCoreModule.forRoot(),
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
+  ],
+  providers: [
+    AuthService,
+    RentService,
+    BuyService
+  ],
+
   bootstrap: [AppComponent],
   entryComponents: [
     BuyDetailsComponent
   ]
+
 })
 export class AppModule { }
