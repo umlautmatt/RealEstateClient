@@ -1,5 +1,10 @@
 <app-header> </app-header>
-<app-map></app-map>
+<!-- <app-registration></app-registration> -->
+<!-- <app-map></app-map> -->
+
+<div style="text-align:center">
+    <router-outlet></router-outlet>
+</div>
 
 <div *ngFor='let rent of rent$' style="text-align:center">
 <h2>{{ rent.PricePerMonth }} - {{ rent.Available }}</h2>
