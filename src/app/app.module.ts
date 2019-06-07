@@ -12,7 +12,8 @@ import { MatInputModule,
           MatToolbarModule, 
           MatFormFieldModule, 
           MatTableModule,
-          MatDialogModule } from '@angular/material';
+          MatDialogModule,
+          MatCardModule } from '@angular/material';
 
 
 
@@ -89,6 +90,7 @@ import { BuyService } from './Services/buy.service';
     MatFormFieldModule,
     MatTableModule,
     MatDialogModule,
+    MatCardModule,
 
     //Map Modules
     AgmCoreModule.forRoot({
