@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
-import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +13,9 @@ import { MatInputModule,
           MatToolbarModule, 
           MatFormFieldModule, 
           MatTableModule,
-          MatDialogModule } from '@angular/material';
+          MatCardModule,
+          MatDialogModule
+        } from '@angular/material';
 
 
 
@@ -44,7 +45,6 @@ import { MainPropDetailsComponent } from './components/listings/MainProp/main-pr
 import { RentService } from './Services/rent.service';
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
-import { AuthService } from './Services/auth.service';
 
 
 
@@ -77,10 +77,8 @@ import { AuthService } from './Services/auth.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
     FormsModule,
     CommonModule,
-    MaterialModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -92,6 +90,7 @@ import { AuthService } from './Services/auth.service';
     MatFormFieldModule,
     MatTableModule,
     MatDialogModule,
+    MatCardModule,
 
     //Map Modules
     AgmCoreModule.forRoot({
