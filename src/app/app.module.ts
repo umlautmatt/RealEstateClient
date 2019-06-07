@@ -42,6 +42,7 @@ import { MainPropDeleteComponent } from './components/listings/MainProp/main-pro
 import { MainPropUpdateComponent } from './components/listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
 =======
@@ -54,14 +55,14 @@ import {
   MatFormFieldModule,
   MatInputModule
 } from '@angular/material';
+=======
+import { RentService } from './Services/rent.service';
+import { AuthService } from './Services/auth.service';
+import { BuyService } from './Services/buy.service';
+>>>>>>> 7ee67cb54f092a74fe348834472349b7acf644e6
 import { AuthService } from './Services/auth.service';
 
 
-const routes = [
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: '**', component: RegisterComponent }
-];
 
 @NgModule({
   declarations: [
@@ -116,6 +117,7 @@ const routes = [
     MatGoogleMapsAutocompleteModule.forRoot(),
     MatGoogleMapsAutocompleteModule,
 <<<<<<< HEAD
+<<<<<<< HEAD
     AgmCoreModule.forRoot()
     ],
   providers: [BuyService],
@@ -124,6 +126,8 @@ const routes = [
     BuyDetailsComponent
   ]
 =======
+=======
+>>>>>>> 7ee67cb54f092a74fe348834472349b7acf644e6
     AgmCoreModule.forRoot(),
     MatToolbarModule,
     MatButtonModule,
@@ -132,9 +136,19 @@ const routes = [
   ],
   providers: [
     AuthService,
-    RentService
+    RentService,
+    BuyService
   ],
+<<<<<<< HEAD
   bootstrap: [AppComponent]
 >>>>>>> a7daa7ac730cb59eae66543e05b5d3d3e4529513
+=======
+
+  bootstrap: [AppComponent],
+  entryComponents: [
+    BuyDetailsComponent
+  ]
+
+>>>>>>> 7ee67cb54f092a74fe348834472349b7acf644e6
 })
 export class AppModule { }
