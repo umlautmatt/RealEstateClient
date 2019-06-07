@@ -8,6 +8,15 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule, 
+          MatButtonModule, 
+          MatToolbarModule, 
+          MatFormFieldModule, 
+          MatTableModule,
+          MatDialogModule } from '@angular/material';
+
+
+
 
 import { AppComponent } from './app.component';
 import { MapsComponent } from './maps/maps.component';
@@ -31,6 +40,8 @@ import { MainPropCreateComponent } from './components/listings/MainProp/main-pro
 import { MainPropDeleteComponent } from './components/listings/MainProp/main-prop-delete/main-prop-delete.component';
 import { MainPropUpdateComponent } from './components/listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
+import { AuthService } from './Services/auth.service';
+import { BuyService } from './Services/buy.service';
 
 
 @NgModule({
@@ -68,6 +79,16 @@ import { MainPropDetailsComponent } from './components/listings/MainProp/main-pr
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    
+    //Material Modules
+    MatToolbarModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatDialogModule,
+
+    //Map Modules
     AgmCoreModule.forRoot({
       apiKey: '',
       libraries: ['places']
@@ -75,8 +96,11 @@ import { MainPropDetailsComponent } from './components/listings/MainProp/main-pr
     MatGoogleMapsAutocompleteModule.forRoot(),
     MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot()
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    ],
+  providers: [BuyService],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    BuyDetailsComponent
+  ]
 })
 export class AppModule { }
