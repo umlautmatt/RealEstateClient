@@ -13,7 +13,9 @@ const routes: Routes = [
   {path: "Register", component: RegisterComponent},
   {path: "ForSaleList", component: BuyIndexComponent},
   {path: "ForRentList", component: RentIndexComponent},
-  {path: "ForSaleDetail/:id", component: BuyDetailsComponent}
+  {path: "ForSaleDetail/:id", component: BuyDetailsComponent},
+
+  {path: '**', component: RegisterComponent}
 ];
 
 @NgModule({

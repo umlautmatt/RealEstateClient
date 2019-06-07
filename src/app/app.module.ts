@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { MaterialModule } from './material.module';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -40,9 +41,27 @@ import { MainPropCreateComponent } from './components/listings/MainProp/main-pro
 import { MainPropDeleteComponent } from './components/listings/MainProp/main-prop-delete/main-prop-delete.component';
 import { MainPropUpdateComponent } from './components/listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
+<<<<<<< HEAD
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
+=======
+import { RentService } from './Services/rent.service';
+>>>>>>> a7daa7ac730cb59eae66543e05b5d3d3e4529513
 
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule
+} from '@angular/material';
+import { AuthService } from './Services/auth.service';
+
+
+const routes = [
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: RegisterComponent }
+];
 
 @NgModule({
   declarations: [
@@ -68,11 +87,12 @@ import { BuyService } from './Services/buy.service';
     MainPropDeleteComponent,
     MainPropUpdateComponent,
     MainPropDetailsComponent
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot(routes),
     FormsModule,
     CommonModule,
     MaterialModule,
@@ -95,6 +115,7 @@ import { BuyService } from './Services/buy.service';
     }),
     MatGoogleMapsAutocompleteModule.forRoot(),
     MatGoogleMapsAutocompleteModule,
+<<<<<<< HEAD
     AgmCoreModule.forRoot()
     ],
   providers: [BuyService],
@@ -102,5 +123,18 @@ import { BuyService } from './Services/buy.service';
   entryComponents: [
     BuyDetailsComponent
   ]
+=======
+    AgmCoreModule.forRoot(),
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
+  ],
+  providers: [
+    AuthService,
+    RentService
+  ],
+  bootstrap: [AppComponent]
+>>>>>>> a7daa7ac730cb59eae66543e05b5d3d3e4529513
 })
 export class AppModule { }
