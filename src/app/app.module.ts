@@ -47,7 +47,6 @@ import { RentService } from './Services/rent.service';
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
 import { MainPropService } from './Services/main-prop.service';
-import { LogoutComponent } from './components/Account/logout/logout.component';
 
 
 
@@ -74,8 +73,7 @@ import { LogoutComponent } from './components/Account/logout/logout.component';
     MainPropCreateComponent,
     MainPropDeleteComponent,
     MainPropUpdateComponent,
-    MainPropDetailsComponent,
-    LogoutComponent
+    MainPropDetailsComponent
 
   ],
   imports: [

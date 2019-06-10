@@ -12,14 +12,12 @@ import { MainPropUpdateComponent } from './components/Listings/MainProp/main-pro
 import { MainPropDetailsComponent } from './components/Listings/MainProp/main-prop-details/main-prop-details.component';
 import { MainPropDeleteComponent } from './components/Listings/MainProp/main-prop-delete/main-prop-delete.component';
 import { RentDetailsComponent } from './components/Listings/Rent/rent-details/rent-details.component';
-import { LogoutComponent } from './components/Account/logout/logout.component';
 
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'Login', component: LoginComponent },
   { path: 'Register', component: RegisterComponent },
-  { path: 'Logout', component: LogoutComponent },
 
   {
     path: 'ForSale', children: [
