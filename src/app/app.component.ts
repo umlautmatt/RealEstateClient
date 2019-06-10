@@ -8,9 +8,11 @@ import { RentService } from './Services/rent.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
 // rent$: Rent[];
 
-constructor(private rentService: RentService) {}
+
+  constructor(private rentService: RentService) { }
   //title = 'RealEstateClient';
 
   ngOnInit() {

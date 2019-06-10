@@ -7,13 +7,16 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { MatInputModule, 
-          MatButtonModule, 
-          MatToolbarModule, 
-          MatFormFieldModule, 
-          MatTableModule,
-          MatDialogModule,
-          MatCardModule } from '@angular/material';
+
+import {
+  MatInputModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatFormFieldModule,
+  MatTableModule,
+  MatCardModule,
+  MatDialogModule
+} from '@angular/material';
 
 
 
@@ -44,7 +47,6 @@ import { MainPropDetailsComponent } from './components/listings/MainProp/main-pr
 import { RentService } from './Services/rent.service';
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
-
 
 
 
@@ -82,7 +84,7 @@ import { BuyService } from './Services/buy.service';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    
+
     //Material Modules
     MatToolbarModule,
     MatInputModule,
