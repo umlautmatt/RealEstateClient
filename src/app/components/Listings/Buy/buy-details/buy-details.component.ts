@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
+import { BuyService } from '../../../../Services/buy.service';
+
 
 @Component({
   selector: 'app-buy-details',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuyDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor
+  (@Inject(MAT_DIALOG_DATA)
+  public data: any,
+  private buyService: BuyService)
+   { }
+
 
   ngOnInit() {
   }
-
 }

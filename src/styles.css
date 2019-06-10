@@ -5,3 +5,14 @@ body, html {
     padding: 0;
     font-family: 'Roboto', 'Arial', sans-serif;
 }
+
+.nav-btn {
+    margin-right: 0.5em;
+    background-color: #c1d0f4;
+    color: white;
+}
+
+.nav-btn:hover {
+    background-color: #8ca2d9;
+    color: #cccccc;
+}

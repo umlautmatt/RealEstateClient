@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
-import { MaterialModule } from './material.module';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,6 +7,18 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+
+import {
+  MatInputModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatFormFieldModule,
+  MatTableModule,
+  MatCardModule,
+  MatDialogModule
+} from '@angular/material';
+
+
 
 import { AppComponent } from './app.component';
 import { MapsComponent } from './maps/maps.component';
@@ -35,24 +45,10 @@ import { MainPropDetailsComponent } from './components/listings/MainProp/main-pr
 
 import { RentService } from './Services/rent.service';
 import { AuthService } from './Services/auth.service';
+import { BuyService } from './Services/buy.service';
 import { MainPropService } from './Services/main-prop.service';
 
 
-import {
-  MatToolbarModule,
-  MatButtonModule,
-  MatFormFieldModule,
-  MatInputModule
-} from '@angular/material';
-import { BuyService } from './Services/buy.service';
-
-
-
-const routes = [
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: '**', component: RegisterComponent }
-];
 
 @NgModule({
   declarations: [
@@ -83,33 +79,36 @@ const routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
     FormsModule,
     CommonModule,
-    MaterialModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+
+    //Material Modules
+    MatToolbarModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatDialogModule,
+    MatCardModule,
+
+    //Map Modules
     AgmCoreModule.forRoot({
       apiKey: '',
       libraries: ['places']
-    }),
+      }),
     MatGoogleMapsAutocompleteModule.forRoot(),
     MatGoogleMapsAutocompleteModule,
-    AgmCoreModule.forRoot(),
-    MatToolbarModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule
-  ],
+    AgmCoreModule.forRoot()
+    ],
 
-  providers: [
-    AuthService,
-    MainPropService,
-    RentService,
-    BuyService
-  ],
+    providers: [AuthService, RentService, BuyService, MainPropService],
+    bootstrap: [AppComponent],
+    entryComponents: [
+      BuyDetailsComponent
+    ]
 
-  bootstrap: [AppComponent]
 })
 export class AppModule { }
