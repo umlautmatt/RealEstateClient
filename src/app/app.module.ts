@@ -31,6 +31,8 @@ import { MainPropCreateComponent } from './components/listings/MainProp/main-pro
 import { MainPropDeleteComponent } from './components/listings/MainProp/main-prop-delete/main-prop-delete.component';
 import { MainPropUpdateComponent } from './components/listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
+import { AuthService } from './Services/auth.service';
+import { MainPropService } from './Services/main-prop.service';
 
 
 @NgModule({
@@ -76,7 +78,10 @@ import { MainPropDetailsComponent } from './components/listings/MainProp/main-pr
     MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    MainPropService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
