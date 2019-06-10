@@ -43,10 +43,10 @@ import { MainPropDeleteComponent } from './components/listings/MainProp/main-pro
 import { MainPropUpdateComponent } from './components/listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
 
-
 import { RentService } from './Services/rent.service';
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
+import { MainPropService } from './Services/main-prop.service';
 
 
 
@@ -104,7 +104,7 @@ import { BuyService } from './Services/buy.service';
     AgmCoreModule.forRoot()
     ],
 
-    providers: [AuthService, RentService, BuyService],
+    providers: [AuthService, RentService, BuyService, MainPropService],
     bootstrap: [AppComponent],
     entryComponents: [
       BuyDetailsComponent
