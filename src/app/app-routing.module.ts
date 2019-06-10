@@ -8,6 +8,9 @@ import { RentIndexComponent } from './components/Listings/Rent/rent-index/rent-i
 import { BuyDetailsComponent } from './components/Listings/Buy/buy-details/buy-details.component';
 import { MainPropIndexComponent } from './components/Listings/MainProp/main-prop-index/main-prop-index.component';
 import { MainPropCreateComponent } from './components/Listings/MainProp/main-prop-create/main-prop-create.component';
+import { MainPropUpdateComponent } from './components/listings/MainProp/main-prop-update/main-prop-update.component';
+import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
+import { MainPropDeleteComponent } from './components/listings/MainProp/main-prop-delete/main-prop-delete.component';
 
 const routes: Routes = [
   {path: 'Home', component: HomeComponent},
@@ -17,7 +20,10 @@ const routes: Routes = [
   {path: 'ForRentList', component: RentIndexComponent},
   {path: 'MainProp', children: [
   {path: '', component: MainPropIndexComponent },
-  {path: 'Create', component: MainPropCreateComponent }
+  {path: 'Create', component: MainPropCreateComponent },
+  {path: 'Update/:id', component: MainPropUpdateComponent },
+  {path: 'Detail/:id', component: MainPropDetailsComponent },
+  {path: 'Delete/:id', component: MainPropDeleteComponent }
     ]},
   {path: "ForSaleDetail/:id", component: BuyDetailsComponent},
   {path: "**", component: RegisterComponent}
