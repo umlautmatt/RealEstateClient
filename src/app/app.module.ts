@@ -15,7 +15,7 @@ import {
   MatFormFieldModule,
   MatTableModule,
   MatCardModule,
-  MatDialogModule
+  MatDialogModule,
 } from '@angular/material';
 
 
@@ -73,7 +73,8 @@ import { MainPropService } from './Services/main-prop.service';
     MainPropCreateComponent,
     MainPropDeleteComponent,
     MainPropUpdateComponent,
-    MainPropDetailsComponent
+    MainPropDetailsComponent,
+    SideNavComponent
 
   ],
   imports: [
