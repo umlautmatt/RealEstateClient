@@ -4,6 +4,20 @@
 
 .nav-btn {
     margin-right: 0.5em;
-    background-color: #132584;
+    background-color: #c1d0f4;
     color: white;
+}
+
+.nav-btn:hover {
+    background-color: #8ca2d9;
+    color: #cccccc;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.mat-toolbar {
+    background: #a3b4e0 !important;
 }
