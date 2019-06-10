@@ -13,7 +13,7 @@ const Api_Url = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net
 })
 export class AuthService {
   userInfo: Token;
-  isLoggedIn = new Subject<boolean>();
+  isLoggedIn: boolean;
 
   constructor(private _http: HttpClient, private _router: Router) { }
 
@@ -25,27 +25,27 @@ export class AuthService {
     const str =
       `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
 
-    return this._http.post(`${Api_Url}/token`, str).subscribe( (token: Token ) => {
+    return this._http.post(`${Api_Url}/token`, str).subscribe((token: Token) => {
       console.log(token);
       this.userInfo = token;
       localStorage.setItem('id_token', token.access_token);
-      this.isLoggedIn.next(true);
+      this.isLoggedIn = true;
       this._router.navigate(['/Home']);
     });
   }
 
   currentUser(): Observable<Object> {
-    if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false));}
+    if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
 
     return this._http.get(`${Api_Url}/api/Account/UserInfo`, { headers: this.setHeader() });
   }
 
   logout() {
     localStorage.clear();
-    this.isLoggedIn.next(false);
+    this.isLoggedIn = false;
 
-    this._http.post(`${Api_Url}/api/Account/Logout`, { headers: this.setHeader() } );
-    this._router.navigate(['/login']);
+    this._http.post(`${Api_Url}/api/Account/Logout`, { headers: this.setHeader() });
+    this._router.navigate(['/Login']);
   }
 
   private setHeader(): HttpHeaders {
@@ -56,5 +56,5 @@ export class AuthService {
   //   return new HttpHeaders().set('Access-Control-Allow-Origin' , '*')
   //   }
 
-  
+
 }

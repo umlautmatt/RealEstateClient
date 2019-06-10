@@ -1,6 +1,12 @@
 <mat-toolbar color="primary">
   <a routerLink="/Home"><span>Eleven Real Estate</span></a>
   <span class="fill-remaining-space"></span>
-  <button mat-raised-button class="nav-btn" routerLink="/Register">Register</button>
-  <button mat-raised-button class="nav-btn" routerLink="/Login">Login</button>
+  <div *ngIf="!this.authService.isLoggedIn">
+    <button mat-raised-button class="nav-btn" routerLink="/Register">Register</button>
+    <button mat-raised-button class="nav-btn" routerLink="/Login">Login</button>
+  </div>
+  <div *ngIf="this.authService.isLoggedIn">
+    <button mat-raised-button class="nav-btn" routerLink="/Logout" (click)="logOut()">Logout</button>
+  </div>
+
 </mat-toolbar>

@@ -13,6 +13,7 @@ import { MainPropUpdateComponent } from './components/Listings/MainProp/main-pro
 import { MainPropDetailsComponent } from './components/Listings/MainProp/main-prop-details/main-prop-details.component';
 import { MainPropDeleteComponent } from './components/Listings/MainProp/main-prop-delete/main-prop-delete.component';
 
+
 const routes: Routes = [
   {path: 'Home', component: HomeComponent},
   {path: 'Login', component: LoginComponent},
@@ -40,7 +41,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations:[
+  declarations: [
   ],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
