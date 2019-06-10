@@ -8,39 +8,48 @@ import { RentIndexComponent } from './components/Listings/Rent/rent-index/rent-i
 import { BuyDetailsComponent } from './components/Listings/Buy/buy-details/buy-details.component';
 import { MainPropIndexComponent } from './components/Listings/MainProp/main-prop-index/main-prop-index.component';
 import { MainPropCreateComponent } from './components/Listings/MainProp/main-prop-create/main-prop-create.component';
-import { MainPropUpdateComponent } from './components/listings/MainProp/main-prop-update/main-prop-update.component';
-import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
-import { MainPropDeleteComponent } from './components/listings/MainProp/main-prop-delete/main-prop-delete.component';
+import { MainPropUpdateComponent } from './components/Listings/MainProp/main-prop-update/main-prop-update.component';
+import { MainPropDetailsComponent } from './components/Listings/MainProp/main-prop-details/main-prop-details.component';
+import { MainPropDeleteComponent } from './components/Listings/MainProp/main-prop-delete/main-prop-delete.component';
 import { RentDetailsComponent } from './components/Listings/Rent/rent-details/rent-details.component';
+import { LogoutComponent } from './components/Account/logout/logout.component';
+
 
 const routes: Routes = [
-  {path: 'Home', component: HomeComponent},
-  {path: 'Login', component: LoginComponent},
-  {path: 'Register', component: RegisterComponent},
+  { path: 'Home', component: HomeComponent },
+  { path: 'Login', component: LoginComponent },
+  { path: 'Register', component: RegisterComponent },
+  { path: 'Logout', component: LogoutComponent },
 
-  {path: 'ForSale',  children: [
-    {path: 'List', component: BuyIndexComponent},
-    {path: 'Details/:id', component: BuyDetailsComponent},
-  ]},
-  
-  {path: 'ForRent', children: [
-    {path: 'List', component: RentIndexComponent},
-    {path: 'Details/:id', component: RentDetailsComponent},
-  ]},
-  
-  {path: 'MainProp', children: [
-    {path: '', component: MainPropIndexComponent },
-    {path: 'Create', component: MainPropCreateComponent },
-    {path: 'Update/:id', component: MainPropUpdateComponent },
-    {path: 'Detail/:id', component: MainPropDetailsComponent },
-    {path: 'Delete/:id', component: MainPropDeleteComponent }
-      ]},
-  
-  {path: "**", component: RegisterComponent}
+  {
+    path: 'ForSale', children: [
+      { path: 'List', component: BuyIndexComponent },
+      { path: 'Details/:id', component: BuyDetailsComponent },
+    ]
+  },
+
+  {
+    path: 'ForRent', children: [
+      { path: 'List', component: RentIndexComponent },
+      { path: 'Details/:id', component: RentDetailsComponent },
+    ]
+  },
+
+  {
+    path: 'MainProp', children: [
+      { path: '', component: MainPropIndexComponent },
+      { path: 'Create', component: MainPropCreateComponent },
+      { path: 'Update/:id', component: MainPropUpdateComponent },
+      { path: 'Detail/:id', component: MainPropDetailsComponent },
+      { path: 'Delete/:id', component: MainPropDeleteComponent }
+    ]
+  },
+
+  { path: "**", component: RegisterComponent }
 ];
 
 @NgModule({
-  declarations:[
+  declarations: [
   ],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

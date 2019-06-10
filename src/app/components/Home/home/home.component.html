@@ -1,3 +1,6 @@
-<p>
-  home works!
-</p>
+<div *ngIf="!this.authService.isLoggedIn">
+  <p>user is no auth</p>
+</div>
+<div *ngIf="this.authService.isLoggedIn">
+  <p>user is auth</p>
+</div>
