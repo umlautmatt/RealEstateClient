@@ -8,12 +8,13 @@ import { RentIndexComponent } from './components/Listings/Rent/rent-index/rent-i
 import { BuyDetailsComponent } from './components/Listings/Buy/buy-details/buy-details.component';
 
 const routes: Routes = [
-  {path: "home", component: HomeComponent},
+  {path: "Home", component: HomeComponent},
   {path: "Login", component: LoginComponent},
   {path: "Register", component: RegisterComponent},
   {path: "ForSaleList", component: BuyIndexComponent},
   {path: "ForRentList", component: RentIndexComponent},
-  {path: "ForSaleDetail/:id", component: BuyDetailsComponent}
+  {path: "ForSaleDetail/:id", component: BuyDetailsComponent},
+  {path: "**", component: RegisterComponent}
 ];
 
 @NgModule({
