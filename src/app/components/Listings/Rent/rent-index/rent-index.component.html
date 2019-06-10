@@ -1,3 +1,6 @@
 <p>
   rent-index works!
 </p>
+<div *ngFor='let rent of rent$' style="text-align:center">
+  <h2>{{ rent.PricePerMonth }} - {{ rent.Available }}</h2>
+</div>
