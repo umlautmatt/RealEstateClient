@@ -25,8 +25,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations:[
-    MainPropIndexComponent,
-    MainPropCreateComponent
   ],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
