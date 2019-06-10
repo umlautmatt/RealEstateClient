@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MainProp } from '../../../../Models/MainProp';
+import { MainPropService } from '../../../../Services/main-prop.service';
 
 @Component({
   selector: 'app-main-prop-details',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPropDetailsComponent implements OnInit {
 
-  constructor() { }
+  mainProp: MainProp;
+
+  constructor(private _activatedRoute: ActivatedRoute, private _mainPropService: MainPropService) { }
 
   ngOnInit() {
+    this._activatedRoute.paramMap.subscribe(routeData => {
+      this._mainPropService.getMainProp(routeData.get('id')).subscribe((singleMainProp: MainProp) => {
+        this.mainProp = singleMainProp;
+      });
+    });
   }
 
 }
