@@ -21,7 +21,6 @@ const routes: Routes = [
     ]},
   {path: "ForSaleDetail/:id", component: BuyDetailsComponent},
   {path: "**", component: RegisterComponent}
-  },
 ];
 
 @NgModule({
