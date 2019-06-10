@@ -16,16 +16,25 @@ const routes: Routes = [
   {path: 'Home', component: HomeComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'Register', component: RegisterComponent},
-  {path: 'ForSaleList', component: BuyIndexComponent},
-  {path: 'ForRentList', component: RentIndexComponent},
+
+  {path: 'ForSale',  children: [
+    {path: 'List', component: BuyIndexComponent},
+    {path: 'Details/:id', component: BuyDetailsComponent},
+  ]},
+  
+  {path: 'ForRent', children: [
+    {path: 'List', component: RentIndexComponent},
+    {path: 'Details/:id', component: RentDetailsComponent},
+  ]},
+  
   {path: 'MainProp', children: [
-  {path: '', component: MainPropIndexComponent },
-  {path: 'Create', component: MainPropCreateComponent },
-  {path: 'Update/:id', component: MainPropUpdateComponent },
-  {path: 'Detail/:id', component: MainPropDetailsComponent },
-  {path: 'Delete/:id', component: MainPropDeleteComponent }
-    ]},
-  {path: "ForSaleDetail/:id", component: BuyDetailsComponent},
+    {path: '', component: MainPropIndexComponent },
+    {path: 'Create', component: MainPropCreateComponent },
+    {path: 'Update/:id', component: MainPropUpdateComponent },
+    {path: 'Detail/:id', component: MainPropDetailsComponent },
+    {path: 'Delete/:id', component: MainPropDeleteComponent }
+      ]},
+  
   {path: "**", component: RegisterComponent}
 ];
 
