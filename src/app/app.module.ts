@@ -37,16 +37,16 @@ import { RentUpdateComponent } from './components/Listings/Rent/rent-update/rent
 import { RentDetailsComponent } from './components/Listings/Rent/rent-details/rent-details.component';
 import { RentIndexComponent } from './components/Listings/Rent/rent-index/rent-index.component';
 import { RentDeleteComponent } from './components/Listings/Rent/rent-delete/rent-delete.component';
-import { MainPropIndexComponent } from './components/listings/MainProp/main-prop-index/main-prop-index.component';
-import { MainPropCreateComponent } from './components/listings/MainProp/main-prop-create/main-prop-create.component';
-import { MainPropDeleteComponent } from './components/listings/MainProp/main-prop-delete/main-prop-delete.component';
-import { MainPropUpdateComponent } from './components/listings/MainProp/main-prop-update/main-prop-update.component';
-import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
-
+import { MainPropIndexComponent } from './components/Listings/MainProp/main-prop-index/main-prop-index.component';
+import { MainPropCreateComponent } from './components/Listings/MainProp/main-prop-create/main-prop-create.component';
+import { MainPropDeleteComponent } from './components/Listings/MainProp/main-prop-delete/main-prop-delete.component';
+import { MainPropUpdateComponent } from './components/Listings/MainProp/main-prop-update/main-prop-update.component';
+import { MainPropDetailsComponent } from './components/Listings/MainProp/main-prop-details/main-prop-details.component';
 
 import { RentService } from './Services/rent.service';
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
+import { MainPropService } from './Services/main-prop.service';
 
 
 
@@ -104,7 +104,7 @@ import { BuyService } from './Services/buy.service';
     AgmCoreModule.forRoot()
     ],
 
-    providers: [AuthService, RentService, BuyService],
+    providers: [AuthService, RentService, BuyService, MainPropService],
     bootstrap: [AppComponent],
     entryComponents: [
       BuyDetailsComponent

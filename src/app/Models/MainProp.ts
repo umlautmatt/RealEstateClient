@@ -17,5 +17,7 @@ export interface MainProp {
 
   export enum PropertyTypeEnum{
       Residential = 1,
-      Commercial, Industrial, Land
+      Commercial,
+      Industrial,
+      Land
   }
