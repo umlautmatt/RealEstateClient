@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Form } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../../../Services/auth.service';
 
 @Component({
@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
     this._authService
       .register(this._registerForm.value)
       .subscribe( () => this._authService.login(this._registerForm.value));
+      console.log("I worked!")
   }
 
 }

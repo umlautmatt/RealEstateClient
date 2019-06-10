@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BuyService } from '../../../../Services/buy.service';
 import { Buy } from '../../../../Models/Buy';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatCard } from '@angular/material';
 import { BuyDetailsComponent } from '../buy-details/buy-details.component';
 
 @Component({

@@ -14,7 +14,9 @@ const routes: Routes = [
   {path: "ForSaleList", component: BuyIndexComponent},
   {path: "ForRentList", component: RentIndexComponent},
   {path: "ForSaleDetail/:id", component: BuyDetailsComponent},
+
   {path: "**", component: RegisterComponent}
+
 ];
 
 @NgModule({

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,6 +7,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+
 import {
   MatInputModule,
   MatButtonModule,
@@ -17,7 +17,6 @@ import {
   MatCardModule,
   MatDialogModule
 } from '@angular/material';
-
 
 
 
@@ -43,6 +42,8 @@ import { MainPropCreateComponent } from './components/listings/MainProp/main-pro
 import { MainPropDeleteComponent } from './components/listings/MainProp/main-prop-delete/main-prop-delete.component';
 import { MainPropUpdateComponent } from './components/listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/listings/MainProp/main-prop-details/main-prop-details.component';
+
+
 import { RentService } from './Services/rent.service';
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
@@ -97,25 +98,17 @@ import { BuyService } from './Services/buy.service';
     AgmCoreModule.forRoot({
       apiKey: '',
       libraries: ['places']
-    }),
+      }),
     MatGoogleMapsAutocompleteModule.forRoot(),
     MatGoogleMapsAutocompleteModule,
-    AgmCoreModule.forRoot(),
-    MatToolbarModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule
-  ],
-  providers: [
-    AuthService,
-    RentService,
-    BuyService
-  ],
+    AgmCoreModule.forRoot()
+    ],
 
-  bootstrap: [AppComponent],
-  entryComponents: [
-    BuyDetailsComponent
-  ]
+    providers: [AuthService, RentService, BuyService],
+    bootstrap: [AppComponent],
+    entryComponents: [
+      BuyDetailsComponent
+    ]
 
 })
 export class AppModule { }
