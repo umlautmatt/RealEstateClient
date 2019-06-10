@@ -1,6 +1,11 @@
+<h1>Eleven Real Estate</h1>
+<br><hr><br>
+
 <div *ngIf="!this.authService.isLoggedIn">
-  <p>user is no auth</p>
+  Welcome to Eleven Real Estate! Please <a routerLink="/Login">Login</a> and Start Shopping Now!
+  <br>
+  The Best BANG For Your BUCK! 
 </div>
 <div *ngIf="this.authService.isLoggedIn">
-  <p>user is auth</p>
+  Welcome Back {{ account.Email }}
 </div>
