@@ -30,10 +30,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations:[
-    MainPropIndexComponent,
-    MainPropCreateComponent
-  ],
+  declarations:[],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
