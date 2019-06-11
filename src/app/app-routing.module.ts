@@ -20,12 +20,12 @@ const routes: Routes = [
   {path: 'Register', component: RegisterComponent},
 
   {path: 'ForSale',  children: [
-    {path: 'List', component: BuyIndexComponent},
+    {path: '', component: BuyIndexComponent},
     {path: 'Details/:id', component: BuyDetailsComponent},
   ]},
   
   {path: 'ForRent', children: [
-    {path: 'List', component: RentIndexComponent},
+    {path: '', component: RentIndexComponent},
     {path: 'Details/:id', component: RentDetailsComponent},
   ]},
   
