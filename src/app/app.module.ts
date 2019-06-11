@@ -74,7 +74,6 @@ import { MainPropService } from './Services/main-prop.service';
     MainPropDeleteComponent,
     MainPropUpdateComponent,
     MainPropDetailsComponent,
-    SideNavComponent
 
   ],
   imports: [
