@@ -1,3 +1,81 @@
-<p>
-  main-prop-create works!
-</p>
+<h1>Create a property.</h1>
+<hr />
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="mainPropForm">
+    <div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Property Name" formControlName="RealEstatePropertyName" type="RealEstatePropertyName" required/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Image Link" formControlName="ImageLink" type="ImageLink" required/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Square Footage" formControlName="SquareFootage" type="SquareFootage" required/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Real Estate Address" formControlName="RealEstateAddress" type="RealEstateAddress" required/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Real Estate City" formControlName="RealEstateCity" type="RealEstateCity" required/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Real Estate State" formControlName="RealEstateState" type="RealEstateState" required/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Real Estate Zip" formControlName="RealEstateZip" type="RealEstateZip" required/>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Bedroom" formControlName="Bedroom" type="Bedroom" required/>
+        </mat-form-field>
+      </div>
+      <div>
+          <mat-form-field>
+            <input matInput placeholder="Bathroom" formControlName="Bathroom" type="Bathroom" required/>
+          </mat-form-field>
+      </div>
+      <div>
+          <mat-form-field>
+            <input matInput placeholder="Stories" formControlName="Stories" type="Stories" required/>
+          </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+            <mat-select [(value)]="selected">
+                <mat-option>None</mat-option>
+                <mat-option value="Residential">Residential</mat-option>
+                <mat-option value="Commercial">Commercial</mat-option>
+                <mat-option value="Industrial">Industrial</mat-option>
+                <mat-option value="Land">Land</mat-option>
+              </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-checkbox>
+          Has Basement?
+        </mat-checkbox>
+      </div>
+      <div>
+          <mat-checkbox>
+            Has Pool?
+          </mat-checkbox>
+        </div>
+    </div>
+    <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Property</button>
+  </form>
+
+  <a mat-button routerLink="/MainProp">Back to List</a>
