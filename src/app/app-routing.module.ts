@@ -4,14 +4,16 @@ import { HomeComponent } from './components/Home/home/home.component';
 import { RegisterComponent } from './components/Account/register/register.component';
 import { LoginComponent } from './components/Account/login/login.component';
 import { BuyIndexComponent } from './components/Listings/Buy/buy-index/buy-index.component';
-import { RentIndexComponent } from './components/Listings/Rent/rent-index/rent-index.component';
 import { BuyDetailsComponent } from './components/Listings/Buy/buy-details/buy-details.component';
+import { RentIndexComponent } from './components/Listings/Rent/rent-index/rent-index.component';
+import { RentDetailsComponent } from './components/Listings/Rent/rent-details/rent-details.component';
 import { MainPropIndexComponent } from './components/Listings/MainProp/main-prop-index/main-prop-index.component';
 import { MainPropCreateComponent } from './components/Listings/MainProp/main-prop-create/main-prop-create.component';
 import { MainPropUpdateComponent } from './components/Listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/Listings/MainProp/main-prop-details/main-prop-details.component';
 import { MainPropDeleteComponent } from './components/Listings/MainProp/main-prop-delete/main-prop-delete.component';
 import { RentDetailsComponent } from './components/Listings/Rent/rent-details/rent-details.component';
+
 
 const routes: Routes = [
   {path: 'Home', component: HomeComponent},
@@ -41,7 +43,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations:[],
-
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

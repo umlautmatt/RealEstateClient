@@ -15,7 +15,7 @@ import {
   MatFormFieldModule,
   MatTableModule,
   MatCardModule,
-  MatDialogModule
+  MatDialogModule,
 } from '@angular/material';
 
 
