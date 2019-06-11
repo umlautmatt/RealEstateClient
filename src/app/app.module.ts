@@ -16,6 +16,9 @@ import {
   MatTableModule,
   MatCardModule,
   MatDialogModule,
+  MatSelectModule,
+  MatCheckboxModule
+
 } from '@angular/material';
 
 
@@ -93,6 +96,8 @@ import { MainPropService } from './Services/main-prop.service';
     MatTableModule,
     MatDialogModule,
     MatCardModule,
+    MatSelectModule,
+    MatCheckboxModule,
 
     //Map Modules
     AgmCoreModule.forRoot({
