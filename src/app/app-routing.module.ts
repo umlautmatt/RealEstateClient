@@ -12,6 +12,9 @@ import { MainPropCreateComponent } from './components/Listings/MainProp/main-pro
 import { MainPropUpdateComponent } from './components/Listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/Listings/MainProp/main-prop-details/main-prop-details.component';
 import { MainPropDeleteComponent } from './components/Listings/MainProp/main-prop-delete/main-prop-delete.component';
+import { BuyCreateComponent } from './components/Listings/Buy/buy-create/buy-create.component';
+import { BuyUpdateComponent } from './components/Listings/Buy/buy-update/buy-update.component';
+import { BuyDeleteComponent } from './components/Listings/Buy/buy-delete/buy-delete.component';
 
 
 const routes: Routes = [
@@ -21,6 +24,9 @@ const routes: Routes = [
 
   {path: 'ForSale',  children: [
     {path: '', component: BuyIndexComponent},
+    {path: 'Create', component: BuyCreateComponent},
+    {path: 'Update', component: BuyUpdateComponent},
+    {path: 'Delete', component: BuyDeleteComponent},
     {path: 'Details/:id', component: BuyDetailsComponent},
   ]},
   
