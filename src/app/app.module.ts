@@ -73,7 +73,7 @@ import { MainPropService } from './Services/main-prop.service';
     MainPropCreateComponent,
     MainPropDeleteComponent,
     MainPropUpdateComponent,
-    MainPropDetailsComponent,
+    MainPropDetailsComponent
 
   ],
   imports: [
