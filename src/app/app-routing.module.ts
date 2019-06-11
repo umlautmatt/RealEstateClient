@@ -12,7 +12,6 @@ import { MainPropCreateComponent } from './components/Listings/MainProp/main-pro
 import { MainPropUpdateComponent } from './components/Listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/Listings/MainProp/main-prop-details/main-prop-details.component';
 import { MainPropDeleteComponent } from './components/Listings/MainProp/main-prop-delete/main-prop-delete.component';
-import { RentDetailsComponent } from './components/Listings/Rent/rent-details/rent-details.component';
 
 const routes: Routes = [
   {path: 'Home', component: HomeComponent},
