@@ -11,8 +11,8 @@
     
     <ng-container matColumnDef="details">
       <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-      <mat-cell *matCellDef="let mainProp" routerLink="/MainProp/Detail/{{mainProp.RealEstatePropertyId}}">
-        <i class="material-icons">library_books</i></mat-cell>
+      <mat-cell *matCellDef="let mainProp" >
+        <i class="material-icons" routerLink="/MainProp/Detail/{{mainProp.RealEstatePropertyId}}">library_books</i></mat-cell>
       </ng-container>
       
       <ng-container matColumnDef="RealEstatePropertyId">
