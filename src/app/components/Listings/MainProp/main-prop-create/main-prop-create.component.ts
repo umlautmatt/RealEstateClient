@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MainPropService } from '../../../../Services/main-prop.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MainProp } from 'src/app/Models/MainProp';
+
 
 @Component({
   selector: 'app-main-prop-create',
@@ -39,7 +41,7 @@ export class MainPropCreateComponent implements OnInit {
 
   onSubmit(){
     this._mainPropService.createMainProp(this.mainPropForm.value).subscribe( data => {
-      this._router.navigate(['/mainprop'])
+      this._router.navigate(['/MainProp'])
     });
   }
 
