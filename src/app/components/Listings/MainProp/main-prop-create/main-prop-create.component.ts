@@ -2,7 +2,6 @@ import { Component, OnInit, NgModule, Input } from '@angular/core';
 import { MainPropService } from '../../../../Services/main-prop.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { PropertyTypeEnum, PropertyType2Label } from 'src/app/Models/MainProp';
 
 export interface PropType {
   value: string;
@@ -17,9 +16,7 @@ export interface PropType {
 
 export class MainPropCreateComponent implements OnInit {
   
-  onChecked(obj: any, isChecked: boolean){
-    console.log(obj, isChecked); // {}, true || false
-  }
+
   mainPropForm: FormGroup;
   propertyTypes: PropType[] = [
     {value: 'Residential', viewValue: 'Residential'},
