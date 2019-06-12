@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit, NgModule, Input } from '@angular/core';
 import { MainPropService } from '../../../../Services/main-prop.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,6 +17,9 @@ export interface PropType {
 
 export class MainPropCreateComponent implements OnInit {
   
+  onChecked(obj: any, isChecked: boolean){
+    console.log(obj, isChecked); // {}, true || false
+  }
   mainPropForm: FormGroup;
   propertyTypes: PropType[] = [
     {value: 'Residential', viewValue: 'Residential'},
@@ -24,8 +27,7 @@ export class MainPropCreateComponent implements OnInit {
     {value: 'Industrial', viewValue: 'Industrial' },
     {value: 'Land', viewValue: 'Land' }
   ];
-  // PropertyType2Label = PropertyType2Label;
-  // propetyTypes = Object.values(PropertyType2Label);{
+
   
   
 
@@ -58,6 +60,14 @@ export class MainPropCreateComponent implements OnInit {
   }
   
   onSubmit(){
+    if (this.mainPropForm.value.HasBasement != true) {
+      this.mainPropForm.value.HasBasement = false;
+    };
+    console.log(this.mainPropForm.value);
+    if (this.mainPropForm.value.HasPool != true) {
+      this.mainPropForm.value.HasPool = false;
+    };
+    console.log(this.mainPropForm.value);
     this._mainPropService.createMainProp(this.mainPropForm.value).subscribe( data => {
       this._router.navigate(['/MainProp'])
     });
