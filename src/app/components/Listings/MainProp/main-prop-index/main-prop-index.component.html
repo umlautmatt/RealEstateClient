@@ -1,40 +1,44 @@
-<h1>Index</h1>
-<a mat-raised-button color="primary" routerLink="/MainProp/Create">Create Property</a>
-<a mat-raised-button color="primary" routerLink="/Buy/Create">Create For Sale</a>
-<a mat-raised-button color="primary" routerLink="/Rent/Create">Create For Rent</a>
+<h1>Properties</h1>
+<div id="buttonRow">
+  <a mat-raised-button color="primary" class="nav-btn" routerLink="/MainProp/Create">Create Property</a>
+  <a mat-raised-button color="primary" class="nav-btn" routerLink="/Buy/Create">Create For Sale</a>
+  <a mat-raised-button color="primary" class="nav-btn" routerLink="/Rent/Create">Create For Rent</a>
+</div>
+<br>
 <hr />
 
 <div>
   <mat-table #table [dataSource]="dataSource">
     <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
-    
+
     <ng-container matColumnDef="details">
       <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-      <mat-cell *matCellDef="let mainProp" >
-        <i class="material-icons" routerLink="/MainProp/Detail/{{mainProp.RealEstatePropertyId}}">library_books</i></mat-cell>
-      </ng-container>
-      
-      <ng-container matColumnDef="RealEstatePropertyId">
-        <mat-header-cell *matHeaderCellDef> Property # </mat-header-cell>
-        <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstatePropertyId}} </mat-cell>
-      </ng-container>
-      
-      <ng-container matColumnDef="RealEstatePropertyName">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstatePropertyName}} </mat-cell>
-      </ng-container>
-      
-      <ng-container matColumnDef="ImageLink">
-        <mat-header-cell *matHeaderCellDef> ImageLink </mat-header-cell>
-        <mat-cell *matCellDef="let mainProp"> {{mainProp.ImageLink}} </mat-cell>
-      </ng-container>
+      <mat-cell *matCellDef="let mainProp">
+        <i class="material-icons" routerLink="/MainProp/Detail/{{mainProp.RealEstatePropertyId}}">library_books</i>
+      </mat-cell>
+    </ng-container>
 
-      <ng-container matColumnDef="RealEstateState">
+    <ng-container matColumnDef="RealEstatePropertyId">
+      <mat-header-cell *matHeaderCellDef> Property # </mat-header-cell>
+      <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstatePropertyId}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="RealEstatePropertyName">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstatePropertyName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="ImageLink">
+      <mat-header-cell *matHeaderCellDef> ImageLink </mat-header-cell>
+      <mat-cell *matCellDef="let mainProp"> {{mainProp.ImageLink}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="RealEstateState">
       <mat-header-cell *matHeaderCellDef> State </mat-header-cell>
       <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstateState}} </mat-cell>
     </ng-container>
-    
+
     <ng-container matColumnDef="buttons">
       <mat-header-cell *matHeaderCellDef> </mat-header-cell>
       <mat-cell *matCellDef="let mainProp">
@@ -42,6 +46,6 @@
         <i class="material-icons" routerLink="/MainProp/Delete/{{mainProp.RealEstatePropertyId}}">delete</i>
       </mat-cell>
     </ng-container>
-    
+
   </mat-table>
 </div>
