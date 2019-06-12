@@ -21,3 +21,10 @@ export interface MainProp {
       Industrial,
       Land
   }
+
+//   export const PropertyType2Label = {
+//       [ PropertyTypeEnum.Residential ]: "Residential",
+//       [ PropertyTypeEnum.Commercial ]: "Commercial",
+//       [ PropertyTypeEnum.Industrial ]: "Industrial",
+//       [ PropertyTypeEnum.Land ]: "Land",
+//   }

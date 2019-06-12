@@ -3,7 +3,15 @@
 
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="rentForm">
   <div>
-
+<h2>Select one of the properties</h2>
+<div >
+  <mat-form-field>
+    <mat-select placeholder="Property Address" formControlName="RealEstateAddress" required>
+      <mat-option *ngFor="let mainname of mainprop" [value]="mainname.RealEstatePropertyId">ID: {{mainname.RealEstatePropertyId}}   Address: {{mainname.RealEstateAddress}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<h3>Enter the Rental Property attributes below</h3>
     <div>
       <mat-form-field>
         <input matInput placeholder="Available" formControlName="Available" type="Available" required/>
@@ -19,21 +27,23 @@
         <input matInput placeholder="Description" formControlName="Description" type="Description"/>
       </mat-form-field>
     </div>
+
     <div>
-        <mat-form-field>
-          <input matInput placeholder="UtilitiesIncluded" formControlName="UtilitiesIncluded" type="UtilitiesIncluded"/>
-        </mat-form-field>
+      <mat-checkbox>
+        UtilitiesIncluded?
+      </mat-checkbox>
+    </div>
+    <div>
+      <mat-checkbox>
+        PetsAllowed?
+      </mat-checkbox>
+    </div>
+    <div>
+        <mat-checkbox>
+          IsRentFavorite?
+        </mat-checkbox>
       </div>
-      <div>
-          <mat-form-field>
-            <input matInput placeholder="PetsAllowed" formControlName="PetsAllowed" type="PetsAllowed"/>
-          </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field>
-              <input matInput placeholder="IsRentFavorite" formControlName="IsRentFavorite" type="IsRentFavorite"/>
-            </mat-form-field>
-          </div>
+
   </div>
   <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Rental Property</button>
 </form>
