@@ -23,19 +23,14 @@
       </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="RealEstatePropertyId">
-      <mat-header-cell *matHeaderCellDef> Property # </mat-header-cell>
-      <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstatePropertyId}} </mat-cell>
-    </ng-container>
-
     <ng-container matColumnDef="RealEstatePropertyName">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
       <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstatePropertyName}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="ImageLink">
-      <mat-header-cell *matHeaderCellDef> ImageLink </mat-header-cell>
-      <mat-cell *matCellDef="let mainProp"> {{mainProp.ImageLink}} </mat-cell>
+    <ng-container matColumnDef="RealEstateAddress">
+      <mat-header-cell *matHeaderCellDef> RealEstateAddress </mat-header-cell>
+      <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstateAddress}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="RealEstateState">
