@@ -1,6 +1,5 @@
 
-
-<a mat-raised-button color="primary">Create New</a>
+<a mat-raised-button color="primary" routerLink="/ForRent/Create">Create New</a>
 
 <div>
 <mat-table #table [dataSource]="dataSource">
@@ -9,7 +8,7 @@
 
   <ng-container matColumnDef="details">
     <mat-header-cell *matHeaderCellDef Class="matColumnSize"></mat-header-cell>
-    <mat-cell *matCellDef="let rent"> 
+    <mat-cell *matCellDef="let rent"> routerLink="/MainProp/Detail/{{mainProp.RealEstatePropertyId}}"
       <i class="material-income"> library_books</i></mat-cell>
   </ng-container>
 
