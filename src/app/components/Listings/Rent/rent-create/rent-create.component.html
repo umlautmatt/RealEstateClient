@@ -1,3 +1,50 @@
-<p>
-  rent-create works!
-</p>
+<h1>Create a property for rent.</h1>
+<hr>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="rentForm">
+  <div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Available" formControlName="Available" type="Available" required/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="PricePerMonth" formControlName="PricePerMonth" type="PricePerMonth" required/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Description" formControlName="Description" type="Description"/>
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+          <input matInput placeholder="UtilitiesIncluded" formControlName="UtilitiesIncluded" type="UtilitiesIncluded"/>
+        </mat-form-field>
+      </div>
+      <div>
+          <mat-form-field>
+            <input matInput placeholder="PetsAllowed" formControlName="PetsAllowed" type="PetsAllowed"/>
+          </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+              <input matInput placeholder="IsRentFavorite" formControlName="IsRentFavorite" type="IsRentFavorite"/>
+            </mat-form-field>
+          </div>
+  </div>
+  <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Rental Property</button>
+</form>
+
+<a mat-button routerLink="/ForRent">Back to List</a>
+<!-- 
+RentId: number;
+Available: string;
+PricePerMonth: number;
+Description: string;
+UtilitiesIncluded: boolean;
+PetsAllowed: boolean;
+IsRentFavorite: boolean;
+RealEstatePropertyId: number; -->
