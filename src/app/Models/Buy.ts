@@ -4,4 +4,9 @@ export interface Buy {
     DateAvail: Date;
     Description: string;
     Price: number;
+    Bedroom: number;
+    RealEstatePropertyName: string;
+    RealEstateCity: string;
+    RealEstateState: string;
+    ImageLink: string;
 }

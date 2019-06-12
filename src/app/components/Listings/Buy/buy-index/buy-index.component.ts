@@ -13,12 +13,13 @@ import { BuyDetailsComponent } from '../buy-details/buy-details.component';
 export class BuyIndexComponent implements OnInit {
   saveToList: boolean;
   _buyProps;
+  _buy : Buy[];
   _mainProps;
   active;
 
   constructor(
     private _buyService: BuyService, 
-    private _mainPropService: MainPropService,
+    // private _mainPropService: MainPropService,
     public dialog: MatDialog) { }
 
   getBuyProps() {
@@ -29,19 +30,19 @@ export class BuyIndexComponent implements OnInit {
       })
   }
 
-  getMainProps() {
-    this._mainPropService.getMainProps()
-    .subscribe(data => {
-      this._mainProps = data
-    })
-  }
+  // getMainProps() {
+  //   this._mainPropService.getMainProps()
+  //   .subscribe(data => {
+  //     this._mainProps = data
+  //   })
+  // }
 
   openPropDetails(id) {
     this._buyService.getBuyPropById(id).subscribe((data: Buy[]) => {
       this.active = data
       const propDetailDialog = this.dialog.open(BuyDetailsComponent, {
         width: '600px', height: '800px',
-        data: { buyProp: this.active },
+        data: { buyProp: this._buy },
         panelClass: 'app-full-bleed-dialog'
       })
 
@@ -54,7 +55,7 @@ export class BuyIndexComponent implements OnInit {
 
   ngOnInit() {
     this.getBuyProps();
-    this.getMainProps();
+    // this.getMainProps();
   }
 
 }

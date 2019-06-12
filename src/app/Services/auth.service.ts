@@ -5,8 +5,8 @@ import { Token } from '../Models/Token';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
-const Api_Url = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net';
-//const Api_Url = 'http://localhost:62642'
+//const Api_Url = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net';
+const Api_Url = 'http://localhost:62642'
 
 @Injectable({
   providedIn: 'root'
