@@ -43,7 +43,7 @@ mainprop: MainProp[];
   }
     onSubmit() {
       this._rentService.createRent(this.rentForm.value).subscribe(data => {
-        this._router.navigate(['/Rent']);
+        this._router.navigate(['/ForRent']);
       });
     }
 }
