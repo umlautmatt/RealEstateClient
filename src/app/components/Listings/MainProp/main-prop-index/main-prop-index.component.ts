@@ -3,6 +3,7 @@ import { MainPropService } from '../../../../Services/main-prop.service';
 import { MainProp } from '../../../../Models/MainProp';
 import { MatTableDataSource } from '@angular/material';
 
+
 @Component({
   selector: 'app-main-prop-index',
   templateUrl: './main-prop-index.component.html',
@@ -20,6 +21,10 @@ export class MainPropIndexComponent implements OnInit {
       this.dataSource = new MatTableDataSource<MainProp>(mainProp)
       console.log(mainProp)
     });
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
 

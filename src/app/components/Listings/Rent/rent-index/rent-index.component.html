@@ -1,7 +1,59 @@
-<p>
-  rent-index works
-</p>
 
-<div *ngFor='let rent of rent$' style="text-align:center">
-  <h2>{{ rent.PricePerMonth }} - {{ rent.Available }}</h2>
+<a mat-raised-button color="primary" routerLink="/ForRent/Create">Create New</a>
+
+<div>
+<mat-table #table [dataSource]="dataSource">
+  <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+  <ng-container matColumnDef="details">
+    <mat-header-cell *matHeaderCellDef Class="matColumnSize"></mat-header-cell>
+    <mat-cell *matCellDef="let rent"> routerLink="/MainProp/Detail/{{mainProp.RealEstatePropertyId}}"
+      <i class="material-income"> library_books</i></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="RentId">
+    <mat-header-cell *matHeaderCellDef> Rent ID </mat-header-cell>
+    <mat-cell *matCellDef="let rent"> {{rent.RentId}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Available">
+    <mat-header-cell *matHeaderCellDef> Available </mat-header-cell>
+    <mat-cell *matCellDef="let rent"> {{rent.Available}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="PricePerMonth">
+    <mat-header-cell *matHeaderCellDef> Price Per Month </mat-header-cell>
+    <mat-cell *matCellDef="let rent"> {{rent.PricePerMonth}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Description">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let rent"> {{rent.Description}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="UtilitiesIncluded">
+    <mat-header-cell *matHeaderCellDef> Utilities Included </mat-header-cell>
+    <mat-cell *matCellDef="let rent"> {{rent.UtilitiesIncluded}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="PetsAllowed">
+    <mat-header-cell *matHeaderCellDef> PetsAllowed </mat-header-cell>
+    <mat-cell *matCellDef="let rent"> {{rent.PetsAllowed}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="IsRentFavorite">
+    <mat-header-cell *matHeaderCellDef> Is Rent Favorite </mat-header-cell>
+    <mat-cell *matCellDef="let rent"> {{rent.IsRentFavorite}} </mat-cell>
+  </ng-container>  
+
+  <ng-container matColumnDef="RealEstatePropertyId">
+    <mat-header-cell *matHeaderCellDef> Real Estate Property ID </mat-header-cell>
+    <mat-cell *matCellDef="let rent"> {{rent.RealEstatePropertyId}} </mat-cell>
+  </ng-container>  
+</mat-table>
 </div>
+
+<!-- <div *ngFor='let rent of rent$' style="text-align:center">
+  <h2>{{ rent.PricePerMonth }} - {{ rent.Available }}</h2>
+</div> -->
