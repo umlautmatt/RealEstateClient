@@ -1,24 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { MainPropService } from '../../../../Services/main-prop.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MainProp } from 'src/app/Models/MainProp';
+// import { PropertyTypeEnum, PropertyType2Label } from 'src/app/Models/MainProp';
 
+export interface PropType {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-main-prop-create',
   templateUrl: './main-prop-create.component.html',
   styleUrls: ['./main-prop-create.component.css']
 })
-export class MainPropCreateComponent implements OnInit {
 
+export class MainPropCreateComponent implements OnInit {
+  
   mainPropForm: FormGroup;
+  propertyTypes: PropType[] = [
+    {value: 'Residential', viewValue: 'Residential'},
+    {value: 'Commercial', viewValue: 'Commercial' },
+    {value: 'Industrial', viewValue: 'Industrial' },
+    {value: 'Land', viewValue: 'Land' }
+  ];
+  // PropertyType2Label = PropertyType2Label;
+  // propetyTypes = Object.values(PropertyType2Label);{
+  
+  
+
 
   constructor(private _mainPropService: MainPropService, private _form: FormBuilder, private _router: Router) {
     this.createForm();
    }
 
-  ngOnInit() {
+   
+   
+   ngOnInit() {
   }
 
   createForm(){
@@ -38,11 +56,11 @@ export class MainPropCreateComponent implements OnInit {
       Stories: new FormControl
     });
   }
-
+  
   onSubmit(){
     this._mainPropService.createMainProp(this.mainPropForm.value).subscribe( data => {
       this._router.navigate(['/MainProp'])
     });
   }
-
+  
 }

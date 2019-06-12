@@ -55,12 +55,8 @@
       </div>
       <div>
         <mat-form-field>
-            <mat-select [(value)]="selected">
-                <mat-option>None</mat-option>
-                <mat-option value="Residential">Residential</mat-option>
-                <mat-option value="Commercial">Commercial</mat-option>
-                <mat-option value="Industrial">Industrial</mat-option>
-                <mat-option value="Land">Land</mat-option>
+            <mat-select placeholder="Property Type" formControlName="PropertyType" required>
+                <mat-option *ngFor="let type of propertyTypes" [value]="type.value">{{type.viewValue}}</mat-option>
               </mat-select>
         </mat-form-field>
       </div>
