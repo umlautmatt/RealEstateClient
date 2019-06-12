@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BuyService } from '../../../../Services/buy.service';
+import { MainPropService } from '../../../../Services/main-prop.service'
 import { Buy } from '../../../../Models/Buy';
 import { MatDialog, MatCard } from '@angular/material';
 import { BuyDetailsComponent } from '../buy-details/buy-details.component';
@@ -12,15 +13,27 @@ import { BuyDetailsComponent } from '../buy-details/buy-details.component';
 export class BuyIndexComponent implements OnInit {
   saveToList: boolean;
   _buyProps;
+  _mainProps;
   active;
 
-  constructor(private _buyService: BuyService, public dialog: MatDialog) { }
+  constructor(
+    private _buyService: BuyService, 
+    private _mainPropService: MainPropService,
+    public dialog: MatDialog) { }
 
   getBuyProps() {
     this._buyService.getAllBuyProps()
       .subscribe(data => {
         this._buyProps = data
+        console.log(data)
       })
+  }
+
+  getMainProps() {
+    this._mainPropService.getMainProps()
+    .subscribe(data => {
+      this._mainProps = data
+    })
   }
 
   openPropDetails(id) {
@@ -41,6 +54,7 @@ export class BuyIndexComponent implements OnInit {
 
   ngOnInit() {
     this.getBuyProps();
+    this.getMainProps();
   }
 
 }

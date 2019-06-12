@@ -7,6 +7,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { TextFieldModule } from '@angular/cdk/text-field';
 
 import {
   MatInputModule,
@@ -17,7 +18,9 @@ import {
   MatCardModule,
   MatDialogModule,
   MatSelectModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 
 } from '@angular/material';
 
@@ -98,6 +101,9 @@ import { MainPropService } from './Services/main-prop.service';
     MatCardModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    TextFieldModule,
 
     //Map Modules
     AgmCoreModule.forRoot({
@@ -109,7 +115,7 @@ import { MainPropService } from './Services/main-prop.service';
     AgmCoreModule.forRoot()
     ],
 
-    providers: [AuthService, RentService, BuyService, MainPropService],
+    providers: [AuthService, RentService, BuyService, MainPropService, MatDatepickerModule],
     bootstrap: [AppComponent],
     entryComponents: [
       BuyDetailsComponent
