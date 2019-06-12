@@ -20,3 +20,7 @@
     .material-icons:hover {
         color: black;
     }
+
+.tableContent {
+    text-align: center;
+}
