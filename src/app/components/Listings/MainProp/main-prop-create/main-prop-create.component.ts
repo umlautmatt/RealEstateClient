@@ -17,9 +17,9 @@ export interface PropType {
 
 export class MainPropCreateComponent implements OnInit {
 
-  isActive: boolean = false
+  isActive: boolean = true
   get isActiveBool(){
-    return this.isActive == false
+    return this.isActive == true
   }
   set isActiveBool(newValue:boolean) {
     this.isActive = newValue ? true : false
