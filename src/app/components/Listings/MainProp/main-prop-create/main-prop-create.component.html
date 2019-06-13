@@ -128,12 +128,12 @@
       <ng-template matStepLabel>Final</ng-template>
       <div>
         <div>
-          <mat-checkbox>
+          <mat-checkbox [value]="isActiveBool" formControlName="HasBasement">
             Has Basement?
           </mat-checkbox>
         </div>
         <div>
-          <mat-checkbox>
+          <mat-checkbox [value]="isActiveBool" formControlName="HasPool">
             Has Pool?
           </mat-checkbox>
         </div>
