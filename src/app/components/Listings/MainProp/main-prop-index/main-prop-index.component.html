@@ -38,6 +38,11 @@
       <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstateState}} </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="Image">
+        <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+        <mat-cell *matCellDef="let mainProp"> <img src="{{mainProp.ImageLink}}" width="25" height="25"> </mat-cell>
+      </ng-container>
+
     <ng-container matColumnDef="buttons">
       <mat-header-cell *matHeaderCellDef> </mat-header-cell>
       <mat-cell *matCellDef="let mainProp">
