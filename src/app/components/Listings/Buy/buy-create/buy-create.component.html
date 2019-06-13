@@ -2,11 +2,16 @@
 <br>
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="buyPropForm">
   <div>
-    <div>
-        <mat-form-field>
-            <input matInput placeholder="Main Property ID" formControlName="RealEstatePropertyId" type="Id" required/>
-          </mat-form-field>
-    </div>
+      <h2>Select one of the properties</h2>
+          <div >
+            <mat-form-field>
+              <mat-select placeholder="Property Address" formControlName="RealEstatePropertyId" required>
+                <mat-option *ngFor="let mP of mainprop" [value]="mP.RealEstatePropertyId">ID: {{mP.RealEstatePropertyId}}   Address: {{mP.RealEstateAddress}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <br>
+    <h3>Enter the For Sale Property attributes below</h3>
     <div>
       <mat-form-field class="example-full-width">
           <input matInput [matDatepicker]="picker" placeholder="Date Available" [value]="DateAvail" required>
@@ -23,6 +28,7 @@
         <mat-form-field >
             <mat-label>Property Description</mat-label>
             <textarea matInput
+                      formControlName="Description"
                       cdkTextareaAutosize
                       #autosize="cdkTextareaAutosize"
                       cdkAutosizeMinRows="1"

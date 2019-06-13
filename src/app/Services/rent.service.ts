@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class RentService {
-
+//apiUrl = 'http://localhost:62642';
 apiUrl = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net/api';
   
 constructor(private _http: HttpClient) { }
