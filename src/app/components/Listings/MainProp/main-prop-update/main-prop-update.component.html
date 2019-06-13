@@ -71,20 +71,20 @@
             [value]="mainProp.Stories" />
         </mat-form-field>
       </div>
-      <div>
+      <div hidden>
         <mat-form-field>
-          <mat-select placeholder="Property Type" formControlName="PropertyType" required>
+          <mat-select formControlName="PropertyType" required>
             <mat-option *ngFor="let type of propertyTypes" [value]="type.value">{{type.viewValue}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div>
-        <mat-checkbox>
+        <mat-checkbox [value]="isActiveBool" formControlName="HasBasement">
           Has Basement?
         </mat-checkbox>
       </div>
       <div>
-        <mat-checkbox>
+        <mat-checkbox [value]="isActiveBool" formControlName="HasPool">
           Has Pool?
         </mat-checkbox>
       </div>
