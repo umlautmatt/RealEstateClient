@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Rent } from 'src/app/Models/Rent';
+import { RentService } from 'src/app/Services/rent.service';
+import { MainPropService } from '../../../../Services/main-prop.service';
+import { MainProp } from 'src/app/Models/MainProp';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-rent-details',
@@ -7,9 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RentDetailsComponent implements OnInit {
 
-  constructor() { }
+  rent: Rent;
+  mainREProp: MainProp;
+
+  constructor(private _activatedRoute: ActivatedRoute, private _rentService: RentService, private _activatedMPRoute: ActivatedRoute, private _mainPropService: MainPropService) { }
 
   ngOnInit() {
+    this._activatedRoute.paramMap.subscribe(routeData => {
+      this._rentService.getRent(routeData.get('id')).subscribe((singleRent: Rent) => {
+        this.rent = singleRent;
+      });
+    });
+    this._activatedMPRoute.paramMap.subscribe(routeData => {
+      this._mainPropService.getMainProp(routeData.get('id')).subscribe((singleMainProp: MainProp) => {
+        this.mainREProp = singleMainProp;
+      });
+    });
   }
 
 }
