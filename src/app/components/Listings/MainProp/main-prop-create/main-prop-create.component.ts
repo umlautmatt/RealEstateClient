@@ -17,6 +17,14 @@ export interface PropType {
 
 export class MainPropCreateComponent implements OnInit {
 
+  isActive: boolean = true
+  get isActiveBool(){
+    return this.isActive == true
+  }
+  set isActiveBool(newValue:boolean) {
+    this.isActive = newValue ? true : false
+  }
+
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
@@ -82,7 +90,7 @@ export class MainPropCreateComponent implements OnInit {
       RealEstateCity: ['', Validators.required]
     });
     this.sixthFormGroup = this._form.group({
-      Bathroom: ['int', Validators.required]
+      Bathroom: ['', Validators.required]
     });
     this.seventhFormGroup = this._form.group({
       RealEstateState: ['', Validators.required]
@@ -107,12 +115,12 @@ export class MainPropCreateComponent implements OnInit {
 
 
   onSubmit() {
-    if (this.mainPropForm.value.HasBasement != true) {
-      this.mainPropForm.value.HasBasement = false;
-    };
-    if (this.mainPropForm.value.HasPool != true) {
-      this.mainPropForm.value.HasPool = false;
-    };
+    // if (this.mainPropForm.value.HasBasement != true) {
+    //   this.mainPropForm.value.HasBasement = false;
+    // };
+    // if (this.mainPropForm.value.HasPool != true) {
+    //   this.mainPropForm.value.HasPool = false;
+    // };
     console.log(this.mainPropForm.value);
     this._mainPropService.createMainProp(this.mainPropForm.value).subscribe(data => {
       this._router.navigate(['/MainProp'])

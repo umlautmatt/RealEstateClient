@@ -1,8 +1,10 @@
 <h1>Properties</h1>
 <div id="buttonRow">
   <a mat-raised-button color="primary" class="nav-btn" routerLink="/MainProp/Create">Create Property</a>
-  <a mat-raised-button color="primary" class="nav-btn" routerLink="/ForSale">Properties For Sale</a>
-  <a mat-raised-button color="primary" class="nav-btn" routerLink="/ForRent/Create">Create For Rent</a>
+
+  <a mat-raised-button color="primary" class="nav-btn" routerLink="/ForSale">For Sale</a>
+  <a mat-raised-button color="primary" class="nav-btn" routerLink="/ForRent">For Rent</a>
+
 </div>
 <br>
 <hr />
@@ -37,6 +39,11 @@
       <mat-header-cell *matHeaderCellDef> State </mat-header-cell>
       <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstateState}} </mat-cell>
     </ng-container>
+
+    <ng-container matColumnDef="Image">
+        <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+        <mat-cell *matCellDef="let mainProp"> <img src="{{mainProp.ImageLink}}" width="25" height="25"> </mat-cell>
+      </ng-container>
 
     <ng-container matColumnDef="buttons">
       <mat-header-cell *matHeaderCellDef> </mat-header-cell>

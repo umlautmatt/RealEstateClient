@@ -17,6 +17,14 @@ export interface PropType {
 })
 export class MainPropUpdateComponent implements OnInit {
 
+  isActive: boolean = true
+  get isActiveBool(){
+    return this.isActive == true
+  }
+  set isActiveBool(newValue:boolean) {
+    this.isActive = newValue ? true : false
+  }
+
   mainProp: MainProp;
 
   editMainPropForm: FormGroup;
@@ -64,12 +72,12 @@ export class MainPropUpdateComponent implements OnInit {
   }
 
   onSubmit(form){
-    if (this.editMainPropForm.value.HasBasement != true) {
-      this.editMainPropForm.value.HasBasement = false;
-    };
-    if (this.editMainPropForm.value.HasPool != true) {
-      this.editMainPropForm.value.HasPool = false;
-    };
+    // if (this.editMainPropForm.value.HasBasement != true) {
+    //   this.editMainPropForm.value.HasBasement = false;
+    // };
+    // if (this.editMainPropForm.value.HasPool != true) {
+    //   this.editMainPropForm.value.HasPool = false;
+    // };
 
     const updateMainProp: MainProp = {
       RealEstatePropertyId: form.value.RealEstatePropertyId,
