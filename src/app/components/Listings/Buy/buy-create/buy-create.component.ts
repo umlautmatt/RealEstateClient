@@ -1,8 +1,10 @@
 import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { BuyService } from '../../../../Services/buy.service';
+import { MainPropService } from '../../../../Services/main-prop.service'
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { MainProp } from '../../../../Models/MainProp'
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -11,12 +13,14 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./buy-create.component.css']
 })
 export class BuyCreateComponent implements OnInit {
-  // date = new FormControl(new Date());
+
   buyPropForm: FormGroup;
+  mainprop: MainProp[];
 
   constructor(
     private _ngZone: NgZone,
     private _buyService: BuyService,
+    private _mainPropService: MainPropService,
     private _form: FormBuilder,
     private _router: Router) 
     { this.createForm();
@@ -49,6 +53,9 @@ export class BuyCreateComponent implements OnInit {
 
   
   ngOnInit() {
+    this._mainPropService.getMainProps().subscribe((mainprop: MainProp[]) => {
+      this.mainprop = mainprop
+    })
   }
 
 }

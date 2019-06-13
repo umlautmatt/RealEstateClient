@@ -1,22 +1,25 @@
 <div class="main-div">
   <h2>Properties For Sale</h2>
-  <div class="deck" *ngFor="let buy of _buyProps" >
-    <mat-card id="card">
-      <mat-card-header>
-        <h3>Property Name</h3>
-      </mat-card-header>
-      <mat-card-content>
-        <img mat-card-lg-image  [src]="buy.url">
-        <br>
-        <br>
-        <h4>Bedrooms</h4>
-        <h4>City, State</h4>
-
-      </mat-card-content>
-      <mat-card-actions>
-        <button class="button" (click)="openPropDetails(buy.BuyId)" mat-button>See More</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
+  
+    <div class="deck" *ngFor="let buy of _buyProps" >
+        <mat-card id="card">
+          <mat-card-header >
+            <h3>{{ buy.RealEstatePropertyName }}</h3>
+          </mat-card-header>
+          <mat-card-content>
+            <h5>{{ buy.PropertyType }}</h5>
+          </mat-card-content>
+          <mat-card-content>
+            <img mat-card-lg-image  [src]="buy.ImageLink">
+            <br>
+            <br>
+            <h4>Price: {{ buy.Price }}</h4>
+            <h4>{{ buy.RealEstateCity }}, {{ buy.RealEstateState }}</h4>
+          </mat-card-content>
+          <mat-card-actions>
+            <button class="button" (click)="openPropDetails(buy)" mat-button>See More</button>
+          </mat-card-actions>
+        </mat-card>
+    </div>
+  
 </div>
