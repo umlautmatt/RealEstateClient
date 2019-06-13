@@ -73,8 +73,7 @@
       </div>
       <div>
         <mat-form-field>
-          <mat-select placeholder="Property Type" formControlName="PropertyType" required
-            [value]="mainProp.PropertyType">
+          <mat-select placeholder="Property Type" formControlName="PropertyType" required>
             <mat-option *ngFor="let type of propertyTypes" [value]="type.value">{{type.viewValue}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -89,4 +88,8 @@
           Has Pool?
         </mat-checkbox>
       </div>
-      <a mat-button routerLink="/MainProp">Back to List</a>
+    </div>
+    <button mat-raised-button class="nav-btn" color="primary" type="submit">Save</button>
+  </form>
+</div>
+<a mat-button routerLink="/MainProp">Back to List</a>

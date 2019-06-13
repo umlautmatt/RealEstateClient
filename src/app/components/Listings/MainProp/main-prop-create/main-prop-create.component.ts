@@ -110,7 +110,6 @@ export class MainPropCreateComponent implements OnInit {
     if (this.mainPropForm.value.HasBasement != true) {
       this.mainPropForm.value.HasBasement = false;
     };
-    console.log(this.mainPropForm.value);
     if (this.mainPropForm.value.HasPool != true) {
       this.mainPropForm.value.HasPool = false;
     };
