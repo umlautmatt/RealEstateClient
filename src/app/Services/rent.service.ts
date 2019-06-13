@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class RentService {
-
+//apiUrl = 'http://localhost:62642';
 apiUrl = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net/api';
   
 constructor(private _http: HttpClient) { }
@@ -23,6 +23,10 @@ constructor(private _http: HttpClient) { }
 
 createRent(rent: Rent) {
   return this._http.post(`${this.apiUrl}/Rent`, rent, { headers: this.getHeaders()});
+}
+
+deleteRent( id: number) {
+  return this._http.delete(`${this.apiUrl}/Rent/${id}`, { headers: this.getHeaders() });
 }
 
 

@@ -15,7 +15,7 @@ export interface MainProp {
       Stories: number;
   }
 
-  export enum PropertyTypeEnum{
+  export enum PropertyTypeEnum {
       Residential = 1,
       Commercial,
       Industrial,
