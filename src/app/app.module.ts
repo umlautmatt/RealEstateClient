@@ -21,6 +21,7 @@ import {
   MatCheckboxModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatStepperModule,
 
 } from '@angular/material';
 
@@ -90,9 +91,10 @@ import { MainPropService } from './Services/main-prop.service';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
+    ReactiveFormsModule,
     //Material Modules
     MatToolbarModule,
+    MatStepperModule,
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
