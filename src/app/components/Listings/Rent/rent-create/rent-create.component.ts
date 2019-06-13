@@ -13,6 +13,14 @@ import { MainProp } from 'src/app/Models/MainProp';
 })
 export class RentCreateComponent implements OnInit {
 
+  isActive: boolean = true
+  get isActiveBool(){
+    return this.isActive == true
+  }
+  set isActiveBool(newValue:boolean) {
+    this.isActive = newValue ? true : false
+  }
+  
 rentForm: FormGroup;
 mainREProp: MainProp[];
 
