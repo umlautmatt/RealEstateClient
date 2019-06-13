@@ -8,6 +8,7 @@ import { BuyDetailsComponent } from './components/Listings/Buy/buy-details/buy-d
 import { RentIndexComponent } from './components/Listings/Rent/rent-index/rent-index.component';
 import { RentCreateComponent } from './components/Listings/Rent/rent-create/rent-create.component';
 import { RentDetailsComponent } from './components/Listings/Rent/rent-details/rent-details.component';
+import { RentDeleteComponent } from './components/Listings/Rent/rent-delete/rent-delete.component';
 import { MainPropIndexComponent } from './components/Listings/MainProp/main-prop-index/main-prop-index.component';
 import { MainPropCreateComponent } from './components/Listings/MainProp/main-prop-create/main-prop-create.component';
 import { MainPropUpdateComponent } from './components/Listings/MainProp/main-prop-update/main-prop-update.component';
@@ -35,7 +36,7 @@ const routes: Routes = [
     {path: '', component: RentIndexComponent},
     {path: 'Create', component: RentCreateComponent},
     {path: 'Detail/:id', component: RentDetailsComponent},
-
+    {path: 'Delete/:id', component: RentDeleteComponent}
   ]},
   
   {path: 'MainProp', children: [
