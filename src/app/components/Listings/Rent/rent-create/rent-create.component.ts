@@ -41,7 +41,7 @@ mainREProp: MainProp[];
       if (this.rentForm.value.UtilitiesIncluded != true) {
         this.rentForm.value.UtilitiesIncluded = false;
       };
-console.log(this.rentForm.value);
+      console.log(this.rentForm.value);
       if (this.rentForm.value.PetsAllowed != true) {
         this.rentForm.value.PetsAllowed = false;
       };

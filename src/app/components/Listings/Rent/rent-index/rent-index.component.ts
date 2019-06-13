@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class RentIndexComponent implements OnInit {
 
-  columnNames = ['RentId', 'Available', 'PricePerMonth', 'Description', 'UtilitiesIncluded', 'PetsAllowed', 'IsRentFavorite', 'RealEstatePropertyId']
+  columnNames = ['details', 'RentId', 'Available', 'PricePerMonth', 'Description', 'UtilitiesIncluded', 'PetsAllowed', 'IsRentFavorite', 'RealEstatePropertyId']
   dataSource: MatTableDataSource<Rent>
 
   constructor(private rentService: RentService) { }
