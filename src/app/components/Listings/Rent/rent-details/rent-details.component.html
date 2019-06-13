@@ -1,3 +1,99 @@
 <p>
   rent-details works!
 </p>
+<hr/>
+
+<div *ngIf="mainREProp">
+    <div>
+      <label for="">Property Id: </label>
+      <span>{{mainREProp.RealEstatePropertyId}}</span>
+    </div>
+    <div>
+        <label for="">Property Name: </label>
+        <span>{{mainREProp.RealEstatePropertyName}}</span>
+    </div>
+    <div>
+        <label for="">Image: </label><br>
+        <span><img src={{mainREProp.ImageLink}} width=450 height=350></span>
+    </div>
+    <div>
+        <label for="">Square Footage: </label>
+        <span>{{mainREProp.SquareFootage }}</span>
+    </div>
+    <div>
+        <label for="">Address: </label>
+        <span>{{mainREProp.RealEstateAddress }}</span>
+    </div>
+    <div>
+        <label for="">City: </label>
+        <span>{{mainREProp.RealEstateCity }}</span>
+    </div>
+    <div>
+        <label for="">State: </label>
+        <span>{{mainREProp.RealEstateState }}</span>
+    </div>
+    <div>
+        <label for="">Zip Code: </label>
+        <span>{{mainREProp.RealEstateZip }}</span>
+    </div>
+    <div>
+        <label for="">Property Type: </label>
+        <span>{{mainREProp.PropertyType }}</span>
+    </div>
+    <div>
+        <label for="">Bedroom: </label>
+        <span>{{mainREProp.Bedroom }}</span>
+    </div>
+    <div>
+        <label for="">Bathroom: </label>
+        <span>{{mainREProp.Bathroom }}</span>
+    </div>
+    <div>
+        <label for="">Stories: </label>
+        <span>{{mainREProp.Stories }}</span>
+    </div>
+    <div>
+        <label for="">Basement: </label>
+        <span>{{mainREProp.HasBasement }}</span>
+    </div>
+    <div>
+        <label for="">Pool: </label>
+        <span>{{mainREProp.HasPool }}</span>
+    </div>
+  
+  </div>
+<hr/>
+<div *ngIf="rent">
+  <div>
+    <label for="">RentId:</label>
+    <span>{{rent.RentId}}</span>
+  </div>
+  <div>
+    <label for="">Available:</label>
+    <span>{{rent.Available}}</span>
+  </div>
+  
+  <div>
+    <label for="">PricePerMonth:</label>
+    <span>{{rent.PricePerMonth}}</span>
+  </div>  
+<div>
+  <label for="">Description:</label>
+  <span>{{rent.Description}}</span>
+</div>  
+<div>
+  <label for="">UtilitiesIncluded:</label>
+  <span>{{rent.UtilitiesIncluded}}</span>
+</div>  
+<div>
+  <label for="">PetsAllowed:</label>
+  <span>{{rent.PetsAllowed}}</span>
+</div>  
+<div>
+  <label for="">IsRentFavorite:</label>
+  <span>{{rent.IsRentFavorite}}</span>
+</div>  
+
+</div>
+<button mat-button color="accent">Edit</button> |
+<button mat-button color="primary" routerLink="/ForRent">Back to List</button>

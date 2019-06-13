@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class MainPropIndexComponent implements OnInit {
 
-  columnNames = ['details', 'RealEstatePropertyId', 'RealEstatePropertyName', 'ImageLink', 'RealEstateState', 'buttons'];
+  columnNames = ['details', 'RealEstatePropertyName', 'RealEstateAddress', 'RealEstateState', 'buttons'];
   dataSource: MatTableDataSource<MainProp>;
 
   constructor(private _mainPropService: MainPropService) { }

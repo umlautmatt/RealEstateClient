@@ -34,7 +34,7 @@ const routes: Routes = [
   {path: 'ForRent', children: [
     {path: '', component: RentIndexComponent},
     {path: 'Create', component: RentCreateComponent},
-    {path: 'Details/:id', component: RentDetailsComponent},
+    {path: 'Detail/:id', component: RentDetailsComponent},
 
   ]},
   
