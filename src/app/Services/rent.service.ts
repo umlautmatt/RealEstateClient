@@ -25,6 +25,10 @@ createRent(rent: Rent) {
   return this._http.post(`${this.apiUrl}/Rent`, rent, { headers: this.getHeaders()});
 }
 
+deleteRent( id: number) {
+  return this._http.delete(`${this.apiUrl}/Rent/${id}`, { headers: this.getHeaders() });
+}
+
 
 
   private getHeaders() {

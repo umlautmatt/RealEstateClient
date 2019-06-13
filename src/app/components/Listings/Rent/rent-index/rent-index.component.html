@@ -54,6 +54,15 @@
     <mat-cell *matCellDef="let rent"> {{rent.RealEstatePropertyId}} </mat-cell>
   </ng-container>  
   
+
+  <ng-container matColumnDef="buttons">
+    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+    <mat-cell *matCellDef="let rent">
+      <i mat-icon class="material-icons" routerLink="/ForRent/Update/{{rent.RentId}}">edit</i>
+      <i class="material-icons" routerLink="/ForRent/Delete/{{rent.RentId}}">delete</i>
+    </mat-cell>
+  </ng-container>
+
   <!-- <ng-container matColumnDef="details">
     <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
     <mat-cell *matCellDef="lef rent" routerLink="rent-details/{rent.RentId}}">
