@@ -13,17 +13,21 @@ apiUrl = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net/api';
   
 constructor(private _http: HttpClient) { }
 
-  getRent(){
-  return this._http.get(`${this.apiUrl}/Rent`, { headers: this.getHeaders() });
+  getRents(){
+  return this._http.get(`${this.apiUrl}/Rent`, { headers: this.getHeaders()});
   }
+
+  getRent(id: string){
+    return this._http.get(`${this.apiUrl}/Rent/${id}`, { headers: this.getHeaders() });
+    }
 
 createRent(rent: Rent) {
   return this._http.post(`${this.apiUrl}/Rent`, rent, { headers: this.getHeaders()});
 }
 
-
-
-
+deleteRent( id: number) {
+  return this._http.delete(`${this.apiUrl}/Rent/${id}`, { headers: this.getHeaders() });
+}
 
 
 

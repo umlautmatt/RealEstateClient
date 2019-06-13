@@ -21,6 +21,8 @@ import {
   MatCheckboxModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatRadioModule,
+  MatStepperModule
 
 } from '@angular/material';
 
@@ -90,9 +92,10 @@ import { MainPropService } from './Services/main-prop.service';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
+    ReactiveFormsModule,
     //Material Modules
     MatToolbarModule,
+    MatStepperModule,
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -104,6 +107,7 @@ import { MainPropService } from './Services/main-prop.service';
     MatDatepickerModule,
     MatNativeDateModule,
     TextFieldModule,
+    MatRadioModule,
 
     //Map Modules
     AgmCoreModule.forRoot({

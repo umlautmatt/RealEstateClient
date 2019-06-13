@@ -1,3 +1,66 @@
-<p>
-  main-prop-delete works!
-</p>
+<h1>Delete</h1>>
+<h4>Are you sure you want to delete this?</h4>
+
+<hr />
+<div *ngIf="mainProp">
+  <div>
+    <label for="">Property Id: </label>
+    <span>{{mainProp.RealEstatePropertyId}}</span>
+  </div>
+  <div>
+      <label for="">Property Name: </label>
+      <span>{{mainProp.RealEstatePropertyName}}</span>
+  </div>
+  <div>
+      <label for="">Image: </label>
+      <span>{{mainProp.ImageLink}}</span>
+  </div>
+  <div>
+      <label for="">Square Footage: </label>
+      <span>{{mainProp.SquareFootage }}</span>
+  </div>
+  <div>
+      <label for="">Address: </label>
+      <span>{{mainProp.RealEstateAddress }}</span>
+  </div>
+  <div>
+      <label for="">City: </label>
+      <span>{{mainProp.RealEstateCity }}</span>
+  </div>
+  <div>
+      <label for="">State: </label>
+      <span>{{mainProp.RealEstateState }}</span>
+  </div>
+  <div>
+      <label for="">Zip Code: </label>
+      <span>{{mainProp.RealEstateZip }}</span>
+  </div>
+  <div>
+      <label for="">Property Type: </label>
+      <span>{{mainProp.PropertyType }}</span>
+  </div>
+  <div>
+      <label for="">Bedroom: </label>
+      <span>{{mainProp.Bedroom }}</span>
+  </div>
+  <div>
+      <label for="">Bathroom: </label>
+      <span>{{mainProp.Bathroom }}</span>
+  </div>
+  <div>
+      <label for="">Stories: </label>
+      <span>{{mainProp.Stories }}</span>
+  </div>
+  <div>
+      <label for="">Basement: </label>
+      <span>{{mainProp.HasBasement }}</span>
+  </div>
+  <div>
+      <label for="">Pool: </label>
+      <span>{{mainProp.HasPool }}</span>
+  </div>
+
+</div>
+
+<button mat-button color="warn" (click)="onDelete()" routerLink="/MainProp">Delete</button> |
+<button mat-button color="primary" routerLink="/MainProp">Back to List</button>
