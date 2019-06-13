@@ -1,7 +1,7 @@
 <div class="main-div">
   <h2>Properties For Sale</h2>
-  <a mat-raised-button color="primary" routerLink="/ForSale/Create">Create New</a>
-
+  <a mat-raised-button color="primary" class="nav-btn" routerLink="/ForSale/Create">Property Sale</a>
+  <br><hr><br>
     <div class="deck" *ngFor="let buy of _buyProps" >
         <mat-card id="card">
           <mat-card-header >
@@ -14,7 +14,7 @@
             <img mat-card-lg-image  [src]="buy.ImageLink">
             <br>
             <br>
-            <h4>Price: {{ buy.Price }}</h4>
+            <h4>Price: ${{ buy.Price }}</h4>
             <h4>{{ buy.RealEstateCity }}, {{ buy.RealEstateState }}</h4>
           </mat-card-content>
           <mat-card-actions>
