@@ -1,0 +1,52 @@
+<br>
+<br>
+<a mat-raised-button color="primary" routerLink="/ForSale/Create">Create New</a>
+<br>
+<br>
+<div>
+  <mat-table #table [dataSource]="dataSource">
+    <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+    <ng-container matColumnDef="details">
+      <mat-header-cell *matHeaderCellDef Class="mat ColumnSize"></mat-header-cell>
+      <mat-cell *matCellDef="let buy">
+        <i class="material-icons" routerLink="/ForSale/Admin/{{buy.BuyId}}"></i>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container hidden matColumnDef="BuyId">
+      <mat-header-cell *matHeaderCellDef> Buy ID </mat-header-cell>
+      <mat-cell *matCellDef="let buy"> {{buy.BuyId}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="RealEstatePropertyName">
+        <mat-header-cell *matHeaderCellDef> Real Estate Property Name</mat-header-cell>
+        <mat-cell *matCellDef="let buy"> {{buy.RealEstatePropertyName}} </mat-cell>
+    </ng-container> 
+
+    <ng-container matColumnDef="PropertyType">
+        <mat-header-cell *matHeaderCellDef> Property Type</mat-header-cell>
+        <mat-cell *matCellDef="let buy"> {{buy.PropertyType}} </mat-cell>
+    </ng-container> 
+
+    <ng-container hidden matColumnDef="DateAvail">
+        <mat-header-cell *matHeaderCellDef> Date Available </mat-header-cell>
+        <mat-cell *matCellDef="let buy"> {{buy.DateAvail}} </mat-cell>
+      </ng-container>
+    
+    <ng-container matColumnDef="Price">
+        <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+        <mat-cell *matCellDef="let buy"> {{buy.Price}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="buttons">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let buy">
+          <i mat-icon class="material-icons" routerLink="/ForSale/Update/{{buy.BuyId}}">edit</i>
+          <i class="material-icons" routerLink="/ForSale/Delete/{{buy.BuyId}}">delete</i>
+        </mat-cell>
+      </ng-container>
+  </mat-table>
+</div>
+<br>

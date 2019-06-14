@@ -55,6 +55,8 @@ import { RentService } from './Services/rent.service';
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
 import { MainPropService } from './Services/main-prop.service';
+import { BuyIndexAdminComponent } from './Components/Listings/Buy/buy-index-admin/buy-index-admin.component';
+import { BuyDetailsAdminComponent } from './Components/Listings/Buy/buy-details-admin/buy-details-admin.component';
 
 
 
@@ -82,6 +84,8 @@ import { MainPropService } from './Services/main-prop.service';
     MainPropDeleteComponent,
     MainPropUpdateComponent,
     MainPropDetailsComponent,
+    BuyIndexAdminComponent,
+    BuyDetailsAdminComponent,
 
   ],
   imports: [

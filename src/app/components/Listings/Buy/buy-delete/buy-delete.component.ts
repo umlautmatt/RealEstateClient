@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BuyService } from '../../../../Services/buy.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Buy } from '../../../../Models/Buy';
 
 @Component({
   selector: 'app-buy-delete',
@@ -7,7 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuyDeleteComponent implements OnInit {
 
-  constructor() { }
+  buy: Buy;
+
+  constructor(private _buyService: BuyService,
+              private _activatedRoute: ActivatedRoute,
+              private _router: Router) {
+                this._activatedRoute.paramMap.subscribe(prop => {
+                  this._buyService.getBuyPropById(prop.get('id')).subscribe((buyProp: Buy) => {
+                    this.buy = buyProp;
+                  })
+                })
+               }
+
+  onDelete() {
+    this._buyService.deleteBuyProp(this.buy.BuyId).subscribe(() => {
+      this._router.navigate(['/ForSale/Admin/List']);
+    })
+  }
 
   ngOnInit() {
   }

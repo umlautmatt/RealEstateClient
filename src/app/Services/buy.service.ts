@@ -27,6 +27,15 @@ export class BuyService {
     return this._http.post(`${ApiUrl}/api/Buy`, buyProp, {headers: this.getHeaders()});
   }
 
+  updateBuyProp(buyProp: Buy) {
+    return this._http.put(`${ApiUrl}/api/Buy/`, buyProp, { headers: this.getHeaders() });
+  }
+
+  deleteBuyProp(id: number) {
+    return this._http.delete(`${ApiUrl}/api/Buy/${id}`, { headers: this.getHeaders() });
+  }
+
+
 
   private getHeaders() {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
