@@ -115,13 +115,7 @@ export class MainPropCreateComponent implements OnInit {
 
 
   onSubmit() {
-    // if (this.mainPropForm.value.HasBasement != true) {
-    //   this.mainPropForm.value.HasBasement = false;
-    // };
-    // if (this.mainPropForm.value.HasPool != true) {
-    //   this.mainPropForm.value.HasPool = false;
-    // };
-    console.log(this.mainPropForm.value);
+    
     this._mainPropService.createMainProp(this.mainPropForm.value).subscribe(data => {
       this._router.navigate(['/MainProp'])
     });
