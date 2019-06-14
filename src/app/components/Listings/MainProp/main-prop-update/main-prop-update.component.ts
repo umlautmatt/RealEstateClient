@@ -72,13 +72,7 @@ export class MainPropUpdateComponent implements OnInit {
   }
 
   onSubmit(form){
-    // if (this.editMainPropForm.value.HasBasement != true) {
-    //   this.editMainPropForm.value.HasBasement = false;
-    // };
-    // if (this.editMainPropForm.value.HasPool != true) {
-    //   this.editMainPropForm.value.HasPool = false;
-    // };
-
+   
     const updateMainProp: MainProp = {
       RealEstatePropertyId: form.value.RealEstatePropertyId,
       RealEstatePropertyName: form.value.RealEstatePropertyName,

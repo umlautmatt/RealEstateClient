@@ -11,6 +11,7 @@ import { MainProp } from 'src/app/Models/MainProp';
   templateUrl: './rent-create.component.html',
   styleUrls: ['./rent-create.component.css']
 })
+
 export class RentCreateComponent implements OnInit {
 
   isActive: boolean = true
@@ -20,7 +21,7 @@ export class RentCreateComponent implements OnInit {
   set isActiveBool(newValue:boolean) {
     this.isActive = newValue ? true : false
   }
-  
+
 rentForm: FormGroup;
 mainREProp: MainProp[];
 
