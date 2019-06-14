@@ -25,7 +25,7 @@ export class MainPropDeleteComponent implements OnInit {
 
   onDelete() {
     this._mainPropService.deleteMainProp(this.mainProp.RealEstatePropertyId).subscribe(() => {
-      this._router.navigate(['/mainprop']);
+      this._router.navigate(['/MainProp']);
     });
   }
 

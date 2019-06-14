@@ -19,7 +19,6 @@ export class MainPropIndexComponent implements OnInit {
   ngOnInit() {
     this._mainPropService.getMainProps().subscribe((mainProp: MainProp[]) => {
       this.dataSource = new MatTableDataSource<MainProp>(mainProp)
-      console.log(mainProp)
     });
   }
 

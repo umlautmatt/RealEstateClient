@@ -11,7 +11,16 @@ import { MainProp } from 'src/app/Models/MainProp';
   templateUrl: './rent-create.component.html',
   styleUrls: ['./rent-create.component.css']
 })
+
 export class RentCreateComponent implements OnInit {
+
+  isActive: boolean = true
+  get isActiveBool(){
+    return this.isActive == true
+  }
+  set isActiveBool(newValue:boolean) {
+    this.isActive = newValue ? true : false
+  }
 
 rentForm: FormGroup;
 mainREProp: MainProp[];
@@ -38,18 +47,17 @@ mainREProp: MainProp[];
     });
   }
     onSubmit() {
-      if (this.rentForm.value.UtilitiesIncluded != true) {
+      
+      if (this.rentForm.value.UtilitiesIncluded != true){
         this.rentForm.value.UtilitiesIncluded = false;
       };
-      console.log(this.rentForm.value);
-      if (this.rentForm.value.PetsAllowed != true) {
+      if (this.rentForm.value.PetsAllowed != true){
         this.rentForm.value.PetsAllowed = false;
       };
-      console.log(this.rentForm.value);
-      if (this.rentForm.value.IsRentFavorite != true) {
+      if (this.rentForm.value.IsRentFavorite != true){
         this.rentForm.value.IsRentFavorite = false;
       };
-      console.log(this.rentForm.value);
+
       this._rentService.createRent(this.rentForm.value).subscribe(data => {
         this._router.navigate(['/ForRent']);
       });

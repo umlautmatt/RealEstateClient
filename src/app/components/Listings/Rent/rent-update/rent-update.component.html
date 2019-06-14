@@ -1,3 +1,58 @@
-<p>
-  rent-update works!
-</p>
+<h1>Edit a property for rent.</h1>
+<hr>
+
+<div *ngIf="rent">
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="editRentForm">
+    <div>
+      <h3>Rental Property attributes below</h3>
+
+      <div hidden>
+        <mat-form-field>
+          <input matInput placeholder="RentId" formControlName="RentId" type="RentId" required [value]="rent.RentId" />
+        </mat-form-field>
+      </div>
+
+
+
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Available" formControlName="Available" type="Available" required
+            [value]="rent.Available" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="PricePerMonth" formControlName="PricePerMonth" type="PricePerMonth" required
+            [value]="rent.PricePerMonth" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Description" formControlName="Description" type="Description"
+            [value]="rent.Description" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-checkbox [value]="isActiveBool" formControlName="UtilitiesIncluded">
+          UtilitiesIncluded?
+        </mat-checkbox>
+      </div>
+      <div>
+        <mat-checkbox [value]="isActiveBool" formControlName="PetsAllowed">
+          PetsAllowed?
+        </mat-checkbox>
+      </div>
+      <div>
+        <mat-checkbox [value]="isActiveBool" formControlName="IsRentFavorite">
+          IsRentFavorite?
+        </mat-checkbox>
+      </div>
+
+    </div>
+    <button mat-raised-button class="nav-btn" color="primary" type="submit">Update Rental Property</button>
+  </form>
+</div>
+
+<a mat-button routerLink="/ForRent">Back to List</a>

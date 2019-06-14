@@ -1,30 +1,5 @@
- import { MainProp } from './MainProp';
-
-
-
-export enum PropertyTypeEnum {
-    Residential = 1,
-    Commercial,
-    Industrial,
-    Land
-}
-
 
 export interface Rent {
-    RealEstatePropertyId: number;
-    RealEstatePropertyName: string;
-    ImageLink: string;
-    SquareFootage: number;
-    RealEstateAddress: string;
-    RealEstateCity: string;
-    RealEstateState: string;
-    RealEstateZip: number;
-    PropertyType: PropertyTypeEnum;
-    HasBasement: boolean;
-    HasPool: boolean;
-    Bedroom: number;
-    Bathroom: number;
-    Stories: number;
 
     RentId?: number;
     Available?: string;
@@ -33,6 +8,5 @@ export interface Rent {
     UtilitiesIncluded?: boolean;
     PetsAllowed?: boolean;
     IsRentFavorite?: boolean;
-    //RealEstatePropertyId?: MainProp;
-    // MainProp?: MainProp;
+
 }
