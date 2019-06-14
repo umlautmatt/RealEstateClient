@@ -1,7 +1,6 @@
 import { Component, OnInit, NgModule, Input } from '@angular/core';
 import { MainPropService } from '../../../../Services/main-prop.service';
 import { FormBuilder, FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-// import { MatStepperModule } from '@angular/material';
 import { Router } from '@angular/router';
 
 export interface PropType {
@@ -19,7 +18,7 @@ export class MainPropCreateComponent implements OnInit {
 
   isActive: boolean = true
   get isActiveBool(){
-    return this.isActive == true
+    return this.isActive
   }
   set isActiveBool(newValue:boolean) {
     this.isActive = newValue ? true : false
@@ -116,6 +115,13 @@ export class MainPropCreateComponent implements OnInit {
 
   onSubmit() {
     
+    if (this.mainPropForm.value.HasBasement != true){
+      this.mainPropForm.value.HasBasement = false;
+    };
+    if (this.mainPropForm.value.HasPool != true){
+      this.mainPropForm.value.HasPool = false;
+    };
+
     this._mainPropService.createMainProp(this.mainPropForm.value).subscribe(data => {
       this._router.navigate(['/MainProp'])
     });
