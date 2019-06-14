@@ -46,17 +46,6 @@ mainREProp: MainProp[];
     });
   }
     onSubmit() {
-      if (this.rentForm.value.UtilitiesIncluded != true) {
-        this.rentForm.value.UtilitiesIncluded = false;
-      };
-      console.log(this.rentForm.value);
-      if (this.rentForm.value.PetsAllowed != true) {
-        this.rentForm.value.PetsAllowed = false;
-      };
-      console.log(this.rentForm.value);
-      if (this.rentForm.value.IsRentFavorite != true) {
-        this.rentForm.value.IsRentFavorite = false;
-      };
       console.log(this.rentForm.value);
       this._rentService.createRent(this.rentForm.value).subscribe(data => {
         this._router.navigate(['/ForRent']);
