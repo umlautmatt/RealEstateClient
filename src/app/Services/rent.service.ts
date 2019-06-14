@@ -29,7 +29,9 @@ deleteRent( id: number) {
   return this._http.delete(`${this.apiUrl}/Rent/${id}`, { headers: this.getHeaders() });
 }
 
-
+updateRent(rent: Rent){
+  return this._http.put(`${this.apiUrl}/Rent`, rent, { headers: this.getHeaders()});
+}
 
   private getHeaders() {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);

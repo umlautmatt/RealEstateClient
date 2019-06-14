@@ -18,8 +18,5 @@ export class RentIndexComponent implements OnInit {
   ngOnInit() {
     this.rentService.getRents().subscribe(
      (data: Rent[]) => { this.dataSource = new MatTableDataSource<Rent>(data) });
-
-
   }
-
 }
