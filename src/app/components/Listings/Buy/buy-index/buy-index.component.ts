@@ -49,7 +49,7 @@ export class BuyIndexComponent implements OnInit {
                 bathrooms: item.Bathroom,
                 stories: item.Stories,
                 pool: item.HasPool,
-                basement: item.HasBasement
+                basement: item.HasBasement    
         },
         panelClass: 'app-full-bleed-dialog'
       })

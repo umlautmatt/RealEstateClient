@@ -17,12 +17,15 @@ import { MainPropDeleteComponent } from './components/Listings/MainProp/main-pro
 import { BuyCreateComponent } from './components/Listings/Buy/buy-create/buy-create.component';
 import { BuyUpdateComponent } from './components/Listings/Buy/buy-update/buy-update.component';
 import { BuyDeleteComponent } from './components/Listings/Buy/buy-delete/buy-delete.component';
+import { BuyIndexAdminComponent } from './Components/Listings/Buy/buy-index-admin/buy-index-admin.component';
+import { BuyDetailsAdminComponent } from './Components/Listings/Buy/buy-details-admin/buy-details-admin.component';
 
 
 const routes: Routes = [
   {path: 'Home', component: HomeComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'Register', component: RegisterComponent},
+  //{path: '**', component: HomeComponent},
 
   {path: 'ForSale',  children: [
     {path: '', component: BuyIndexComponent},
@@ -30,6 +33,8 @@ const routes: Routes = [
     {path: 'Update', component: BuyUpdateComponent},
     {path: 'Delete', component: BuyDeleteComponent},
     {path: 'Details/:id', component: BuyDetailsComponent},
+    {path: 'Admin/List', component: BuyIndexAdminComponent},
+    {path: 'Admin/:id', component: BuyDetailsAdminComponent},
   ]},
   
   {path: 'ForRent', children: [
