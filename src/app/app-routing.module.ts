@@ -30,11 +30,11 @@ const routes: Routes = [
   {path: 'ForSale',  children: [
     {path: '', component: BuyIndexComponent},
     {path: 'Create', component: BuyCreateComponent},
-    {path: 'Update', component: BuyUpdateComponent},
-    {path: 'Delete', component: BuyDeleteComponent},
+    {path: 'Update/:id', component: BuyUpdateComponent},
+    {path: 'Delete/:id', component: BuyDeleteComponent},
     {path: 'Details/:id', component: BuyDetailsComponent},
     {path: 'Admin/List', component: BuyIndexAdminComponent},
-    {path: 'Admin/:id', component: BuyDetailsAdminComponent},
+    {path: 'Admin/Details/:id', component: BuyDetailsAdminComponent},
   ]},
   
   {path: 'ForRent', children: [
