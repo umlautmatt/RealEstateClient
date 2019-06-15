@@ -1,3 +1,82 @@
-<p>
-  buy-details-admin works!
-</p>
+<div *ngIf="buy">
+  <div hidden>
+    <label for="">Property Id: </label>
+    &nbsp;
+    <span>{{buy.RealEstatePropertyId}}</span>
+  </div>
+  <div>
+    <label for="">Property Name: </label>
+    <span>{{buy.RealEstatePropertyName}}</span>
+  </div>
+  <div>
+    <label for="">Image: </label><br>
+    <span><img src={{buy.ImageLink}} width=450 height=350></span>
+  </div>
+  <div>
+    <label for="">Square Footage: </label>
+    <span>{{buy.SquareFootage}}</span>
+  </div>
+  <div>
+    <label for="">Address: </label>
+    <span>{{buy.RealEstateAddress}}</span>
+  </div>
+  <div>
+    <label for="">City: </label>
+    <span>{{buy.RealEstateCity }}</span>
+  </div>
+  <div>
+    <label for="">State: </label>
+    <span>{{buy.RealEstateState}}</span>
+  </div>
+  <div>
+    <label for="">Zip Code: </label>
+    <span>{{buy.RealEstateZip}}</span>
+  </div>
+  <div>
+    <label for="">Property Type: </label>
+    <span>{{buy.PropertyType}}</span>
+  </div> 
+  <div>
+    <label for="">Bedroom: </label>
+    <span>{{buy.Bedroom}}</span>
+  </div>
+  <div>
+    <label for="">Bathroom: </label>
+    <span>{{buy.Bathroom}}</span>
+  </div>
+  <div>
+    <label for="">Stories: </label>
+    <span>{{buy.Stories}}</span>
+  </div>
+  <div>
+    <label for="">Basement: </label>
+    <span>{{buy.HasBasement}}</span>
+  </div>
+  <div>
+    <label for="">Pool: </label>
+    <span>{{buy.HasPool}}</span>
+  </div>
+  <div hidden>
+    <label for="">BuyId: </label>
+    <span>{{buy.BuyId}}</span>
+  </div>
+  <div>
+    <label for="">Date Available: </label>
+    <span>{{buy.DateAvail}}</span>
+  </div>
+  
+  <div>
+    <label for="">Price: </label>
+    <span>{{buy.Price}}</span>
+  </div>
+  <div>
+    <label for="">Description: </label>
+    <span>{{buy.Description}}</span>
+  </div>
+  <div>
+
+
+</div>
+
+  <button mat-button color="accent" routerLink="/ForSale/Update/{{buy.BuyId}}">Edit</button> |
+  <button mat-button color="primary" routerLink="/ForSale/Admin/List">Back to List</button>

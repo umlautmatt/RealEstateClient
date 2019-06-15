@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Buy } from '../../../../Models/Buy';
+import { BuyService } from '../../../../Services/buy.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-buy-details-admin',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuyDetailsAdminComponent implements OnInit {
 
-  constructor() { }
+  buy: Buy;
+
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _buyService: BuyService,
+  ) { }
 
   ngOnInit() {
+    this._activatedRoute.paramMap.subscribe(routeData => {
+      this._buyService.getBuyPropById(routeData.get('id')).subscribe((prop: Buy) => {
+        this.buy = prop;
+      })
+    })
   }
 
 }
