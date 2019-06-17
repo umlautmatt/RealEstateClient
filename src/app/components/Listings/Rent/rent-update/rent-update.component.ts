@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { fromEventPattern } from 'rxjs';
 import { RentProp } from '../../../../Models/RentProp';
 import { RentService } from '../../../../Services/rent.service';
+import { Rent } from 'src/app/Models/Rent';
 
 @Component({
   selector: 'app-rent-update',
@@ -68,7 +69,7 @@ export class RentUpdateComponent implements OnInit {
 
   onSubmit(form){
    
-    const updateRent: RentProp = {
+    const updateRent: Rent = {
       RentId: form.value.RentId,
       Available: form.value.Available,
       PricePerMonth: form.value.PricePerMonth,
