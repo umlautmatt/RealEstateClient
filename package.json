@@ -1,8 +1,9 @@
 {
   "name": "real-estate-client",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "engines": {
-    "node": "10.16.0"
+    "node": "10.16.0",
+    "npm": "6.9.0"
   },
   "scripts": {
     "ng": "ng",

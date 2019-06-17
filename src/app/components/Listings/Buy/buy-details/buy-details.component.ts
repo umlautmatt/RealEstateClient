@@ -9,7 +9,7 @@ import { Buy } from '../../../../Models/Buy';
   styleUrls: ['./buy-details.component.css']
 })
 export class BuyDetailsComponent implements OnInit {
-
+name: any;
   constructor
   (public propDetailDialog: MatDialogRef<BuyDetailsComponent>,
     @Inject(MAT_DIALOG_DATA)
