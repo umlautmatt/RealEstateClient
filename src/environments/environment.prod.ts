@@ -12,5 +12,5 @@ switch (window.location.hostname) {
         break;
     default:
         // this is the local host name of your API
-        APIURL = 'http://localhost:62642';
+        APIURL = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net/';
 }
