@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
-import { BuyService } from '../../../../Services/buy.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { Buy } from '../../../../Models/Buy';
 
 
 @Component({
@@ -11,9 +11,9 @@ import { BuyService } from '../../../../Services/buy.service';
 export class BuyDetailsComponent implements OnInit {
 
   constructor
-  (@Inject(MAT_DIALOG_DATA)
-  public data: any,
-  private buyService: BuyService)
+  (public propDetailDialog: MatDialogRef<BuyDetailsComponent>,
+    @Inject(MAT_DIALOG_DATA)
+    public data: Buy)
    { }
 
 

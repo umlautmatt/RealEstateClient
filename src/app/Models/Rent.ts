@@ -1,10 +1,12 @@
+
 export interface Rent {
-    RentId: number;
-    Available: string;
-    PricePerMonth: number;
-    Description: string;
-    UtilitiesIncluded: boolean;
-    PetsAllowed: boolean;
-    IsRentFavorite: boolean;
-    RealEstatePropertyId: number;
+
+    RentId?: number;
+    Available?: string;
+    PricePerMonth?: number;
+    Description?: string;
+    UtilitiesIncluded?: boolean;
+    PetsAllowed?: boolean;
+    IsRentFavorite?: boolean;
+
 }

@@ -5,6 +5,11 @@ import { fromEventPattern } from 'rxjs';
 import { MainProp } from '../../../../Models/MainProp';
 import { MainPropService } from '../../../../Services/main-prop.service';
 
+export interface PropType {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-main-prop-update',
   templateUrl: './main-prop-update.component.html',
@@ -12,9 +17,25 @@ import { MainPropService } from '../../../../Services/main-prop.service';
 })
 export class MainPropUpdateComponent implements OnInit {
 
+  isActive: boolean = true
+  get isActiveBool(){
+    return this.isActive == true
+  }
+  set isActiveBool(newValue:boolean) {
+    this.isActive = newValue ? true : false
+  }
+
   mainProp: MainProp;
 
   editMainPropForm: FormGroup;
+
+  propertyTypes: PropType[] = [
+    {value: 'Residential', viewValue: 'Residential'},
+    {value: 'Commercial', viewValue: 'Commercial' },
+    {value: 'Industrial', viewValue: 'Industrial' },
+    {value: 'Land', viewValue: 'Land' }
+  ];
+  // mainPropForm: any;
 
   constructor(private _form: FormBuilder,
               private _mainPropService: MainPropService,
@@ -51,6 +72,7 @@ export class MainPropUpdateComponent implements OnInit {
   }
 
   onSubmit(form){
+   
     const updateMainProp: MainProp = {
       RealEstatePropertyId: form.value.RealEstatePropertyId,
       RealEstatePropertyName: form.value.RealEstatePropertyName,
@@ -67,8 +89,10 @@ export class MainPropUpdateComponent implements OnInit {
       Bathroom: form.value.Bathroom,
       Stories: form.value.Stories
     };
+    
+    
     this._mainPropService.updateMainProp(updateMainProp).subscribe(d => {
-      this._router.navigate(['/mainprop']);
+      this._router.navigate(['/MainProp']);
     });
     
   }

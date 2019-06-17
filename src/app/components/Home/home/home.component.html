@@ -1,3 +1,11 @@
-<p>
-  home works!
-</p>
+<img src="../../../../assets/images/ElevenRealEstate.png" height="170px" width="250px">
+<br><hr><br>
+
+<div *ngIf="!this.authService.isLoggedIn">
+  Welcome to Eleven Real Estate! Please <a routerLink="/Login">Login</a> and Start Shopping Now!
+  <br>
+  The Best BANG For Your BUCK! 
+</div>
+<div *ngIf="this.authService.isLoggedIn">
+  Welcome Back
+</div>

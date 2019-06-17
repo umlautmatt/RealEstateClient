@@ -1,0 +1,29 @@
+.nav-btn {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    background-color: #c1d0f4;
+    color: white;
+}
+
+    .nav-btn:hover {
+        background-color: #8ca2d9;
+        color: #cccccc;
+    }
+
+.buttonRow {
+    margin-bottom: 0.5em;
+}
+
+.material-icons {
+    color: #595959;
+}
+    .material-icons:hover {
+        color: black;
+    }
+
+.tableContent {
+    text-align: center;
+}
+table {
+    width: 100%;
+  }

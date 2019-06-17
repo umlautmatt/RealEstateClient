@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BuyService } from '../../../../Services/buy.service';
+import { MainPropService } from '../../../../Services/main-prop.service'
 import { Buy } from '../../../../Models/Buy';
-import { MatDialog, MatCard } from '@angular/material';
+import { MainProp } from '../../../../Models/MainProp';
+import { MatDialog } from '@angular/material';
 import { BuyDetailsComponent } from '../buy-details/buy-details.component';
 
 @Component({
@@ -12,23 +14,43 @@ import { BuyDetailsComponent } from '../buy-details/buy-details.component';
 export class BuyIndexComponent implements OnInit {
   saveToList: boolean;
   _buyProps;
-  active;
+  buy : Buy[];
+  //active;
 
-  constructor(private _buyService: BuyService, public dialog: MatDialog) { }
+  constructor(
+    private _buyService: BuyService, 
+    public dialog: MatDialog) { }
 
   getBuyProps() {
     this._buyService.getAllBuyProps()
       .subscribe(data => {
         this._buyProps = data
+        console.log(data)
       })
   }
 
-  openPropDetails(id) {
-    this._buyService.getBuyPropById(id).subscribe((data: Buy[]) => {
-      this.active = data
+  openPropDetails(item: Buy) {
+    //this._buyService.getBuyPropById(id).subscribe((_buy: Buy[]) => {
+      //this.active = data
       const propDetailDialog = this.dialog.open(BuyDetailsComponent, {
         width: '600px', height: '800px',
-        data: { buyProp: this.active },
+        data: { name : item.RealEstatePropertyName,
+                propType: item.PropertyType,
+                dateAvail: item.DateAvail,
+                price: item.Price,
+                description: item.Description,
+                pic: item.ImageLink,
+                address: item.RealEstateAddress,
+                city: item.RealEstateCity,
+                state: item.RealEstateState,
+                zip: item.RealEstateZip,
+                sqFoot: item.SquareFootage,
+                bedrooms: item.Bedroom,
+                bathrooms: item.Bathroom,
+                stories: item.Stories,
+                pool: item.HasPool,
+                basement: item.HasBasement    
+        },
         panelClass: 'app-full-bleed-dialog'
       })
 
@@ -36,7 +58,7 @@ export class BuyIndexComponent implements OnInit {
         console.log();
         this.saveToList = result;
       })
-    })
+    
   }
 
   ngOnInit() {

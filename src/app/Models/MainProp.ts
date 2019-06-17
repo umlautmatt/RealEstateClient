@@ -15,9 +15,16 @@ export interface MainProp {
       Stories: number;
   }
 
-  export enum PropertyTypeEnum{
+  export enum PropertyTypeEnum {
       Residential = 1,
       Commercial,
       Industrial,
       Land
   }
+
+//   export const PropertyType2Label = {
+//       [ PropertyTypeEnum.Residential ]: "Residential",
+//       [ PropertyTypeEnum.Commercial ]: "Commercial",
+//       [ PropertyTypeEnum.Industrial ]: "Industrial",
+//       [ PropertyTypeEnum.Land ]: "Land",
+//   }

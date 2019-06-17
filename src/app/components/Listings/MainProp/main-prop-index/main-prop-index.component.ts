@@ -3,6 +3,7 @@ import { MainPropService } from '../../../../Services/main-prop.service';
 import { MainProp } from '../../../../Models/MainProp';
 import { MatTableDataSource } from '@angular/material';
 
+
 @Component({
   selector: 'app-main-prop-index',
   templateUrl: './main-prop-index.component.html',
@@ -10,7 +11,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class MainPropIndexComponent implements OnInit {
 
-  columnNames = ['details', 'RealEstatePropertyId', 'RealEstatePropertyName', 'ImageLink', 'RealEstateState', 'buttons'];
+  columnNames = ['details', 'RealEstatePropertyName', 'RealEstateAddress', 'RealEstateState', 'Image', 'buttons'];
   dataSource: MatTableDataSource<MainProp>;
 
   constructor(private _mainPropService: MainPropService) { }
@@ -19,6 +20,10 @@ export class MainPropIndexComponent implements OnInit {
     this._mainPropService.getMainProps().subscribe((mainProp: MainProp[]) => {
       this.dataSource = new MatTableDataSource<MainProp>(mainProp)
     });
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
 

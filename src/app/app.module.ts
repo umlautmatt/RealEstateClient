@@ -7,6 +7,7 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { TextFieldModule } from '@angular/cdk/text-field';
 
 import {
   MatInputModule,
@@ -15,7 +16,14 @@ import {
   MatFormFieldModule,
   MatTableModule,
   MatCardModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule,
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatRadioModule,
+  MatStepperModule
+
 } from '@angular/material';
 
 
@@ -47,6 +55,8 @@ import { RentService } from './Services/rent.service';
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
 import { MainPropService } from './Services/main-prop.service';
+import { BuyIndexAdminComponent } from './Components/Listings/Buy/buy-index-admin/buy-index-admin.component';
+import { BuyDetailsAdminComponent } from './Components/Listings/Buy/buy-details-admin/buy-details-admin.component';
 
 
 
@@ -73,7 +83,9 @@ import { MainPropService } from './Services/main-prop.service';
     MainPropCreateComponent,
     MainPropDeleteComponent,
     MainPropUpdateComponent,
-    MainPropDetailsComponent
+    MainPropDetailsComponent,
+    BuyIndexAdminComponent,
+    BuyDetailsAdminComponent,
 
   ],
   imports: [
@@ -84,15 +96,22 @@ import { MainPropService } from './Services/main-prop.service';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
+    ReactiveFormsModule,
     //Material Modules
     MatToolbarModule,
+    MatStepperModule,
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
     MatTableModule,
     MatDialogModule,
     MatCardModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    TextFieldModule,
+    MatRadioModule,
 
     //Map Modules
     AgmCoreModule.forRoot({
@@ -104,7 +123,7 @@ import { MainPropService } from './Services/main-prop.service';
     AgmCoreModule.forRoot()
     ],
 
-    providers: [AuthService, RentService, BuyService, MainPropService],
+    providers: [AuthService, RentService, BuyService, MainPropService, MatDatepickerModule],
     bootstrap: [AppComponent],
     entryComponents: [
       BuyDetailsComponent

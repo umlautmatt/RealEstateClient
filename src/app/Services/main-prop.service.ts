@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MainProp } from '../Models/MainProp';
 
-const ApiUrl = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net/'
+const ApiUrl = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net'
+//const ApiUrl = 'http://localhost:62642'
 
 @Injectable({
   providedIn: 'root'

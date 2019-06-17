@@ -1,16 +1,43 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Rent } from '../Models/Rent';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RentService {
-apiUrl = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net/api/Rent/';
-  constructor(private _http: HttpClient) { }
 
-  getRent() {
-    return this._http.get<Rent[]>(this.apiUrl);
+export class RentService {
+//apiUrl = 'http://localhost:62642';
+apiUrl = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net/api';
+  
+constructor(private _http: HttpClient) { }
+
+  getRents(){
+  return this._http.get(`${this.apiUrl}/Rent`, { headers: this.getHeaders()});
   }
+
+  getRent(id: string){
+    return this._http.get(`${this.apiUrl}/Rent/${id}`, { headers: this.getHeaders() });
+    }
+
+createRent(rent: Rent) {
+  return this._http.post(`${this.apiUrl}/Rent`, rent, { headers: this.getHeaders()});
+}
+
+deleteRent( id: number) {
+  return this._http.delete(`${this.apiUrl}/Rent/${id}`, { headers: this.getHeaders() });
+}
+
+
+updateRent(rent: Rent){
+  return this._http.put(`${this.apiUrl}/Rent`, rent, { headers: this.getHeaders()});
+}
+
+
+  private getHeaders() {
+    return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+}
+
 
 }

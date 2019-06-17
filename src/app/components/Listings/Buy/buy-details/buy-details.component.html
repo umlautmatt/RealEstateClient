@@ -1,28 +1,30 @@
-<!-- <div class="main-div">
+<div class="main-div">
 
-  <h2 mat-dialog-title> Property Name </h2>
-  <h3>Property Type</h3>
-   <img [src]="data..."> 
+  <h1 mat-dialog-title> Property Name: {{ data.name }} </h1>
+  <h3>Property Type: {{ data.propType }}</h3>
+   <img [src]="data.pic" width="450" height="450"> 
 
 
   <mat-dialog-content class="mat-typography">
+    <h3>${{data.price}}</h3>
+    <h3>{{data.address}}</h3>
+    <h4>{{data.city}}, {{data.state}}  {{data.zip}}</h4>
 
-    <h3>Address</h3>
-    <h4>City, State, Zip</h4>
-
-    <h4>Square Footage</h4>
-    <h4>Bedrooms</h4>
-    <h4>Bathrooms</h4>
-    <h4>Stories</h4>
-    <h4>Pool</h4>
-    <h4>Basement</h4>
-
+    <h4>{{data.sqFoot}} sq. feet</h4>
+    <h4>Bedrooms: {{data.bedrooms}}</h4>
+    <h4>Bathrooms: {{data.bathrooms}}</h4>
+    <h4>Stories: {{data.stories}}</h4>
+    <h4>Pool: {{data.pool}}</h4>
+    <h4>Basement: {{data.basement}}</h4>
+    <h4>Description</h4>
+    <h5>{{data.description}}</h5>
+    <h4>Date Available: {{data.dateAvail}}</h4>
   </mat-dialog-content>
 
   <mat-dialog-actions>
     <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Back To List</button>
-    <button></button>
+    <!-- <button mat-button>Save To Favorites</button> -->
 
-</mat-dialog-actions>
-</div>     -->
+  </mat-dialog-actions>
+</div>    
 

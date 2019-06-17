@@ -1,3 +1,296 @@
-<p>
-  main-prop-create works!
-</p>
+<h1>Create a property.</h1>
+<hr />
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="mainPropForm">
+  <mat-vertical-stepper #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+        <ng-template matStepLabel>Whats The Property Name?</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Property Name" formControlName="RealEstatePropertyName"
+            type="RealEstatePropertyName" required />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <ng-template matStepLabel>Image Link</ng-template>
+        Image Preview:
+        <br>
+        <img src="{{ imageName }}" width="150" height="150">
+        <br>
+        <hr>
+        <mat-form-field>
+          <input matInput placeholder="Image Link" formControlName="ImageLink" type="ImageLink" [(ngModel)]="imageName" required />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+        <ng-template matStepLabel>SquareFootage</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Square Footage" formControlName="SquareFootage" type="SquareFootage" required />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="fourthFormGroup">
+        <ng-template matStepLabel>Address</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Real Estate Address" formControlName="RealEstateAddress" type="RealEstateAddress"
+            required />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="fifthFormGroup">
+        <ng-template matStepLabel>City</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Real Estate City" formControlName="RealEstateCity" type="RealEstateCity"
+            required />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="seventhFormGroup">
+        <ng-template matStepLabel>State</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Real Estate State" formControlName="RealEstateState" type="RealEstateState"
+            required />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="eighthFormGroup">
+        <ng-template matStepLabel>Zip-Code</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Real Estate Zip" formControlName="RealEstateZip" type="RealEstateZip" required />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="ninethFormGroup">
+        <ng-template matStepLabel>Bedrooms</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Bedroom" formControlName="Bedroom" type="Bedroom" required />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="sixthFormGroup">
+        <ng-template matStepLabel>Bathroom</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Bathroom" formControlName="Bathroom" type="Bathroom" required />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+
+    <mat-step [stepControl]="tenthFormGroup">
+        <ng-template matStepLabel>Stories</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Stories" formControlName="Stories" type="Stories" required />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="eleventhFormGroup">
+        <ng-template matStepLabel>Property Type</ng-template>
+        <mat-form-field>
+          <mat-select placeholder="Property Type" formControlName="PropertyType" required>
+            <mat-option *ngFor="let type of propertyTypes" [value]="type.value">{{type.viewValue}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Final</ng-template>
+      <div>
+        <div>
+          <mat-checkbox [value]="isActiveBool" formControlName="HasBasement">
+            Has Basement?
+          </mat-checkbox>
+        </div>
+        <div>
+          <mat-checkbox [value]="isActiveBool" formControlName="HasPool">
+            Has Pool?
+          </mat-checkbox>
+        </div>
+        <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Property</button>
+        <button mat-button class="nav-btn" color="primary" matStepperPrevious>Back</button>
+        <button mat-button class="nav-btn" color="primary" (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+
+</form>
+
+
+<!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="mainPropForm">
+  <div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Property Name" formControlName="RealEstatePropertyName"
+          type="RealEstatePropertyName" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Image Link" formControlName="ImageLink" type="ImageLink" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Square Footage" formControlName="SquareFootage" type="SquareFootage" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Real Estate Address" formControlName="RealEstateAddress" type="RealEstateAddress"
+          required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Real Estate City" formControlName="RealEstateCity" type="RealEstateCity"
+          required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Real Estate State" formControlName="RealEstateState" type="RealEstateState"
+          required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Real Estate Zip" formControlName="RealEstateZip" type="RealEstateZip" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Bedroom" formControlName="Bedroom" type="Bedroom" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Bathroom" formControlName="Bathroom" type="Bathroom" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Stories" formControlName="Stories" type="Stories" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="Property Type" formControlName="PropertyType" required>
+          <mat-option *ngFor="let type of propertyTypes" [value]="type.value">{{type.viewValue}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-checkbox>
+        Has Basement?
+      </mat-checkbox>
+    </div>
+    <div>
+      <mat-checkbox>
+        Has Pool?
+      </mat-checkbox>
+    </div>
+  </div>
+  <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Property</button>
+</form>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Image Link" formControlName="ImageLink" type="ImageLink" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Square Footage" formControlName="SquareFootage" type="SquareFootage" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Real Estate Address" formControlName="RealEstateAddress" type="RealEstateAddress"
+          required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Real Estate City" formControlName="RealEstateCity" type="RealEstateCity"
+          required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Real Estate State" formControlName="RealEstateState" type="RealEstateState"
+          required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Real Estate Zip" formControlName="RealEstateZip" type="RealEstateZip" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Bedroom" formControlName="Bedroom" type="Bedroom" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Bathroom" formControlName="Bathroom" type="Bathroom" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Stories" formControlName="Stories" type="Stories" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="Property Type" formControlName="PropertyType" required>
+          <mat-option *ngFor="let type of propertyTypes" [value]="type.value">{{type.viewValue}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-checkbox>
+        Has Basement?
+      </mat-checkbox>
+    </div>
+    <div>
+      <mat-checkbox>
+        Has Pool?
+      </mat-checkbox>
+    </div>
+  </div>
+  <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Property</button>
+</form> -->
+
+<a mat-button routerLink="/MainProp">Back to List</a>
