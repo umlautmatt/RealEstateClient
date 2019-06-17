@@ -36,7 +36,7 @@ const routes: Routes = [
   {path: 'ForRent', children: [
     {path: '', component: RentIndexComponent},
     {path: 'Create', component: RentCreateComponent},
-    {path: 'Update', component: RentUpdateComponent},
+    {path: 'Update/:id', component: RentUpdateComponent},
     {path: 'Detail/:id', component: RentDetailsComponent},
     {path: 'Delete/:id', component: RentDeleteComponent}
   ]},
