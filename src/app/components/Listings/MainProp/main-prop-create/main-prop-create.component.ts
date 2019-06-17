@@ -15,6 +15,7 @@ export interface PropType {
 })
 
 export class MainPropCreateComponent implements OnInit {
+  imageName: any;
   
   isActive: boolean = true
   get isActiveBool(){
