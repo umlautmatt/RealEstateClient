@@ -1,13 +1,17 @@
 {
   "name": "real-estate-client",
   "version": "0.0.0",
+  "engines": {
+    "node": "10.16.0"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --prod",
+    "start": "serve -s dist/RealEstateClient"
   },
   "private": true,
   "dependencies": {
@@ -15,8 +19,10 @@
     "@angular-material-extensions/google-maps-autocomplete": "^1.6.1",
     "@angular/animations": "^8.0.0",
     "@angular/cdk": "^8.0.1",
+    "@angular/cli": "~8.0.1",
     "@angular/common": "~8.0.0",
     "@angular/compiler": "~8.0.0",
+    "@angular/compiler-cli": "~8.0.0",
     "@angular/core": "~8.0.0",
     "@angular/forms": "^8.0.0",
     "@angular/material": "^8.0.1",
@@ -27,13 +33,12 @@
     "angular-dropdown-component": "^1.0.8",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.2",
+    "serve": "^11.0.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.800.0",
-    "@angular/cli": "~8.0.1",
-    "@angular/compiler-cli": "~8.0.0",
     "@angular/language-service": "~8.0.0",
     "@types/googlemaps": "^3.36.4",
     "@types/jasmine": "~2.8.8",
