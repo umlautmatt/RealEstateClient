@@ -57,6 +57,8 @@ import { BuyService } from './Services/buy.service';
 import { MainPropService } from './Services/main-prop.service';
 import { BuyIndexAdminComponent } from './Components/Listings/Buy/buy-index-admin/buy-index-admin.component';
 import { BuyDetailsAdminComponent } from './Components/Listings/Buy/buy-details-admin/buy-details-admin.component';
+import { RentIndexAdminComponent } from './components/Listings/Rent/rent-index-admin/rent-index-admin.component';
+import { RentDetailsAdminComponent } from './components/Listings/Rent/rent-details-admin/rent-details-admin.component';
 
 
 
@@ -86,6 +88,8 @@ import { BuyDetailsAdminComponent } from './Components/Listings/Buy/buy-details-
     MainPropDetailsComponent,
     BuyIndexAdminComponent,
     BuyDetailsAdminComponent,
+    RentIndexAdminComponent,
+    RentDetailsAdminComponent,
 
   ],
   imports: [
