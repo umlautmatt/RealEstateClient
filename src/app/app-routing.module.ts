@@ -18,8 +18,8 @@ import { MainPropDeleteComponent } from './components/Listings/MainProp/main-pro
 import { BuyCreateComponent } from './components/Listings/Buy/buy-create/buy-create.component';
 import { BuyUpdateComponent } from './components/Listings/Buy/buy-update/buy-update.component';
 import { BuyDeleteComponent } from './components/Listings/Buy/buy-delete/buy-delete.component';
-import { BuyIndexAdminComponent } from './Components/Listings/Buy/buy-index-admin/buy-index-admin.component';
-import { BuyDetailsAdminComponent } from './Components/Listings/Buy/buy-details-admin/buy-details-admin.component';
+import { BuyIndexAdminComponent } from './components/Listings/Buy/buy-index-admin/buy-index-admin.component';
+import { BuyDetailsAdminComponent } from './components/Listings/Buy/buy-details-admin/buy-details-admin.component';
 
 
 const routes: Routes = [
