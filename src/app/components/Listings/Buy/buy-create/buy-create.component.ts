@@ -13,6 +13,7 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./buy-create.component.css']
 })
 export class BuyCreateComponent implements OnInit {
+DateAvail: any;
 
   buyPropForm: FormGroup;
   mainprop: MainProp[];
