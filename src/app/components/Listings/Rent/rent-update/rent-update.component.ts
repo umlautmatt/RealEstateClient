@@ -43,7 +43,7 @@ export class RentUpdateComponent implements OnInit {
   createForm() {
     this.editRentForm = this._form.group({
       RentId: new FormControl(this.rent.RentId),
-      Available: new FormControl(this.rent.Available),
+      DateAvailable: new FormControl(this.rent.DateAvailable),
       PricePerMonth: new FormControl(this.rent.PricePerMonth),
       Description: new FormControl(this.rent.Description),
       UtilitiesIncluded: new FormControl(this.rent.UtilitiesIncluded),
@@ -71,7 +71,7 @@ export class RentUpdateComponent implements OnInit {
    
     const updateRent: Rent = {
       RentId: form.value.RentId,
-      Available: form.value.Available,
+      DateAvailable: form.value.DateAvailable,
       PricePerMonth: form.value.PricePerMonth,
       Description: form.value.Description,
       UtilitiesIncluded: form.value.UtilitiesIncluded,
