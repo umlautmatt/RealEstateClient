@@ -16,7 +16,8 @@ export class BuyCreateComponent implements OnInit {
 
   buyPropForm: FormGroup;
   mainprop: MainProp[];
-
+  date: Date;
+  
   constructor(
     private _ngZone: NgZone,
     private _buyService: BuyService,
