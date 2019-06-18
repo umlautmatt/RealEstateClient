@@ -15,6 +15,7 @@ import { APIURL } from '../../environments/environment.prod';
 export class AuthService {
   userInfo: Token;
   isLoggedIn: boolean;
+
   //role: any;
 
   constructor(private _http: HttpClient, private _router: Router) { }
@@ -42,6 +43,11 @@ export class AuthService {
 
     return this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: this.setHeader() });
   }
+
+  // public isAdmin() {
+  //   const role = localStorage.getItem('role')
+  //   return role;
+  // }
 
   logout() {
     localStorage.clear();
