@@ -14,7 +14,7 @@
 export interface Rent {
     RentId: number;
     RealEstatePropertyId: number;
-    Available: Date;
+    DateAvailable: Date;
     Description: string;
     Bedroom: number;
     RealEstatePropertyName: string;

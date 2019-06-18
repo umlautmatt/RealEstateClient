@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RentService } from 'src/app/Services/rent.service';
-import { Rent } from 'src/app/Models/Rent';
+import { RentProp } from 'src/app/Models/RentProp';
 import { MatTableDataSource } from '@angular/material';
 
 @Component({
@@ -10,13 +10,13 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class RentIndexAdminComponent implements OnInit {
 
-  columnNames = ['details', 'RentId', 'Available', 'PricePerMonth', 'Description', 'UtilitiesIncluded', 'PetsAllowed', 'IsRentFavorite', 'RealEstatePropertyId', 'buttons']
-  dataSource: MatTableDataSource<Rent>
+  columnNames = ['details', 'RentId', 'DateAvailable', 'PricePerMonth', 'Description', 'UtilitiesIncluded', 'PetsAllowed', 'IsRentFavorite', 'RealEstatePropertyId', 'buttons']
+  dataSource: MatTableDataSource<RentProp>
 
   constructor(private rentService: RentService) { }
 
   ngOnInit() {
     this.rentService.getRents().subscribe(
-      (data: Rent[]) => { this.dataSource = new MatTableDataSource<Rent>(data) })
+      (data: RentProp[]) => { this.dataSource = new MatTableDataSource<RentProp>(data) })
   }
 }
