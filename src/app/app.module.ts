@@ -50,15 +50,15 @@ import { MainPropCreateComponent } from './components/Listings/MainProp/main-pro
 import { MainPropDeleteComponent } from './components/Listings/MainProp/main-prop-delete/main-prop-delete.component';
 import { MainPropUpdateComponent } from './components/Listings/MainProp/main-prop-update/main-prop-update.component';
 import { MainPropDetailsComponent } from './components/Listings/MainProp/main-prop-details/main-prop-details.component';
+import { BuyIndexAdminComponent } from './components/Listings/Buy/buy-index-admin/buy-index-admin.component';
+import { BuyDetailsAdminComponent } from './components/Listings/Buy/buy-details-admin/buy-details-admin.component';
+import { RentIndexAdminComponent } from './components/Listings/Rent/rent-index-admin/rent-index-admin.component';
+import { RentDetailsAdminComponent } from './components/Listings/Rent/rent-details-admin/rent-details-admin.component';
 
 import { RentService } from './Services/rent.service';
 import { AuthService } from './Services/auth.service';
 import { BuyService } from './Services/buy.service';
 import { MainPropService } from './Services/main-prop.service';
-import { BuyIndexAdminComponent } from './Components/Listings/Buy/buy-index-admin/buy-index-admin.component';
-import { BuyDetailsAdminComponent } from './Components/Listings/Buy/buy-details-admin/buy-details-admin.component';
-import { RentIndexAdminComponent } from './components/Listings/Rent/rent-index-admin/rent-index-admin.component';
-import { RentDetailsAdminComponent } from './components/Listings/Rent/rent-details-admin/rent-details-admin.component';
 
 
 

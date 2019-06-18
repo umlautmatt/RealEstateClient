@@ -10,10 +10,11 @@ import { Buy } from '../../../../Models/Buy';
 })
 export class BuyDetailsComponent implements OnInit {
 
+
   constructor
   (public propDetailDialog: MatDialogRef<BuyDetailsComponent>,
     @Inject(MAT_DIALOG_DATA)
-    public data: Buy)
+    public data: any)
    { }
 
 

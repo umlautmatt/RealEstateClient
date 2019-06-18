@@ -15,7 +15,8 @@ export interface PropType {
 })
 
 export class MainPropCreateComponent implements OnInit {
-
+  imageName: any;
+  
   isActive: boolean = true
   get isActiveBool(){
     return this.isActive
@@ -23,7 +24,6 @@ export class MainPropCreateComponent implements OnInit {
   set isActiveBool(newValue:boolean) {
     this.isActive = newValue ? true : false
   }
-
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
