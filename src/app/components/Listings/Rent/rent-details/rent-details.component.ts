@@ -19,7 +19,7 @@ export class RentDetailsComponent implements OnInit {
   constructor
   (public propDetailDialog: MatDialogRef<RentDetailsComponent>,
     @Inject(MAT_DIALOG_DATA)
-    public data: Rent)
+    public data: any)
    { }
 
 
