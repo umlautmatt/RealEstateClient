@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Rent } from '../Models/Rent';
 import { Observable } from 'rxjs';
+import { APIURL } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -9,29 +10,29 @@ import { Observable } from 'rxjs';
 
 export class RentService {
 //apiUrl = 'http://localhost:62642';
-apiUrl = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net/api';
+//apiUrl = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net/api';
   
 constructor(private _http: HttpClient) { }
 
   getRents(){
-  return this._http.get(`${this.apiUrl}/Rent`, { headers: this.getHeaders()});
+  return this._http.get(`${APIURL}/api/Rent`, { headers: this.getHeaders()});
   }
 
   getRent(id: string){
-    return this._http.get(`${this.apiUrl}/Rent/${id}`, { headers: this.getHeaders() });
+    return this._http.get(`${APIURL}/api/Rent/${id}`, { headers: this.getHeaders() });
     }
 
 createRent(rent: Rent) {
-  return this._http.post(`${this.apiUrl}/Rent`, rent, { headers: this.getHeaders()});
+  return this._http.post(`${APIURL}/api/Rent`, rent, { headers: this.getHeaders()});
 }
 
 deleteRent( id: number) {
-  return this._http.delete(`${this.apiUrl}/Rent/${id}`, { headers: this.getHeaders() });
+  return this._http.delete(`${APIURL}/api/Rent/${id}`, { headers: this.getHeaders() });
 }
 
 
 updateRent(rent: Rent){
-  return this._http.put(`${this.apiUrl}/Rent`, rent, { headers: this.getHeaders()});
+  return this._http.put(`${APIURL}/api/Rent`, rent, { headers: this.getHeaders()});
 }
 
 

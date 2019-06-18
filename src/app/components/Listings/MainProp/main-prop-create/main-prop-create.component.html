@@ -1,7 +1,7 @@
 <h1>Create a property.</h1>
 <hr />
 
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="mainPropForm">
+<form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="mainPropForm">
   <mat-vertical-stepper #stepper>
     <mat-step [stepControl]="firstFormGroup">
         <ng-template matStepLabel>Whats The Property Name?</ng-template>

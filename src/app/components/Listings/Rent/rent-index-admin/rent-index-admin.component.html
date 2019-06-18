@@ -1,8 +1,8 @@
 <h2>Properties Up For Rent</h2>
 <a mat-raised-button color="primary" routerLink="/ForRent/Create" class="nav-btn">Create New</a>
-<a mat-raised-button color="primary" routerLink="/ForRent/Admin/List" class="nav-btn">Admin View</a>
-<br>
-<!-- <div>
+<a mat-raised-button color="primary" routerLink="/ForRent" class="nav-btn">User View</a>
+<br><hr><br>
+<div>
   <mat-table #table [dataSource]="dataSource">
     <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
@@ -10,7 +10,7 @@
     <ng-container matColumnDef="details">
       <mat-header-cell *matHeaderCellDef Class="matColumnSize"></mat-header-cell>
       <mat-cell *matCellDef="let rent">
-        <i class="material-icons" routerLink="/ForRent/Detail/{{rent.RentId}}"> library_books</i></mat-cell>
+        <i class="material-icons" routerLink="/ForRent/Admin/Details/{{rent.RentId}}"> library_books</i></mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="RentId">
@@ -62,41 +62,16 @@
       </mat-cell>
     </ng-container>
 
-    !-- <ng-container matColumnDef="details">
+    <!-- <ng-container matColumnDef="details">
     <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
     <mat-cell *matCellDef="lef rent" routerLink="rent-details/{rent.RentId}}">
       <i class="material-icons">library_books</i>
     </mat-cell>
-  </ng-container> --
+  </ng-container> -->
 
   </mat-table>
 </div>
 
-!-- <div *ngFor='let rent of rent$' style="text-align:center">
+<!-- <div *ngFor='let rent of rent$' style="text-align:center">
   <h2>{{ rent.PricePerMonth }} - {{ rent.Available }}</h2>
-</div> -- -->
-
-<div class="main-div">
-  <br><hr><br>
-    <div class="deck" *ngFor="let rent of _rentProps" >
-        <mat-card id="card">
-          <mat-card-header >
-            <h3>{{ rent.RealEstatePropertyName }}</h3>
-          </mat-card-header>
-          <mat-card-content>
-            <h5>{{ rent.PropertyType }}</h5>
-          </mat-card-content>
-          <mat-card-content>
-            <img mat-card-lg-image  [src]="rent.ImageLink">
-            <br>
-            <br>
-            <h4>Price: ${{ rent.PricePerMonth }}</h4>
-            <h4>{{ rent.RealEstateCity }}, {{ rent.RealEstateState }}</h4>
-          </mat-card-content>
-          <mat-card-actions>
-            <button class="button" (click)="openPropDetails(rent)" mat-button>See More</button>
-          </mat-card-actions>
-        </mat-card>
-    </div>
-  
-</div>
+</div> -->

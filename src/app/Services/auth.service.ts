@@ -30,7 +30,7 @@ export class AuthService {
       console.log(token);
       this.userInfo = token;
       localStorage.setItem('id_token', token.access_token);
-      localStorage.setItem('role', token.role)
+      //localStorage.setItem('role', token.role)
       this.isLoggedIn = true;
       this._router.navigate(['/Home']); 
     });

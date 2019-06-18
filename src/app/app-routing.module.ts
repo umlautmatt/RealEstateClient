@@ -10,6 +10,7 @@ import { RentCreateComponent } from './components/Listings/Rent/rent-create/rent
 import { RentUpdateComponent } from './components/Listings/Rent/rent-update/rent-update.component';
 import { RentDetailsComponent } from './components/Listings/Rent/rent-details/rent-details.component';
 import { RentDeleteComponent } from './components/Listings/Rent/rent-delete/rent-delete.component';
+import { RentIndexAdminComponent } from './components/Listings/Rent/rent-index-admin/rent-index-admin.component';
 import { MainPropIndexComponent } from './components/Listings/MainProp/main-prop-index/main-prop-index.component';
 import { MainPropCreateComponent } from './components/Listings/MainProp/main-prop-create/main-prop-create.component';
 import { MainPropUpdateComponent } from './components/Listings/MainProp/main-prop-update/main-prop-update.component';
@@ -18,8 +19,10 @@ import { MainPropDeleteComponent } from './components/Listings/MainProp/main-pro
 import { BuyCreateComponent } from './components/Listings/Buy/buy-create/buy-create.component';
 import { BuyUpdateComponent } from './components/Listings/Buy/buy-update/buy-update.component';
 import { BuyDeleteComponent } from './components/Listings/Buy/buy-delete/buy-delete.component';
-import { BuyIndexAdminComponent } from './Components/Listings/Buy/buy-index-admin/buy-index-admin.component';
-import { BuyDetailsAdminComponent } from './Components/Listings/Buy/buy-details-admin/buy-details-admin.component';
+import { BuyIndexAdminComponent } from './components/Listings/Buy/buy-index-admin/buy-index-admin.component';
+import { BuyDetailsAdminComponent } from './components/Listings/Buy/buy-details-admin/buy-details-admin.component';
+import { RentDetailsAdminComponent } from './components/Listings/Rent/rent-details-admin/rent-details-admin.component';
+
 
 
 const routes: Routes = [
@@ -43,7 +46,9 @@ const routes: Routes = [
     {path: 'Create', component: RentCreateComponent},
     {path: 'Update/:id', component: RentUpdateComponent},
     {path: 'Detail/:id', component: RentDetailsComponent},
-    {path: 'Delete/:id', component: RentDeleteComponent}
+    {path: 'Delete/:id', component: RentDeleteComponent},
+    {path: 'Admin/List', component: RentIndexAdminComponent},
+    {path: 'Admin/Details/:id', component: RentDetailsAdminComponent},
   ]},
   
   {path: 'MainProp', children: [
