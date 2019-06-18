@@ -5,8 +5,8 @@ import { Token } from '../Models/Token';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
-const Api_Url = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net';
-//const Api_Url = 'http://localhost:62642'
+//const Api_Url = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net';
+const Api_Url = 'http://localhost:62642'
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ const Api_Url = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net
 export class AuthService {
   userInfo: Token;
   isLoggedIn: boolean;
+  //role: any;
 
   constructor(private _http: HttpClient, private _router: Router) { }
 
@@ -29,8 +30,9 @@ export class AuthService {
       console.log(token);
       this.userInfo = token;
       localStorage.setItem('id_token', token.access_token);
+      localStorage.setItem('role', token.role)
       this.isLoggedIn = true;
-      this._router.navigate(['/Home']);
+      this._router.navigate(['/Home']); 
     });
   }
 
@@ -51,10 +53,6 @@ export class AuthService {
   private setHeader(): HttpHeaders {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
-
-  // private HttpOptions(): HttpHeaders {
-  //   return new HttpHeaders().set('Access-Control-Allow-Origin' , '*')
-  //   }
 
 
 }
