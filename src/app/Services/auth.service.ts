@@ -15,8 +15,8 @@ import { APIURL } from '../../environments/environment.prod';
 export class AuthService {
   userInfo: Token;
   isLoggedIn: boolean;
-  role: any;
-
+  public isAdmin: boolean;
+  public role: string;
   constructor(private _http: HttpClient, private _router: Router) { }
 
   register(regUserData: RegisterUser) {
@@ -33,9 +33,10 @@ export class AuthService {
       localStorage.setItem('id_token', token.access_token);
       if(token.userName == "panda@panda.panda") {
         localStorage.setItem('role', "Admin")
+        this.isAdmin = true;
       } 
       else {
-        localStorage.setItem('role', "Customer")
+        localStorage.setItem('role', "User")
       }
       this.isLoggedIn = true;
       this._router.navigate(['/Home']); 
@@ -47,6 +48,12 @@ export class AuthService {
     console.log()
     return this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: this.setHeader() });
   }
+
+  // admin() {
+  //   this.role = localStorage.getItem('role')
+  //   if(this.role === "Admin") { 
+  //   this.isAdmin = true;}
+  // }
 
   logout() {
     localStorage.clear();
