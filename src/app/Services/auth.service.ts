@@ -5,6 +5,7 @@ import { Token } from '../Models/Token';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { APIURL } from '../../environments/environment.prod';
+import { UserInfo } from '../Models/UserInfo';
 
 //const Api_Url = 'https://realestatemanagerwebapi20190606115209.azurewebsites.net';
 //const Api_Url = 'http://localhost:62642'
@@ -31,29 +32,17 @@ export class AuthService {
       console.log(token);
       this.userInfo = token;
       localStorage.setItem('id_token', token.access_token);
-      if(token.userName == "panda@panda.panda") {
-        localStorage.setItem('role', "Admin")
-        this.isAdmin = true;
-      } 
-      else {
-        localStorage.setItem('role', "User")
-      }
       this.isLoggedIn = true;
+      this.currentUser();
       this._router.navigate(['/Home']); 
     });
   }
 
-  currentUser(): Observable<Object> {
-    if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
-    console.log()
-    return this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: this.setHeader() });
+  currentUser() {
+    this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: this.setHeader() }).subscribe((userRole: UserInfo) => {
+      localStorage.setItem('role', userRole.Role);
+    })
   }
-
-  // admin() {
-  //   this.role = localStorage.getItem('role')
-  //   if(this.role === "Admin") { 
-  //   this.isAdmin = true;}
-  // }
 
   logout() {
     localStorage.clear();
