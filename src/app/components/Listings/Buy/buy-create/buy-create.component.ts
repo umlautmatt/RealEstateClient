@@ -17,7 +17,8 @@ DateAvail: any;
 
   buyPropForm: FormGroup;
   mainprop: MainProp[];
-
+  date: Date;
+  
   constructor(
     private _ngZone: NgZone,
     private _buyService: BuyService,
