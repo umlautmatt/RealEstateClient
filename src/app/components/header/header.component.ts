@@ -10,14 +10,12 @@ import { Subject } from 'rxjs';
 
 export class HeaderComponent implements OnInit {
 
-  isAdmin: boolean;
+  userRole: boolean;
 
   constructor(public authService: AuthService) {
    }
 
   ngOnInit() { 
-    if(localStorage.getItem('role') == "Admin")
-    { this.isAdmin = true; } else { this.isAdmin = false; }
    }
 
   logOut() {

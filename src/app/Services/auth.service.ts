@@ -24,6 +24,7 @@ export class AuthService {
     return this._http.post(`${APIURL}/api/account/register`, regUserData);
   }
 
+
   login(loginInfo) {
     const str =
       `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
@@ -34,6 +35,7 @@ export class AuthService {
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn = true;
       this.currentUser();
+      this.adminUser();
       this._router.navigate(['/Home']); 
     });
   }
@@ -41,9 +43,18 @@ export class AuthService {
   currentUser() {
     this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: this.setHeader() }).subscribe((userRole: UserInfo) => {
       localStorage.setItem('role', userRole.Role);
+      console.log(localStorage.getItem('role'));
     })
   }
-
+  
+  adminUser(){
+    if (localStorage.getItem('role') == 'Admin'){
+      console.log(localStorage.getItem('role'));
+      this.isAdmin = true;
+    } else { this.isAdmin = false; }
+    console.log(this.isAdmin);
+  }
+  
   logout() {
     localStorage.clear();
     this.isLoggedIn = false;
