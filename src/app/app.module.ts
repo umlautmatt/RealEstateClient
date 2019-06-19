@@ -61,7 +61,6 @@ import { BuyService } from './Services/buy.service';
 import { MainPropService } from './Services/main-prop.service';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
