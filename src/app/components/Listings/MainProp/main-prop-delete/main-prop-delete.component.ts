@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MainPropService } from '../../../../Services/main-prop.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MainProp } from '../../../../Models/MainProp';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 @Component({
   selector: 'app-main-prop-delete',
@@ -12,7 +14,7 @@ export class MainPropDeleteComponent implements OnInit {
 
   mainProp: MainProp;
 
-  constructor(private _mainPropService: MainPropService, private _ar: ActivatedRoute, private _router: Router) {
+  constructor(private _mainPropService: MainPropService, private _ar: ActivatedRoute, private _router: Router, public authService: AuthService) {
     this._ar.paramMap.subscribe(p => {
       this._mainPropService.getMainProp(p.get('id')).subscribe((singleMainProp: MainProp) => {
         this.mainProp = singleMainProp;

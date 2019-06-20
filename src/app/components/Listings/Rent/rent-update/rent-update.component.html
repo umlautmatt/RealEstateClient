@@ -1,58 +1,73 @@
-<h1>Edit a property for rent.</h1>
-<hr>
+<div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
 
-<div *ngIf="rent">
+  <h1>Edit a Rental Property</h1>
+  <hr>
 
-  <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="editRentForm">
-    <div>
-      <h3>Rental Property attributes below</h3>
+  <div *ngIf="rent">
 
-      <div hidden>
-        <mat-form-field>
-          <input matInput placeholder="RentId" formControlName="RentId" type="RentId" required [value]="rent.RentId" />
-        </mat-form-field>
-      </div>
-
-
-
+    <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="editRentForm">
       <div>
-        <mat-form-field>
-          <input matInput placeholder="DateAvailable" formControlName="DateAvailable" type="DateAvailable" required
-            [value]="rent.DateAvailable" />
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <input matInput placeholder="PricePerMonth" formControlName="PricePerMonth" type="PricePerMonth" required
-            [value]="rent.PricePerMonth" />
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <input matInput placeholder="Description" formControlName="Description" type="Description"
-            [value]="rent.Description" />
-        </mat-form-field>
-      </div>
+        <h3>Rental Property attributes below</h3>
 
-      <div>
-        <mat-checkbox [value]="isActiveBool" formControlName="UtilitiesIncluded">
-          UtilitiesIncluded?
-        </mat-checkbox>
-      </div>
-      <div>
-        <mat-checkbox [value]="isActiveBool" formControlName="PetsAllowed">
-          PetsAllowed?
-        </mat-checkbox>
-      </div>
-      <div>
-        <mat-checkbox [value]="isActiveBool" formControlName="IsRentFavorite">
-          IsRentFavorite?
-        </mat-checkbox>
-      </div>
+        <div hidden>
+          <mat-form-field>
+            <input matInput placeholder="RentId" formControlName="RentId" type="RentId" required
+              [value]="rent.RentId" />
+          </mat-form-field>
+        </div>
 
-    </div>
-    <button mat-raised-button class="nav-btn" color="primary" type="submit">Update Rental Property</button>
-  </form>
+
+
+        <div>
+          <mat-form-field>
+            <input matInput placeholder="DateAvailable" formControlName="DateAvailable" type="DateAvailable" required
+              [value]="rent.DateAvailable" />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput placeholder="PricePerMonth" formControlName="PricePerMonth" type="PricePerMonth" required
+              [value]="rent.PricePerMonth" />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput placeholder="Description" formControlName="Description" type="Description"
+              [value]="rent.Description" />
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-checkbox [value]="isActiveBool" formControlName="UtilitiesIncluded">
+            UtilitiesIncluded?
+          </mat-checkbox>
+        </div>
+        <div>
+          <mat-checkbox [value]="isActiveBool" formControlName="PetsAllowed">
+            PetsAllowed?
+          </mat-checkbox>
+        </div>
+        <div>
+          <mat-checkbox [value]="isActiveBool" formControlName="IsRentFavorite">
+            IsRentFavorite?
+          </mat-checkbox>
+        </div>
+
+      </div>
+      <button mat-raised-button class="nav-btn" color="primary" type="submit">Update Rental Property</button>
+    </form>
+  </div>
+
+  <a mat-button routerLink="/ForRent">Back to List</a>
 </div>
 
-<a mat-button routerLink="/ForRent">Back to List</a>
+<div *ngIf="this.authService.isLoggedIn && !this.authService.isAdmin">
+  <h3>Unauthorized Page</h3>
+  <hr>
+  <p>You Are Not Authroized To View This Page.</p>
+</div>
+<div *ngIf="!this.authService.isLoggedIn">
+  <h3>Unauthorized Page</h3>
+  <hr>
+  <p>Please <a routerLink="/Login">Login</a> To View This Page!</p>
+</div>

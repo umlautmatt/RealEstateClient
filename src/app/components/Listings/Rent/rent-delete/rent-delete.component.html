@@ -1,37 +1,48 @@
+<div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
+  <hr />
+  <div *ngIf="rent">
+    <div>
+      <label for="">RentId:</label>
+      <span>{{rent.RentId}}</span>
+    </div>
+    <div>
+      <label for="">DateAvailable:</label>
+      <span>{{rent.DateAvailable}}</span>
+    </div>
 
-<hr />
-<div *ngIf="rent">
-  <div>
-    <label for="">RentId:</label>
-    <span>{{rent.RentId}}</span>
-  </div>
-  <div>
-    <label for="">DateAvailable:</label>
-    <span>{{rent.DateAvailable}}</span>
+    <div>
+      <label for="">PricePerMonth:</label>
+      <span>{{rent.PricePerMonth}}</span>
+    </div>
+    <div>
+      <label for="">Description:</label>
+      <span>{{rent.Description}}</span>
+    </div>
+    <div>
+      <label for="">UtilitiesIncluded:</label>
+      <span>{{rent.UtilitiesIncluded}}</span>
+    </div>
+    <div>
+      <label for="">PetsAllowed:</label>
+      <span>{{rent.PetsAllowed}}</span>
+    </div>
+    <div>
+      <label for="">IsRentFavorite:</label>
+      <span>{{rent.IsRentFavorite}}</span>
+    </div>
+
   </div>
 
-  <div>
-    <label for="">PricePerMonth:</label>
-    <span>{{rent.PricePerMonth}}</span>
-  </div>
-  <div>
-    <label for="">Description:</label>
-    <span>{{rent.Description}}</span>
-  </div>
-  <div>
-    <label for="">UtilitiesIncluded:</label>
-    <span>{{rent.UtilitiesIncluded}}</span>
-  </div>
-  <div>
-    <label for="">PetsAllowed:</label>
-    <span>{{rent.PetsAllowed}}</span>
-  </div>
-  <div>
-    <label for="">IsRentFavorite:</label>
-    <span>{{rent.IsRentFavorite}}</span>
-  </div>
-
+  <button mat-button color="warn" (click)="onDelete()" routerLink="/ForRent">Delete</button> |
+  <button mat-button color="primary" routerLink="/ForRent">Back to List</button>
 </div>
-
-<button mat-button color="warn" (click)="onDelete()" routerLink="/ForRent">Delete</button> |
-<button mat-button color="primary" routerLink="/ForRent">Back to List</button>
+<div *ngIf="this.authService.isLoggedIn && !this.authService.isAdmin">
+  <h3>Unauthorized Page</h3>
+  <hr>
+  <p>You Are Not Authroized To View This Page.</p>
+</div>
+<div *ngIf="!this.authService.isLoggedIn">
+  <h3>Unauthorized Page</h3>
+  <hr>
+  <p>Please <a routerLink="/Login">Login</a> To View This Page!</p>
+</div>

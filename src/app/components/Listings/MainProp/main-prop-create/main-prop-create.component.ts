@@ -51,7 +51,7 @@ export class MainPropCreateComponent implements OnInit {
 
 
 
-  constructor(private _mainPropService: MainPropService, private _form: FormBuilder, private _router: Router) {
+  constructor(private _mainPropService: MainPropService, private _form: FormBuilder, private _router: Router, public authService: AuthService) {
     this.createForm();
   }
   createForm() {

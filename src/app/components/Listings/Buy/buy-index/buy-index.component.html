@@ -1,28 +1,36 @@
 <div class="main-div">
   <h2>Properties For Sale</h2>
-  <a mat-raised-button color="primary" routerLink="/ForSale/Create" class="nav-btn">Create New</a>
-  <a mat-raised-button color="primary" routerLink="/ForSale/Admin/List" class="nav-btn">Admin View</a>
-  <br>
-  <hr><br>
-  <div class="deck" *ngFor="let buy of _buyProps">
-    <mat-card id="card">
-      <mat-card-header>
-        <h3>{{ buy.RealEstatePropertyName }}</h3>
-      </mat-card-header>
-      <mat-card-content>
-        <h5>{{ buy.PropertyType }}</h5>
-      </mat-card-content>
-      <mat-card-content>
-        <img mat-card-lg-image [src]="buy.ImageLink">
-        <br>
-        <br>
-        <h4>Price: ${{ buy.Price }}</h4>
-        <h4>{{ buy.RealEstateCity }}, {{ buy.RealEstateState }}</h4>
-      </mat-card-content>
-      <mat-card-actions>
-        <button class="button" (click)="openPropDetails(buy)" mat-button>See More</button>
-      </mat-card-actions>
-    </mat-card>
+  <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
+    <a mat-raised-button color="primary" routerLink="/ForSale/Create" class="nav-btn">Create New</a>
+    <a mat-raised-button color="primary" routerLink="/ForSale/Admin/List" class="nav-btn">Admin View</a>
+    <br>
+    <hr><br>
   </div>
-
+  <div *ngIf="this.authService.isLoggedIn">
+    <div class="deck" *ngFor="let buy of _buyProps">
+      <mat-card id="card">
+        <mat-card-header>
+          <h3>{{ buy.RealEstatePropertyName }}</h3>
+        </mat-card-header>
+        <mat-card-content>
+          <h5>{{ buy.PropertyType }}</h5>
+        </mat-card-content>
+        <mat-card-content>
+          <img mat-card-lg-image [src]="buy.ImageLink">
+          <br>
+          <br>
+          <h4>Price: ${{ buy.Price }}</h4>
+          <h4>{{ buy.RealEstateCity }}, {{ buy.RealEstateState }}</h4>
+        </mat-card-content>
+        <mat-card-actions>
+          <button class="button" (click)="openPropDetails(buy)" mat-button>See More</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<div *ngIf="!this.authService.isLoggedIn">
+  <h3>Unauthorized Page</h3>
+  <hr>
+  <p>Please <a routerLink="/Login">Login</a> To View This Page!</p>
 </div>

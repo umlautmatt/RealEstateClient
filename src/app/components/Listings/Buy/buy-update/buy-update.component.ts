@@ -3,6 +3,8 @@ import { Buy } from 'src/app/Models/Buy';
 import { BuyService } from '../../../../Services/buy.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 
 
@@ -25,6 +27,7 @@ export class BuyUpdateComponent implements OnInit {
   editForm: FormGroup;
 
   constructor(private _form: FormBuilder,
+    public authService: AuthService,
               private _buyService: BuyService,
               private _activatedRoute: ActivatedRoute,
               private _router: Router) {
