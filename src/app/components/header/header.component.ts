@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../Services/auth.service';
 import { Subject } from 'rxjs';
+import { UserInfo } from '../../Models/UserInfo';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +11,17 @@ import { Subject } from 'rxjs';
 
 export class HeaderComponent implements OnInit {
 
-  userRole: boolean;
+  role: UserInfo;
 
   constructor(public authService: AuthService) {
    }
 
+   get isAdmin() {
+    return this.role.Role
+   }
+
   ngOnInit() { 
+
    }
 
   logOut() {

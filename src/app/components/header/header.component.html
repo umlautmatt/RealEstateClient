@@ -6,7 +6,7 @@
     <button mat-raised-button class="nav-btn" routerLink="/Login">Login</button>
   </div>
   <div>
-    <button *ngIf="this.authService.isAdmin" mat-raised-button class="nav-btn" routerLink="/MainProp">Properties</button>
+    <button *ngIf="isAdmin" mat-raised-button class="nav-btn" routerLink="/MainProp">Properties</button>
   </div>
   <div *ngIf="this.authService.isLoggedIn">
     <button mat-raised-button class="nav-btn" routerLink="/ForSale">Sales</button>

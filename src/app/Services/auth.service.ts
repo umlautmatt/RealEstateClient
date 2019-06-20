@@ -16,14 +16,8 @@ import { UserInfo } from '../Models/UserInfo';
 export class AuthService {
   userInfo: Token;
   isLoggedIn: boolean;
-<<<<<<< HEAD
-
-  //role: any;
-
-=======
   public isAdmin: boolean;
-  public role: string;
->>>>>>> 69bbd60dfcdf833bc292723e90623f9e1ebda600
+  public role: UserInfo;
   constructor(private _http: HttpClient, private _router: Router) { }
 
   register(regUserData: RegisterUser) {
@@ -36,12 +30,13 @@ export class AuthService {
       `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
 
     return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
+      
       console.log(token);
       this.userInfo = token;
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn = true;
       this.currentUser();
-      this.adminUser();
+      //this.adminUser();
       this._router.navigate(['/Home']); 
     });
   }
@@ -52,14 +47,6 @@ export class AuthService {
       console.log(localStorage.getItem('role'));
     })
   }
-<<<<<<< HEAD
-
-  // public isAdmin() {
-  //   const role = localStorage.getItem('role')
-  //   return role;
-  // }
-
-=======
   
   adminUser(){
     if (localStorage.getItem('role') == 'Admin'){
@@ -69,12 +56,12 @@ export class AuthService {
     console.log(this.isAdmin);
   }
   
->>>>>>> 69bbd60dfcdf833bc292723e90623f9e1ebda600
   logout() {
     localStorage.clear();
     this.isLoggedIn = false;
 
     this._http.post(`${APIURL}/api/Account/Logout`, { headers: this.setHeader() });
+    window.location.reload();
     this._router.navigate(['/Login']);
   }
 
