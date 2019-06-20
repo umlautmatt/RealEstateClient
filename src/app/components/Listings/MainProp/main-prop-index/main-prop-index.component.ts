@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MainPropService } from '../../../../Services/main-prop.service';
 import { MainProp } from '../../../../Models/MainProp';
 import { MatTableDataSource } from '@angular/material';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ export class MainPropIndexComponent implements OnInit {
   columnNames = ['details', 'RealEstatePropertyName', 'RealEstateAddress', 'RealEstateState', 'Image', 'buttons'];
   dataSource: MatTableDataSource<MainProp>;
 
-  constructor(private _mainPropService: MainPropService) { }
+  constructor(private _mainPropService: MainPropService, public authService: AuthService) { }
 
   ngOnInit() {
     this._mainPropService.getMainProps().subscribe((mainProp: MainProp[]) => {

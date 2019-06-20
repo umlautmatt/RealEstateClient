@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MainProp } from '../../../../Models/MainProp';
 import { MainPropService } from '../../../../Services/main-prop.service';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 @Component({
   selector: 'app-main-prop-details',
@@ -12,7 +14,7 @@ export class MainPropDetailsComponent implements OnInit {
 
   mainProp: MainProp;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _mainPropService: MainPropService) { }
+  constructor(private _activatedRoute: ActivatedRoute, private _mainPropService: MainPropService, public authService: AuthService) { }
 
   ngOnInit() {
     this._activatedRoute.paramMap.subscribe(routeData => {

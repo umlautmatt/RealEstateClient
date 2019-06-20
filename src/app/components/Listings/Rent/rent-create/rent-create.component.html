@@ -1,60 +1,72 @@
-<h1>Create a property for rent.</h1>
-<hr>
+<div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
+  <h1>Create a property for rent.</h1>
+  <hr>
 
-<form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="rentForm">
-  <div>
-    <h2>Select one of the properties</h2>
+  <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="rentForm">
     <div>
-      <mat-form-field>
-        <mat-select placeholder="ID and Address" formControlName="RealEstatePropertyId" required>
-          <mat-option *ngFor="let mainElements of mainREProp" [value]="mainElements.RealEstatePropertyId">ID:
-            {{mainElements.RealEstatePropertyId}} Address: {{mainElements.RealEstateAddress}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <h3>Enter the Rental Property attributes below</h3>
-    <!-- <div>
+      <h2>Select one of the properties</h2>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="ID and Address" formControlName="RealEstatePropertyId" required>
+            <mat-option *ngFor="let mainElements of mainREProp" [value]="mainElements.RealEstatePropertyId">ID:
+              {{mainElements.RealEstatePropertyId}} Address: {{mainElements.RealEstateAddress}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <h3>Enter the Rental Property attributes below</h3>
+      <!-- <div>
       <mat-form-field>
         <input matInput placeholder="DateAvailable" formControlName="DateAvailable" type="DateAvailable" required />
       </mat-form-field>
     </div> -->
-    <div>
-      <mat-form-field class="example-full-width">
+      <div>
+        <mat-form-field class="example-full-width">
           <input matInput [matDatepicker]="picker" placeholder="Date Available" [value]="DateAvailable" required />
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker touchUi #picker></mat-datepicker>
-      </mat-form-field>
-    </div>
+        </mat-form-field>
+      </div>
 
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="PricePerMonth" formControlName="PricePerMonth" type="PricePerMonth" required />
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Description" formControlName="Description" type="Description" />
-      </mat-form-field>
-    </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="PricePerMonth" formControlName="PricePerMonth" type="PricePerMonth" required />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Description" formControlName="Description" type="Description" />
+        </mat-form-field>
+      </div>
 
-    <div>
-      <mat-checkbox [value]="isActiveBool" formControlName="UtilitiesIncluded">
-        UtilitiesIncluded?
-      </mat-checkbox>
-    </div>
-    <div>
-      <mat-checkbox [value]="isActiveBool" formControlName="PetsAllowed">
-        PetsAllowed?
-      </mat-checkbox>
-    </div>
-    <div>
-      <mat-checkbox [value]="isActiveBool" formControlName="IsRentFavorite">
-        IsRentFavorite?
-      </mat-checkbox>
-    </div>
+      <div>
+        <mat-checkbox [value]="isActiveBool" formControlName="UtilitiesIncluded">
+          UtilitiesIncluded?
+        </mat-checkbox>
+      </div>
+      <div>
+        <mat-checkbox [value]="isActiveBool" formControlName="PetsAllowed">
+          PetsAllowed?
+        </mat-checkbox>
+      </div>
+      <div>
+        <mat-checkbox [value]="isActiveBool" formControlName="IsRentFavorite">
+          IsRentFavorite?
+        </mat-checkbox>
+      </div>
 
-  </div>
-  <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Rental Property</button>
-</form>
+    </div>
+    <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Rental Property</button>
+  </form>
 
-<a mat-button routerLink="/ForRent">Back to List</a>
+  <a mat-button routerLink="/ForRent">Back to List</a>
+</div>
+<div *ngIf="this.authService.isLoggedIn && !this.authService.isAdmin">
+  <h3>Unauthorized Page</h3>
+  <hr>
+  <p>You Are Not Authroized To View This Page.</p>
+</div>
+<div *ngIf="!this.authService.isLoggedIn">
+  <h3>Unauthorized Page</h3>
+  <hr>
+  <p>Please <a routerLink="/Login">Login</a> To View This Page!</p>
+</div>

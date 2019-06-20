@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Buy } from '../../../../Models/Buy';
 import { BuyService } from '../../../../Services/buy.service';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 @Component({
   selector: 'app-buy-details-admin',
@@ -15,6 +17,7 @@ export class BuyDetailsAdminComponent implements OnInit {
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _buyService: BuyService,
+    public authService: AuthService
   ) { }
 
   ngOnInit() {
