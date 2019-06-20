@@ -65,10 +65,6 @@ export class AuthService {
     this.isLoggedIn = false;
 
     this._http.post(`${APIURL}/api/Account/Logout`, { headers: this.setHeader() });
-<<<<<<< HEAD
-    window.location.reload();
-    this._router.navigate(['/Login']);
-=======
     this._router.navigate(['/Home']);
     //this.refreshPage();
 
@@ -77,7 +73,6 @@ export class AuthService {
 
   refreshPage() {
     window.location.reload();
->>>>>>> 07e822d2bfd9abfecc186c3688140fd9f2924254
   }
 
   private setHeader(): HttpHeaders {
