@@ -14,7 +14,7 @@ import { UserInfo } from '../Models/UserInfo';
   providedIn: 'root'
 })
 export class AuthService {
-  userInfo: Token;
+  userInfo: any;
   isLoggedIn: boolean;
   public isAdmin: boolean;
   public role: string;
@@ -35,15 +35,15 @@ export class AuthService {
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn = true;
       this.currentUser();
-      this.adminUser();
       this._router.navigate(['/Home']); 
     });
   }
-
+  
   currentUser() {
     this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: this.setHeader() }).subscribe((userRole: UserInfo) => {
       localStorage.setItem('role', userRole.Role);
       console.log(localStorage.getItem('role'));
+      this.adminUser();
     })
   }
   
@@ -66,6 +66,5 @@ export class AuthService {
   private setHeader(): HttpHeaders {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
-
 
 }
