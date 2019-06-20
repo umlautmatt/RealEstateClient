@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Rent } from 'src/app/Models/Rent';
 import { RentService } from 'src/app/Services/rent.service';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 @Component({
   selector: 'app-rent-delete',
@@ -11,7 +13,7 @@ import { RentService } from 'src/app/Services/rent.service';
 export class RentDeleteComponent implements OnInit {
   rent: Rent;
   
-  constructor(private _activatedRoute: ActivatedRoute, private _rentService: RentService, private _router: Router) { }
+  constructor(public authService: AuthService, private _activatedRoute: ActivatedRoute, private _rentService: RentService, private _router: Router) { }
 
   ngOnInit() {
     this._activatedRoute.paramMap.subscribe(routeData => {

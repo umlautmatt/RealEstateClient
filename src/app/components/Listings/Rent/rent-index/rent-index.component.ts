@@ -6,6 +6,8 @@ import { MainPropService } from '../../../../Services/main-prop.service'
 import { MainProp } from '../../../../Models/MainProp';
 import { MatDialog } from '@angular/material';
 import { RentDetailsComponent } from '../rent-details/rent-details.component';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 @Component({
   selector: 'app-rent-index',
@@ -22,6 +24,7 @@ export class RentIndexComponent implements OnInit {
   //dataSource: MatTableDataSource<Rent>
 
   constructor(private _rentService: RentService, 
+    public authService: AuthService,
               public dialog: MatDialog) { }
 
   getRentProps() {

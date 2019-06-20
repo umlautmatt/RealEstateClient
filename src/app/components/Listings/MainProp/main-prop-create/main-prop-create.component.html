@@ -1,9 +1,11 @@
 <h1>Create a property.</h1>
 <hr />
 
-<form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="mainPropForm">
-  <mat-vertical-stepper #stepper>
-    <mat-step [stepControl]="firstFormGroup">
+<div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
+
+  <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="mainPropForm">
+    <mat-vertical-stepper #stepper>
+      <mat-step [stepControl]="firstFormGroup">
         <ng-template matStepLabel>Whats The Property Name?</ng-template>
         <mat-form-field>
           <input matInput placeholder="Property Name" formControlName="RealEstatePropertyName"
@@ -12,8 +14,8 @@
         <div>
           <button mat-button matStepperNext>Next</button>
         </div>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
         <ng-template matStepLabel>Image Link</ng-template>
         Image Preview:
         <br>
@@ -22,13 +24,14 @@
         <hr>
         <mat-form-field>
           <input matInput placeholder="Image Link" formControlName="ImageLink" type="ImageLink" [(ngModel)]="imageLink" required />
+
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
-    </mat-step>
-    <mat-step [stepControl]="thirdFormGroup">
+      </mat-step>
+      <mat-step [stepControl]="thirdFormGroup">
         <ng-template matStepLabel>SquareFootage</ng-template>
         <mat-form-field>
           <input matInput placeholder="Square Footage" formControlName="SquareFootage" type="SquareFootage" required />
@@ -37,8 +40,8 @@
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
-    </mat-step>
-    <mat-step [stepControl]="fourthFormGroup">
+      </mat-step>
+      <mat-step [stepControl]="fourthFormGroup">
         <ng-template matStepLabel>Address</ng-template>
         <mat-form-field>
           <input matInput placeholder="Real Estate Address" formControlName="RealEstateAddress" type="RealEstateAddress"
@@ -48,8 +51,8 @@
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
-    </mat-step>
-    <mat-step [stepControl]="fifthFormGroup">
+      </mat-step>
+      <mat-step [stepControl]="fifthFormGroup">
         <ng-template matStepLabel>City</ng-template>
         <mat-form-field>
           <input matInput placeholder="Real Estate City" formControlName="RealEstateCity" type="RealEstateCity"
@@ -59,8 +62,8 @@
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
-    </mat-step>
-    <mat-step [stepControl]="seventhFormGroup">
+      </mat-step>
+      <mat-step [stepControl]="seventhFormGroup">
         <ng-template matStepLabel>State</ng-template>
         <mat-form-field>
           <input matInput placeholder="Real Estate State" formControlName="RealEstateState" type="RealEstateState"
@@ -70,8 +73,8 @@
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
-    </mat-step>
-    <mat-step [stepControl]="eighthFormGroup">
+      </mat-step>
+      <mat-step [stepControl]="eighthFormGroup">
         <ng-template matStepLabel>Zip-Code</ng-template>
         <mat-form-field>
           <input matInput placeholder="Real Estate Zip" formControlName="RealEstateZip" type="RealEstateZip" required />
@@ -80,8 +83,8 @@
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
-    </mat-step>
-    <mat-step [stepControl]="ninethFormGroup">
+      </mat-step>
+      <mat-step [stepControl]="ninethFormGroup">
         <ng-template matStepLabel>Bedrooms</ng-template>
         <mat-form-field>
           <input matInput placeholder="Bedroom" formControlName="Bedroom" type="Bedroom" required />
@@ -90,8 +93,8 @@
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
-    </mat-step>
-    <mat-step [stepControl]="sixthFormGroup">
+      </mat-step>
+      <mat-step [stepControl]="sixthFormGroup">
         <ng-template matStepLabel>Bathroom</ng-template>
         <mat-form-field>
           <input matInput placeholder="Bathroom" formControlName="Bathroom" type="Bathroom" required />
@@ -100,9 +103,9 @@
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
-    </mat-step>
+      </mat-step>
 
-    <mat-step [stepControl]="tenthFormGroup">
+      <mat-step [stepControl]="tenthFormGroup">
         <ng-template matStepLabel>Stories</ng-template>
         <mat-form-field>
           <input matInput placeholder="Stories" formControlName="Stories" type="Stories" required />
@@ -111,8 +114,8 @@
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
-    </mat-step>
-    <mat-step [stepControl]="eleventhFormGroup">
+      </mat-step>
+      <mat-step [stepControl]="eleventhFormGroup">
         <ng-template matStepLabel>Property Type</ng-template>
         <mat-form-field>
           <mat-select placeholder="Property Type" formControlName="PropertyType" required>
@@ -123,28 +126,40 @@
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Final</ng-template>
-      <div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Final</ng-template>
         <div>
-          <mat-checkbox [value]="isActiveBool" formControlName="HasBasement">
-            Has Basement?
-          </mat-checkbox>
+          <div>
+            <mat-checkbox [value]="isActiveBool" formControlName="HasBasement">
+              Has Basement?
+            </mat-checkbox>
+          </div>
+          <div>
+            <mat-checkbox [value]="isActiveBool" formControlName="HasPool">
+              Has Pool?
+            </mat-checkbox>
+          </div>
+          <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Property</button>
+          <button mat-button class="nav-btn" color="primary" matStepperPrevious>Back</button>
+          <button mat-button class="nav-btn" color="primary" (click)="stepper.reset()">Reset</button>
         </div>
-        <div>
-          <mat-checkbox [value]="isActiveBool" formControlName="HasPool">
-            Has Pool?
-          </mat-checkbox>
-        </div>
-        <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Property</button>
-        <button mat-button class="nav-btn" color="primary" matStepperPrevious>Back</button>
-        <button mat-button class="nav-btn" color="primary" (click)="stepper.reset()">Reset</button>
-      </div>
-    </mat-step>
-  </mat-vertical-stepper>
+      </mat-step>
+    </mat-vertical-stepper>
 
-</form>
+  </form>>
+</div>
+
+<div *ngIf="this.authService.isLoggedIn && !this.authService.isAdmin">
+  <h3>Unauthorized Page</h3>
+  <hr>
+  <p>You Are Not Authroized To View This Page.</p>
+</div>
+<div *ngIf="!this.authService.isLoggedIn">
+  <h3>Unauthorized Page</h3>
+  <hr>
+  <p>Please <a routerLink="/Login">Login</a> To View This Page!</p>
+</div>
 
 
 <!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="mainPropForm">

@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { fromEventPattern } from 'rxjs';
 import { MainProp } from '../../../../Models/MainProp';
 import { MainPropService } from '../../../../Services/main-prop.service';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 export interface PropType {
   value: string;
@@ -38,6 +40,7 @@ export class MainPropUpdateComponent implements OnInit {
   // mainPropForm: any;
 
   constructor(private _form: FormBuilder,
+              public authService: AuthService,
               private _mainPropService: MainPropService,
               private _ar: ActivatedRoute,
               private _router: Router) {

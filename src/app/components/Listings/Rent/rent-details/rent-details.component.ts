@@ -2,6 +2,8 @@ import { Component, OnInit, Inject  } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { RentProp } from '../../../../Models/RentProp';
 import { Rent } from '../../../../Models/Rent';
+import { AuthService } from '../../../../Services/auth.service';
+
 // import { RentService } from "src/app/Services/rent.service";
 // import { ActivatedRoute } from '@angular/router';
 
@@ -18,6 +20,7 @@ export class RentDetailsComponent implements OnInit {
 
   constructor
   (public propDetailDialog: MatDialogRef<RentDetailsComponent>,
+    public authService: AuthService,
     @Inject(MAT_DIALOG_DATA)
     public data: any)
    { }
