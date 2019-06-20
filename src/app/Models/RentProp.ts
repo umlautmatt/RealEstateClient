@@ -27,7 +27,7 @@ export interface RentProp {
     Stories: number;
 
     RentId?: number;
-    Available?: string;
+    DateAvailable?: Date;
     PricePerMonth?: number;
     Description?: string;
     UtilitiesIncluded?: boolean;

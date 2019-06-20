@@ -17,11 +17,11 @@
         <ng-template matStepLabel>Image Link</ng-template>
         Image Preview:
         <br>
-        <img src="{{ imageName }}" width="150" height="150">
+        <img src="{{ ImageLink }}" width="150" height="150">
         <br>
         <hr>
         <mat-form-field>
-          <input matInput placeholder="Image Link" formControlName="ImageLink" type="ImageLink" [(ngModel)]="imageName" required />
+          <input matInput placeholder="Image Link" formControlName="ImageLink" type="ImageLink" [(ngModel)]="ImageLink" required />
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Back</button>

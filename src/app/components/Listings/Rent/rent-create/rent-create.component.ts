@@ -14,6 +14,10 @@ import { MainProp } from 'src/app/Models/MainProp';
 
 export class RentCreateComponent implements OnInit {
 
+ DateAvailable: any;
+ rentForm: FormGroup;
+ mainREProp: MainProp[];
+
   isActive: boolean = true
   get isActiveBool(){
     return this.isActive == true
@@ -22,10 +26,12 @@ export class RentCreateComponent implements OnInit {
     this.isActive = newValue ? true : false
   }
 
-rentForm: FormGroup;
-mainREProp: MainProp[];
 
-  constructor(private _rentService: RentService, private _rent: FormBuilder, private _router: Router, private _mainPropService: MainPropService, ) {
+  constructor(
+    private _rentService: RentService, 
+    private _rent: FormBuilder, 
+    private _router: Router, 
+    private _mainPropService: MainPropService ) {
     this.createForm();
    }
 
@@ -36,7 +42,7 @@ mainREProp: MainProp[];
   createForm() {
     this.rentForm = this._rent.group({
       //RentId: new FormControl,
-      Available: new FormControl,
+      DateAvailable: new FormControl(new Date()),
       PricePerMonth: new FormControl,
       Description: new FormControl,
       UtilitiesIncluded: new FormControl,

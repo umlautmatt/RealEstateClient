@@ -18,10 +18,11 @@ export class RentIndexComponent implements OnInit {
   _rentProps;
   rent : Rent[];
 
-  //columnNames = ['details', 'RentId', 'Available', 'PricePerMonth', 'Description', 'UtilitiesIncluded', 'PetsAllowed', 'IsRentFavorite', 'RealEstatePropertyId', 'buttons']
+  //columnNames = ['details', 'RentId', 'DateAvailable', 'PricePerMonth', 'Description', 'UtilitiesIncluded', 'PetsAllowed', 'IsRentFavorite', 'RealEstatePropertyId', 'buttons']
   //dataSource: MatTableDataSource<Rent>
 
-  constructor(private _rentService: RentService, public dialog: MatDialog) { }
+  constructor(private _rentService: RentService, 
+              public dialog: MatDialog) { }
 
   getRentProps() {
     this._rentService.getRents()
@@ -38,7 +39,7 @@ export class RentIndexComponent implements OnInit {
         width: '600px', height: '800px',
         data: { name : item.RealEstatePropertyName,
                 propType: item.PropertyType,
-                dateAvail: item.Available,
+                dateavailable: item.DateAvailable,
                 pricePerMonth: item.PricePerMonth,
                 description: item.Description,
                 pic: item.ImageLink,
