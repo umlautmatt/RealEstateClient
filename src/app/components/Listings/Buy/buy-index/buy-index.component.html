@@ -7,6 +7,7 @@
     <hr><br>
   </div>
   <div *ngIf="this.authService.isLoggedIn">
+    <hr>
     <div class="deck" *ngFor="let buy of _buyProps">
       <mat-card id="card">
         <mat-card-header>

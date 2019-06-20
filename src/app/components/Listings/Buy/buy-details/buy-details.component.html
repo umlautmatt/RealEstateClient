@@ -16,8 +16,22 @@
       <h4>Bedrooms: {{data.bedrooms}}</h4>
       <h4>Bathrooms: {{data.bathrooms}}</h4>
       <h4>Stories: {{data.stories}}</h4>
-      <h4>Pool: {{data.pool}}</h4>
-      <h4>Basement: {{data.basement}}</h4>
+      <hr>
+      <h4>Extra Information:</h4>
+      <div *ngIf="data.pool">
+        <h5>Has a Pool</h5>
+      </div>
+      <div *ngIf="!data.pool">
+        <h5>Has no Pool</h5>
+      </div>
+      <!-- <h4>Pool: {{data.pool}}</h4> -->
+      <div *ngIf="data.basement">
+        <h5>Has a Basement</h5>
+      </div>
+      <div *ngIf="!data.basement">
+        <h5>Has no Basement</h5>
+      </div>
+      <!-- <h4>Basement: {{data.basement}}</h4> -->
       <h4>Description</h4>
       <h5>{{data.description}}</h5>
       <h4>Date Available: {{data.dateAvail | date:'d MMMM y'}}</h4>
@@ -33,7 +47,7 @@
 </div>
 
 <div *ngIf="!this.authService.isLoggedIn">
-    <h3>Unauthorized Page</h3>
-    <hr>
-    <p>Please <a routerLink="/Login">Login</a> To View This Page!</p>
+  <h3>Unauthorized Page</h3>
+  <hr>
+  <p>Please <a routerLink="/Login">Login</a> To View This Page!</p>
 </div>
