@@ -3,6 +3,8 @@ import { RentProp } from '../../../../Models/RentProp';
 import { Rent } from '../../../../Models/Rent';
 import { RentService } from "src/app/Services/rent.service";
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 @Component({
   selector: 'app-rent-details-admin',
@@ -13,7 +15,7 @@ export class RentDetailsAdminComponent implements OnInit {
 
   rent: RentProp;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _rentService: RentService) {}
+  constructor(private _activatedRoute: ActivatedRoute, private _rentService: RentService, public authService: AuthService) {}
 
   ngOnInit() {
     this._activatedRoute.paramMap.subscribe(routeData => {

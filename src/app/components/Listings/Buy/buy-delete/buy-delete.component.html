@@ -1,26 +1,38 @@
-<h1>Delete</h1>
-<h4>Are you sure you want to delete this property?</h4>
+<div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
+  <h1>Delete</h1>
+  <h4>Are you sure you want to delete this property?</h4>
 
-<hr />
-<div *ngIf="buy">
-  <div hidden>
-    <label >Property Id: </label>
-    <span>{{buy.BuyId}}</span>
-  </div>
-  <div>
+  <hr />
+  <div *ngIf="buy">
+    <div hidden>
+      <label>Property Id: </label>
+      <span>{{buy.BuyId}}</span>
+    </div>
+    <div>
       <label for="">Date Available: </label>
       <span>{{buy.DateAvail}}</span>
-  </div>
-  <div>
+    </div>
+    <div>
       <label for="">Price: $ </label>
       <span>{{buy.Price}}</span>
-  </div>
-  <div>
+    </div>
+    <div>
       <label for="">Description: </label>
       <span>{{buy.Description}}</span>
+    </div>
   </div>
-</div>
 
-<button mat-button color="warn" (click)="onDelete()" routerLink="/ForSale/Admin/List">Delete</button> |
-<button mat-button color="primary" routerLink="/ForSale/Admin/List">Back to List</button>
-<br>
+  <button mat-button color="warn" (click)="onDelete()" routerLink="/ForSale/Admin/List">Delete</button> |
+  <button mat-button color="primary" routerLink="/ForSale/Admin/List">Back to List</button>
+  <br>
+</div>
+<div *ngIf="this.authService.isLoggedIn && !this.authService.isAdmin">
+    <h3>Unauthorized Page</h3>
+    <hr>
+    <p>You Are Not Authroized To View This Page.</p>
+</div>
+<div *ngIf="!this.authService.isLoggedIn">
+    <h3>Unauthorized Page</h3>
+    <hr>
+    <p>Please <a routerLink="/Login">Login</a> To View This Page!</p>
+</div>

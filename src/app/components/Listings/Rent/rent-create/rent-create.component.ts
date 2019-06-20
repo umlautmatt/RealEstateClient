@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MainPropService } from '../../../../Services/main-prop.service';
 import { MainProp } from 'src/app/Models/MainProp';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 
 @Component({
@@ -29,6 +31,7 @@ export class RentCreateComponent implements OnInit {
 
   constructor(
     private _rentService: RentService, 
+    public authService: AuthService,
     private _rent: FormBuilder, 
     private _router: Router, 
     private _mainPropService: MainPropService ) {

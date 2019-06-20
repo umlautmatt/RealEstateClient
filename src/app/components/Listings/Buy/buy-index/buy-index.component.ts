@@ -5,6 +5,7 @@ import { Buy } from '../../../../Models/Buy';
 
 import { MatDialog } from '@angular/material';
 import { BuyDetailsComponent } from '../buy-details/buy-details.component';
+import { AuthService } from '../../../../Services/auth.service';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class BuyIndexComponent implements OnInit {
 
   constructor(
     private _buyService: BuyService, 
+    public authService: AuthService,
     public dialog: MatDialog) { }
 
 

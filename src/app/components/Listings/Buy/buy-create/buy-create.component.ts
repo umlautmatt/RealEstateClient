@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { MainProp } from '../../../../Models/MainProp'
 import { take } from 'rxjs/operators';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 @Component({
   selector: 'app-buy-create',
@@ -24,6 +26,7 @@ DateAvail: any;
     private _buyService: BuyService,
     private _mainPropService: MainPropService,
     private _form: FormBuilder,
+    public authService: AuthService,
     private _router: Router) 
     { this.createForm();
     }
