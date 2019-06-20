@@ -5,12 +5,16 @@
     <button mat-raised-button class="nav-btn" routerLink="/Register">Register</button>
     <button mat-raised-button class="nav-btn" routerLink="/Login">Login</button>
   </div>
-  <div>
-    <button *ngIf="isAdmin" mat-raised-button class="nav-btn" routerLink="/MainProp">Properties</button>
+  <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
+    <button mat-raised-button class="nav-btn" routerLink="/MainProp">Properties</button>
+    <button mat-raised-button class="nav-btn" routerLink="/ForSale/Admin/List">Sales</button>
+    <button mat-raised-button class="nav-btn" routerLink="/ForRent/Admin/List">Rentals</button>
+    <button mat-raised-button class="nav-btn" routerLink="/Logout" (click)="logOut()">Logout</button>
   </div>
-  <div *ngIf="this.authService.isLoggedIn">
+  <div *ngIf="this.authService.isLoggedIn && !this.authService.isAdmin">
     <button mat-raised-button class="nav-btn" routerLink="/ForSale">Sales</button>
     <button mat-raised-button class="nav-btn" routerLink="/ForRent">Rentals</button>
     <button mat-raised-button class="nav-btn" routerLink="/Logout" (click)="logOut()">Logout</button>
-  </div> 
+  </div>
+
 </mat-toolbar>
