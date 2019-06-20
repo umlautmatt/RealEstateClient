@@ -35,8 +35,7 @@ export class AuthService {
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn = true;
       this.currentUser();
-      this.adminUser();
-      this._router.navigate(['/Home']); 
+      this._router.navigate(['/Home']);
     });
   }
 
@@ -44,23 +43,35 @@ export class AuthService {
     this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: this.setHeader() }).subscribe((userRole: UserInfo) => {
       localStorage.setItem('role', userRole.Role);
       console.log(localStorage.getItem('role'));
+      this.adminUser();
+
     })
   }
-  
-  adminUser(){
-    if (localStorage.getItem('role') == 'Admin'){
+
+  adminUser() {
+    if (localStorage.getItem('role') == 'Admin') {
       console.log(localStorage.getItem('role'));
       this.isAdmin = true;
-    } else { this.isAdmin = false; }
+    }
+    else {
+      this.isAdmin = false;
+    }
     console.log(this.isAdmin);
   }
-  
+
   logout() {
     localStorage.clear();
     this.isLoggedIn = false;
 
     this._http.post(`${APIURL}/api/Account/Logout`, { headers: this.setHeader() });
-    this._router.navigate(['/Login']);
+    this._router.navigate(['/Home']);
+    //this.refreshPage();
+
+
+  }
+
+  refreshPage() {
+    window.location.reload();
   }
 
   private setHeader(): HttpHeaders {
