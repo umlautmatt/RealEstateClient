@@ -5,7 +5,7 @@
 
   <div *ngIf="rent">
 
-    <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="editRentForm">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="editRentForm">
       <div>
         <h3>Rental Property attributes below</h3>
 
@@ -20,7 +20,9 @@
 
         <div>
           <mat-form-field class="example-full-width">
-            <input matInput [matDatepicker]="picker" placeholder="Date Available" [value]="DateAvailable" required />
+
+            <input matInput [matDatepicker]="picker" placeholder="Date Available" [value]="DateAvailable"
+              formControlName="DateAvailable" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker touchUi #picker></mat-datepicker>
           </mat-form-field>
