@@ -2,7 +2,7 @@
 <hr>
 <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
   <div *ngIf="buy">
-    <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="editForm">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="editForm">
       <div>
         <div>
           <mat-form-field class="example-full-width">

@@ -9,18 +9,18 @@
       <div>
         <h3>Rental Property attributes below</h3>
 
-        <div hidden>
+        <!-- <div hidden>
           <mat-form-field>
             <input matInput placeholder="RentId" formControlName="RentId" type="RentId" required
               [value]="rent.RentId" />
           </mat-form-field>
-        </div>
+        </div> -->
 
 
 
         <div>
           <mat-form-field class="example-full-width">
-            <input matInput [matDatepicker]="picker" placeholder="Date Available" [value]="DateAvailable" required />
+            <input matInput [matDatepicker]="picker" placeholder="Date Available" [value]="DateAvailable" formControlName="DateAvailable" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker touchUi #picker></mat-datepicker>
           </mat-form-field>

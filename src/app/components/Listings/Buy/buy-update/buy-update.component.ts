@@ -6,16 +6,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../../Services/auth.service';
 
 
-
-
 @Component({
   selector: 'app-buy-update',
   templateUrl: './buy-update.component.html',
   styleUrls: ['./buy-update.component.css']
 })
+
 export class BuyUpdateComponent implements OnInit {
 
   isActive: boolean = true
+  buy: Buy;
+  editForm: FormGroup;
+  date: Date
+
   get isActiveBool(){
     return this.isActive == true
   }
@@ -23,8 +26,7 @@ export class BuyUpdateComponent implements OnInit {
     this.isActive = newValue ? true : false
   }
 
-  buy: Buy;
-  editForm: FormGroup;
+
 
   constructor(private _form: FormBuilder,
     public authService: AuthService,
