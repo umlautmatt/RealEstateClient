@@ -5,6 +5,8 @@ import { fromEventPattern } from 'rxjs';
 import { RentProp } from '../../../../Models/RentProp';
 import { RentService } from '../../../../Services/rent.service';
 import { Rent } from 'src/app/Models/Rent';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 @Component({
   selector: 'app-rent-update',
@@ -26,6 +28,7 @@ export class RentUpdateComponent implements OnInit {
   editRentForm: FormGroup;
 
   constructor(private _form: FormBuilder,
+    public authService: AuthService,
               private _rentService: RentService,
               private _ar: ActivatedRoute,
               private _router: Router) {

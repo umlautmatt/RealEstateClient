@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RentService } from 'src/app/Services/rent.service';
 import { RentProp } from 'src/app/Models/RentProp';
 import { MatTableDataSource } from '@angular/material';
+import { AuthService } from '../../../../Services/auth.service';
+
 
 @Component({
   selector: 'app-rent-index-admin',
@@ -13,7 +15,7 @@ export class RentIndexAdminComponent implements OnInit {
   columnNames = ['details', 'RentId', 'DateAvailable', 'PricePerMonth', 'Description', 'UtilitiesIncluded', 'PetsAllowed', 'IsRentFavorite', 'RealEstatePropertyId', 'buttons']
   dataSource: MatTableDataSource<RentProp>
 
-  constructor(private rentService: RentService) { }
+  constructor(private rentService: RentService, public authService: AuthService) { }
 
   ngOnInit() {
     this.rentService.getRents().subscribe(

@@ -1,57 +1,73 @@
-<h1>Properties</h1>
-<div id="buttonRow">
-  <a mat-raised-button color="primary" class="nav-btn" routerLink="/MainProp/Create">Create Property</a>
+<div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
+  <h1>Properties</h1>
 
   <a mat-raised-button color="primary" class="nav-btn" routerLink="/ForSale/Admin/List">For Sale</a>
   <a mat-raised-button color="primary" class="nav-btn" routerLink="/ForRent/Admin/List">For Rent</a>
 
-</div>
-<br>
-<hr />
+  <div id="buttonRow">
+    <a mat-raised-button color="primary" class="nav-btn" routerLink="/MainProp/Create">Create Property</a>
 
-<div>
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
+    <a mat-raised-button color="primary" class="nav-btn" routerLink="/ForSale/Admin/List">For Sale</a>
+    <a mat-raised-button color="primary" class="nav-btn" routerLink="/ForRent">For Rent</a>
 
-  <mat-table #table [dataSource]="dataSource" id="tableContent">
-    <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+  </div>
+  <br>
+  <hr />
 
-    <ng-container matColumnDef="details">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-      <mat-cell *matCellDef="let mainProp">
-        <i class="material-icons" routerLink="/MainProp/Detail/{{mainProp.RealEstatePropertyId}}">library_books</i>
-      </mat-cell>
-    </ng-container>
+  <div>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
 
-    <ng-container matColumnDef="RealEstatePropertyName">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstatePropertyName}} </mat-cell>
-    </ng-container>
+    <mat-table #table [dataSource]="dataSource" id="tableContent">
+      <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
-    <ng-container matColumnDef="RealEstateAddress">
-      <mat-header-cell *matHeaderCellDef> RealEstateAddress </mat-header-cell>
-      <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstateAddress}} </mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+        <mat-cell *matCellDef="let mainProp">
+          <i class="material-icons" routerLink="/MainProp/Detail/{{mainProp.RealEstatePropertyId}}">library_books</i>
+        </mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="RealEstateState">
-      <mat-header-cell *matHeaderCellDef> State </mat-header-cell>
-      <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstateState}} </mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="RealEstatePropertyName">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstatePropertyName}} </mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="Image">
+      <ng-container matColumnDef="RealEstateAddress">
+        <mat-header-cell *matHeaderCellDef> RealEstateAddress </mat-header-cell>
+        <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstateAddress}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="RealEstateState">
+        <mat-header-cell *matHeaderCellDef> State </mat-header-cell>
+        <mat-cell *matCellDef="let mainProp"> {{mainProp.RealEstateState}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Image">
         <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
         <mat-cell *matCellDef="let mainProp"> <img src="{{mainProp.ImageLink}}" width="25" height="25"> </mat-cell>
       </ng-container>
 
-    <ng-container matColumnDef="buttons">
-      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-      <mat-cell *matCellDef="let mainProp">
-        <i mat-icon class="material-icons" routerLink="/MainProp/Update/{{mainProp.RealEstatePropertyId}}">edit</i>
-        <i class="material-icons" routerLink="/MainProp/Delete/{{mainProp.RealEstatePropertyId}}">delete</i>
-      </mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="buttons">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let mainProp">
+          <i mat-icon class="material-icons" routerLink="/MainProp/Update/{{mainProp.RealEstatePropertyId}}">edit</i>
+          <i class="material-icons" routerLink="/MainProp/Delete/{{mainProp.RealEstatePropertyId}}">delete</i>
+        </mat-cell>
+      </ng-container>
 
-  </mat-table>
+    </mat-table>
+  </div>
+</div>
+<div *ngIf="this.authService.isLoggedIn && !this.authService.isAdmin">
+  <h3>Unauthorized Page</h3>
+  <hr>
+  <p>You Are Not Authroized To View This Page.</p>
+</div>
+<div *ngIf="!this.authService.isLoggedIn">
+  <h3>Unauthorized Page</h3>
+  <hr>
+  <p>Please <a routerLink="/Login">Login</a> To View This Page!</p>
 </div>

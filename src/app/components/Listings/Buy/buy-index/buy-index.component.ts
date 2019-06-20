@@ -5,6 +5,7 @@ import { Buy } from '../../../../Models/Buy';
 import { MainProp } from '../../../../Models/MainProp';
 import { MatDialog } from '@angular/material';
 import { BuyDetailsComponent } from '../buy-details/buy-details.component';
+import { AuthService } from '../../../../Services/auth.service';
 
 @Component({
   selector: 'app-buy-index',
@@ -19,6 +20,7 @@ export class BuyIndexComponent implements OnInit {
 
   constructor(
     private _buyService: BuyService, 
+    public authService: AuthService,
     public dialog: MatDialog) { }
 
   getBuyProps() {
