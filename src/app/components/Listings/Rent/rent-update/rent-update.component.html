@@ -5,7 +5,7 @@
 
   <div *ngIf="rent">
 
-    <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="editRentForm">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="editRentForm">
       <div>
         <h3>Rental Property attributes below</h3>
 
