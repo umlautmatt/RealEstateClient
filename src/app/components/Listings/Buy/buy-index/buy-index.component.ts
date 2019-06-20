@@ -2,24 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { BuyService } from '../../../../Services/buy.service';
 import { MainPropService } from '../../../../Services/main-prop.service'
 import { Buy } from '../../../../Models/Buy';
-import { MainProp } from '../../../../Models/MainProp';
+
 import { MatDialog } from '@angular/material';
 import { BuyDetailsComponent } from '../buy-details/buy-details.component';
+
 
 @Component({
   selector: 'app-buy-index',
   templateUrl: './buy-index.component.html',
   styleUrls: ['./buy-index.component.css']
 })
+
+
 export class BuyIndexComponent implements OnInit {
   saveToList: boolean;
   _buyProps;
   buy : Buy[];
-  //active;
+
 
   constructor(
     private _buyService: BuyService, 
     public dialog: MatDialog) { }
+
 
   getBuyProps() {
     this._buyService.getAllBuyProps()
