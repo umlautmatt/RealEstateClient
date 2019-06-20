@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../Services/auth.service';
 import { Subject } from 'rxjs';
+import { RouteConfigLoadEnd } from '@angular/router';
+import { window } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',

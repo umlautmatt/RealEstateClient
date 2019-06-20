@@ -3,7 +3,6 @@ import { RegisterUser } from '../Models/RegisterUser';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Token } from '../Models/Token';
 import { Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
 import { APIURL } from '../../environments/environment.prod';
 import { UserInfo } from '../Models/UserInfo';
 
@@ -46,21 +45,31 @@ export class AuthService {
       this.adminUser();
     })
   }
-  
-  adminUser(){
-    if (localStorage.getItem('role') == 'Admin'){
+
+  adminUser() {
+    if (localStorage.getItem('role') == 'Admin') {
       console.log(localStorage.getItem('role'));
       this.isAdmin = true;
-    } else { this.isAdmin = false; }
+    }
+    else {
+      this.isAdmin = false;
+    }
     console.log(this.isAdmin);
   }
-  
+
   logout() {
     localStorage.clear();
     this.isLoggedIn = false;
 
     this._http.post(`${APIURL}/api/Account/Logout`, { headers: this.setHeader() });
-    this._router.navigate(['/Login']);
+    this._router.navigate(['/Home']);
+    //this.refreshPage();
+
+
+  }
+
+  refreshPage() {
+    window.location.reload();
   }
 
   private setHeader(): HttpHeaders {
