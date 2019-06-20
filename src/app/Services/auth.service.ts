@@ -17,7 +17,7 @@ export class AuthService {
   userInfo: Token;
   isLoggedIn: boolean;
   public isAdmin: boolean;
-  public role: string;
+  public role: UserInfo;
   constructor(private _http: HttpClient, private _router: Router) { }
 
   register(regUserData: RegisterUser) {
@@ -30,6 +30,7 @@ export class AuthService {
       `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
 
     return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
+      
       console.log(token);
       this.userInfo = token;
       localStorage.setItem('id_token', token.access_token);
