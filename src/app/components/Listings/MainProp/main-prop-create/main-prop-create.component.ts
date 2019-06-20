@@ -2,6 +2,7 @@ import { Component, OnInit, NgModule, Input } from '@angular/core';
 import { MainPropService } from '../../../../Services/main-prop.service';
 import { FormBuilder, FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../../Services/auth.service';
 
 export interface PropType {
   value: string;
