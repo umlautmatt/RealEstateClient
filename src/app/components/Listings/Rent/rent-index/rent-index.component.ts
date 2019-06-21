@@ -42,7 +42,7 @@ export class RentIndexComponent implements OnInit {
         width: '600px', height: '800px',
         data: { name : item.RealEstatePropertyName,
                 propType: item.PropertyType,
-                dateavailable: item.DateAvailable,
+                dateAvailable: item.DateAvailable,
                 pricePerMonth: item.PricePerMonth,
                 description: item.Description,
                 pic: item.ImageLink,
