@@ -12,12 +12,14 @@ import { window } from 'rxjs/operators';
 
 export class HeaderComponent implements OnInit {
 
-  userRole: boolean;
+
 
   constructor(public authService: AuthService) {
    }
 
+
   ngOnInit() { 
+
    }
 
   logOut() {

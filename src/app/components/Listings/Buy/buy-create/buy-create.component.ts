@@ -15,8 +15,8 @@ import { AuthService } from '../../../../Services/auth.service';
   styleUrls: ['./buy-create.component.css']
 })
 export class BuyCreateComponent implements OnInit {
-DateAvail: any;
 
+  DateAvail: any;
   buyPropForm: FormGroup;
   mainprop: MainProp[];
   date: Date;

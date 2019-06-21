@@ -15,7 +15,9 @@ import { AuthService } from '../../../../Services/auth.service';
 })
 export class RentUpdateComponent implements OnInit {
 
-  isActive: boolean = true
+  DateAvailable: any;
+  isActive: boolean = true;
+  
   get isActiveBool(){
     return this.isActive == true
   }
