@@ -1,3 +1,6 @@
+
+  /* Here down is older */
+
 .main-div {
     text-align: center;
 }
@@ -25,13 +28,13 @@
         color: #cccccc;
     }
 
-.buttonRow {
+/* .buttonRow {
     margin-bottom: 0.5em;
-}
+} */
 
-.material-icons {
+/* .material-icons {
     color: #595959;
-}
-    .material-icons:hover {
+} */
+    /* .material-icons:hover {
         color: black;
-    }
+    } */
