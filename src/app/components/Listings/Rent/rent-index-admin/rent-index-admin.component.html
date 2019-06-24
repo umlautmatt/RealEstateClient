@@ -1,10 +1,11 @@
 <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
-
-  <h2>Properties Up For Rent</h2>
+  <h2>Properties For Rent</h2>
   <a mat-raised-button color="primary" routerLink="/ForRent/Create" class="nav-btn">Create New</a>
   <a mat-raised-button color="primary" routerLink="/ForRent" class="nav-btn">User View</a>
   <br>
-  <hr><br>
+  <br>
+  <hr>
+  
   <div>
     <mat-table #table [dataSource]="dataSource">
       <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
@@ -12,66 +13,52 @@
 
       <ng-container matColumnDef="details">
         <mat-header-cell *matHeaderCellDef Class="matColumnSize"></mat-header-cell>
-        <mat-cell *matCellDef="let rent">
-          <i class="material-icons" routerLink="/ForRent/Admin/Details/{{rent.RentId}}"> library_books</i></mat-cell>
+        <mat-cell  *matCellDef="let rent">
+          <i class="material-icons" id="cell-data" routerLink="/ForRent/Admin/Details/{{rent.RentId}}"> library_books</i></mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="RentId">
-        <mat-header-cell *matHeaderCellDef> Rent ID </mat-header-cell>
-        <mat-cell *matCellDef="let rent"> {{rent.RentId}} </mat-cell>
+      <ng-container matColumnDef="Property Name">
+        <mat-header-cell *matHeaderCellDef> Property Name </mat-header-cell>
+        <mat-cell *matCellDef="let rent"> {{rent.RealEstatePropertyName}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="DateAvailable">
+      <ng-container matColumnDef="Property Type">
+          <mat-header-cell *matHeaderCellDef> Property Type</mat-header-cell>
+          <mat-cell id="cell-data" *matCellDef="let rent"> {{rent.PropertyType}} </mat-cell>
+        </ng-container>
+
+      <ng-container matColumnDef="Date Available">
         <mat-header-cell *matHeaderCellDef> Date Available </mat-header-cell>
-        <mat-cell *matCellDef="let rent"> {{rent.DateAvailable}} </mat-cell>
+        <mat-cell  *matCellDef="let rent"> {{rent.DateAvailable | date:'d MMMM y'}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="PricePerMonth">
+      <ng-container matColumnDef="Price Per Month">
         <mat-header-cell *matHeaderCellDef> Price Per Month </mat-header-cell>
-        <mat-cell *matCellDef="let rent"> {{rent.PricePerMonth}} </mat-cell>
+        <mat-cell id="cell-data" *matCellDef="let rent"> {{rent.PricePerMonth}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="Description">
+      <!-- <ng-container hidden matColumnDef="Description">
         <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
         <mat-cell *matCellDef="let rent"> {{rent.Description}} </mat-cell>
-      </ng-container>
+      </ng-container> -->
 
-      <ng-container matColumnDef="UtilitiesIncluded">
+      <ng-container matColumnDef="Utilities Included">
         <mat-header-cell *matHeaderCellDef> Utilities Included </mat-header-cell>
-        <mat-cell *matCellDef="let rent"> {{rent.UtilitiesIncluded}} </mat-cell>
+        <mat-cell id="cell-data" *matCellDef="let rent"> {{rent.UtilitiesIncluded}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="PetsAllowed">
+      <ng-container matColumnDef="Pets Allowed">
         <mat-header-cell *matHeaderCellDef> PetsAllowed </mat-header-cell>
-        <mat-cell *matCellDef="let rent"> {{rent.PetsAllowed}} </mat-cell>
+        <mat-cell id="cell-data" *matCellDef="let rent"> {{rent.PetsAllowed}} </mat-cell>
       </ng-container>
-
-      <ng-container matColumnDef="IsRentFavorite">
-        <mat-header-cell *matHeaderCellDef> Is Rent Favorite </mat-header-cell>
-        <mat-cell *matCellDef="let rent"> {{rent.IsRentFavorite}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="RealEstatePropertyId">
-        <mat-header-cell *matHeaderCellDef> Real Estate Property ID </mat-header-cell>
-        <mat-cell *matCellDef="let rent"> {{rent.RealEstatePropertyId}} </mat-cell>
-      </ng-container>
-
 
       <ng-container matColumnDef="buttons">
         <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-        <mat-cell *matCellDef="let rent">
+        <mat-cell id="cell-data" *matCellDef="let rent">
           <i mat-icon class="material-icons" routerLink="/ForRent/Update/{{rent.RentId}}">edit</i>
           <i class="material-icons" routerLink="/ForRent/Delete/{{rent.RentId}}">delete</i>
         </mat-cell>
       </ng-container>
-
-      <!-- <ng-container matColumnDef="details">
-    <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-    <mat-cell *matCellDef="lef rent" routerLink="rent-details/{rent.RentId}}">
-      <i class="material-icons">library_books</i>
-    </mat-cell>
-  </ng-container> -->
-
     </mat-table>
   </div>
 

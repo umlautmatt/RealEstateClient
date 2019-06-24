@@ -3,7 +3,6 @@ import { RegisterUser } from '../Models/RegisterUser';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Token } from '../Models/Token';
 import { Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
 import { APIURL } from '../../environments/environment.prod';
 import { UserInfo } from '../Models/UserInfo';
 
@@ -14,7 +13,7 @@ import { UserInfo } from '../Models/UserInfo';
   providedIn: 'root'
 })
 export class AuthService {
-  userInfo: Token;
+  userInfo: any;
   isLoggedIn: boolean;
   public isAdmin: boolean;
   public role: UserInfo;
@@ -30,34 +29,28 @@ export class AuthService {
       `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
 
     return this._http.post(`${APIURL}/token`, str).subscribe((token: Token) => {
-      
-      console.log(token);
       this.userInfo = token;
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn = true;
       this.currentUser();
-      this._router.navigate(['/Home']);
+      this._router.navigate(['/Home']); 
     });
   }
-
+  
   currentUser() {
     this._http.get(`${APIURL}/api/Account/UserInfo`, { headers: this.setHeader() }).subscribe((userRole: UserInfo) => {
       localStorage.setItem('role', userRole.Role);
-      console.log(localStorage.getItem('role'));
       this.adminUser();
-
     })
   }
 
   adminUser() {
     if (localStorage.getItem('role') == 'Admin') {
-      console.log(localStorage.getItem('role'));
       this.isAdmin = true;
     }
     else {
       this.isAdmin = false;
     }
-    console.log(this.isAdmin);
   }
 
   logout() {
@@ -66,9 +59,6 @@ export class AuthService {
 
     this._http.post(`${APIURL}/api/Account/Logout`, { headers: this.setHeader() });
     this._router.navigate(['/Home']);
-    //this.refreshPage();
-
-
   }
 
   refreshPage() {
@@ -78,6 +68,5 @@ export class AuthService {
   private setHeader(): HttpHeaders {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
-
 
 }

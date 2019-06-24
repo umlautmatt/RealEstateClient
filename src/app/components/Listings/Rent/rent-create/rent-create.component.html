@@ -58,7 +58,7 @@
     <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Rental Property</button>
   </form>
 
-  <a mat-button routerLink="/ForRent">Back to List</a>
+  <a mat-button routerLink="/ForRent/Admin/List">Back to List</a>
 </div>
 <div *ngIf="this.authService.isLoggedIn && !this.authService.isAdmin">
   <h3>Unauthorized Page</h3>

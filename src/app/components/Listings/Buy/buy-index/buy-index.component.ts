@@ -31,7 +31,6 @@ export class BuyIndexComponent implements OnInit {
     this._buyService.getAllBuyProps()
       .subscribe(data => {
         this._buyProps = data
-        console.log(data)
       })
   }
 
