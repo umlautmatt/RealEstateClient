@@ -1,6 +1,6 @@
 <div *ngIf="this.authService.isLoggedIn">
   <div class="main-div">
-    <h2>Properties Up For Rent</h2>
+    <h2>Properties For Rent</h2>
     <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
       <a mat-raised-button color="primary" routerLink="/ForRent/Create" class="nav-btn">Create New</a>
       <a mat-raised-button color="primary" routerLink="/ForRent/Admin/List" class="nav-btn">Admin View</a>
