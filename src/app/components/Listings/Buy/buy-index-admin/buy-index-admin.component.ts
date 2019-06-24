@@ -12,7 +12,7 @@ import { AuthService } from '../../../../Services/auth.service';
 })
 export class BuyIndexAdminComponent implements OnInit {
 
-  columnNames = ['details', 'BuyId', 'RealEstatePropertyName', 'PropertyType', 'DateAvail', 'Price', 'buttons']
+  columnNames = ['details', 'Property Name', 'Property Type', 'Date Available', 'Price', 'buttons']
   dataSource: MatTableDataSource<Buy>
   
   constructor(private buyService: BuyService, public authService: AuthService) { }

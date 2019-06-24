@@ -12,7 +12,7 @@ import { AuthService } from '../../../../Services/auth.service';
 })
 export class RentIndexAdminComponent implements OnInit {
 
-  columnNames = ['details', 'RentId', 'DateAvailable', 'PricePerMonth', 'Description', 'UtilitiesIncluded', 'PetsAllowed', 'IsRentFavorite', 'RealEstatePropertyId', 'buttons']
+  columnNames = ['details', 'Property Name', 'Property Type', 'Date Available', 'Price Per Month', 'Utilities Included', 'Pets Allowed', 'buttons']
   dataSource: MatTableDataSource<RentProp>
 
   constructor(private rentService: RentService, public authService: AuthService) { }
