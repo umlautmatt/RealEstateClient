@@ -16,7 +16,7 @@
       <h3>Enter the For Sale Property attributes below</h3>
       <div>
         <mat-form-field class="example-full-width">
-          <input matInput [matDatepicker]="picker" placeholder="Date Available" [value]="DateAvail" required>
+          <input matInput [matDatepicker]="picker" placeholder="Date Available" [value]="DateAvail" formControlName="DateAvail" required>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker touchUi #picker></mat-datepicker>
         </mat-form-field>
