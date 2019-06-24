@@ -19,3 +19,30 @@
     #regNewUser a:hover {
         color: black;
     }
+
+    .backImage{
+        width: 100%;
+        min-height:100vh;
+        background-image: url("http://www.i-biz.co.il/wp-content/uploads/2015/10/nadlan-master-facebook-cover.jpg");
+        background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-size: 20px;
+    }
+    #buffer{
+        margin: 0 0 15px 0
+    }
+    .containerBaby{
+        text-align: center;
+    }
+    .boxBaby{
+    display: inline-block;
+    padding: 20px;
+    align-content: center;
+    background-color: #ffffffe3;
+    width: 20vw;
+    height: 40vh;
+    margin: 12px;
+    border-radius: 15px;
+    box-shadow: 5px 10px 10px #888888;
+    }

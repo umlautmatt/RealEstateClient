@@ -1,25 +1,34 @@
-<h1>Login</h1>
-<h4>Use a local account to login</h4>
-<hr>
+<div class="backImage">
+  <br />
+  <br />
+  <div class="containerBaby">
 
-<form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-  <div>
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Email" formControlName="email" type="email" required />
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Password" formControlName="password" type="password" required />
-      </mat-form-field>
+    <div class="boxBaby">
+      <h1 id="buffer">Login</h1>
+      <h4>Use a local account to login</h4>
+      <hr>
+      
+      <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+        <div>
+          <div>
+            <mat-form-field>
+              <input matInput placeholder="Email" formControlName="email" type="email" required />
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input matInput placeholder="Password" formControlName="password" type="password" required />
+            </mat-form-field>
+          </div>
+        </div>
+        <button mat-raised-button class="nav-btn" color="primary" type="submit">Login</button>
+      </form>
+      <br>
+      
+      <div id="regNewUser">
+        Or <a routerLink="/Register"><b>Register as a New User</b></a>
+      </div>
     </div>
   </div>
-  <button mat-raised-button class="nav-btn" color="primary" type="submit">Login</button>
-</form>
-<br>
-
-<div id="regNewUser">
-  Or <a routerLink="/Register"><b>Register as a New User</b></a>
 </div>
 
