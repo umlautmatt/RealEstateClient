@@ -13,3 +13,9 @@
     align-items: center;
     margin-left: 3em;
 }
+.indexBox{
+    width: 98vw;
+    margin: 12px;
+    border: solid 1px #888888;
+    box-shadow: 5px 10px 10px #888888;
+  }
