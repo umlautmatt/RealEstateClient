@@ -1,7 +1,10 @@
 <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
   <h2>Properties For Rent</h2>
-  <a mat-raised-button color="primary" routerLink="/ForRent/Create" class="nav-btn">Create New</a>
-  <a mat-raised-button color="primary" routerLink="/ForRent" class="nav-btn">User View</a>
+  <div id="buttonRow">
+
+    <a mat-raised-button color="primary" routerLink="/ForRent/Create" class="nav-btn">Create New</a>
+    <a mat-raised-button color="primary" routerLink="/ForRent" class="nav-btn">User View</a>
+  </div>
   <br>
   <br>
   <hr>
