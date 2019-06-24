@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'Home', component: HomeComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'Register', component: RegisterComponent},
-  //{path: '**', component: HomeComponent},
+  {path: '', component: HomeComponent},
 
   {path: 'ForSale',  children: [
     {path: '', component: BuyIndexComponent},
