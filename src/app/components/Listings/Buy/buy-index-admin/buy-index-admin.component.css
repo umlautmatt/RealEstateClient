@@ -1,0 +1,15 @@
+.nav-btn {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    color: white;
+}
+
+#cell-data {
+    align-items: center;
+    margin-left: 4em;
+}
+
+#header-cell {
+    align-items: center;
+    margin-left: 3em;
+}

@@ -31,7 +31,6 @@ export class RentIndexComponent implements OnInit {
     this._rentService.getRents()
       .subscribe(data => {
         this._rentProps = data
-        console.log(data)
       })
   }
 

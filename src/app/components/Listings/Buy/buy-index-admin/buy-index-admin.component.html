@@ -1,50 +1,51 @@
 <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
-  <br>
-  <br>
-  <a mat-raised-button color="primary" routerLink="/ForSale/Create">Create New</a>
+  <h2>Properties For Sale</h2>
+  <a mat-raised-button color="primary" routerLink="/ForSale/Create" class="nav-btn">Create New</a>
   <a mat-raised-button color="primary" routerLink="/ForSale" class="nav-btn">User View</a>
   <br>
   <br>
+  <hr>
+
   <div>
     <mat-table #table [dataSource]="dataSource">
       <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
       <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
-      <ng-container matColumnDef="details">
-        <mat-header-cell *matHeaderCellDef Class="mat ColumnSize"></mat-header-cell>
-        <mat-cell *matCellDef="let buy">
-          <i class="material-icons" routerLink="/ForSale/Admin/Details/{{buy.BuyId}}">library_books</i>
+      <ng-container  matColumnDef="details">
+        <mat-header-cell id="header-cell" *matHeaderCellDef Class="mat ColumnSize"></mat-header-cell>
+        <mat-cell  *matCellDef="let buy">
+          <i class="material-icons" id="cell-data" routerLink="/ForSale/Admin/Details/{{buy.BuyId}}">library_books</i>
         </mat-cell>
       </ng-container>
 
-      <ng-container hidden matColumnDef="BuyId">
+      <!-- <ng-container hidden matColumnDef="BuyId">
         <mat-header-cell *matHeaderCellDef> Buy ID </mat-header-cell>
         <mat-cell *matCellDef="let buy"> {{buy.BuyId}} </mat-cell>
+      </ng-container> -->
+
+      <ng-container matColumnDef="Property Name">
+        <mat-header-cell *matHeaderCellDef> Property Name</mat-header-cell>
+        <mat-cell id="cell-data" *matCellDef="let buy"> {{buy.RealEstatePropertyName}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="RealEstatePropertyName">
-        <mat-header-cell *matHeaderCellDef> Real Estate Property Name</mat-header-cell>
-        <mat-cell *matCellDef="let buy"> {{buy.RealEstatePropertyName}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="PropertyType">
+      <ng-container matColumnDef="Property Type">
         <mat-header-cell *matHeaderCellDef> Property Type</mat-header-cell>
-        <mat-cell *matCellDef="let buy"> {{buy.PropertyType}} </mat-cell>
+        <mat-cell id="cell-data" *matCellDef="let buy"> {{buy.PropertyType}} </mat-cell>
       </ng-container>
 
-      <ng-container hidden matColumnDef="DateAvail">
+      <ng-container matColumnDef="Date Available">
         <mat-header-cell *matHeaderCellDef> Date Available </mat-header-cell>
-        <mat-cell *matCellDef="let buy"> {{buy.DateAvail}} </mat-cell>
+        <mat-cell *matCellDef="let buy"> {{buy.DateAvail | date:'d MMMM y'}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="Price">
         <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-        <mat-cell *matCellDef="let buy"> {{buy.Price}} </mat-cell>
+        <mat-cell *matCellDef="let buy"> ${{buy.Price}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="buttons">
         <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-        <mat-cell *matCellDef="let buy">
+        <mat-cell id="cell-data" *matCellDef="let buy">
           <i mat-icon class="material-icons" routerLink="/ForSale/Update/{{buy.BuyId}}">edit</i>
           <i class="material-icons" routerLink="/ForSale/Delete/{{buy.BuyId}}">delete</i>
         </mat-cell>

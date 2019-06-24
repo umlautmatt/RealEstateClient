@@ -1,5 +1,5 @@
 <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
-  <h1>Edit a Property.</h1>
+  <h1>Edit Property</h1>
   <hr />
   <div *ngIf="mainProp">
 
@@ -89,10 +89,14 @@
           </mat-checkbox>
         </div>
       </div>
+      <br>
       <button mat-raised-button class="nav-btn" color="primary" type="submit">Save</button>
+    <br>
     </form>
   </div>
   <a mat-button routerLink="/MainProp">Back to List</a>
+  <br>
+  <br>
 </div>
 <div *ngIf="this.authService.isLoggedIn && !this.authService.isAdmin">
   <h3>Unauthorized Page</h3>
