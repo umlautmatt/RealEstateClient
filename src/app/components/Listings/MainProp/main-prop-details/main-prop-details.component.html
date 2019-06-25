@@ -4,16 +4,15 @@
     <hr />
 
     <div *ngIf="mainProp">
-        <div>
+        <div hidden>
             <label for="">Property Id: </label>
             <span>{{mainProp.RealEstatePropertyId}}</span>
         </div>
         <div>
-            <label for="">Property Name: </label>
-            <span>{{mainProp.RealEstatePropertyName}}</span>
+            <span><h2>{{mainProp.RealEstatePropertyName}}</h2></span>
         </div>
         <div>
-            <label for="">Image: </label><br>
+            <!-- <label for="">Image: </label><br> -->
             <span><img src={{mainProp.ImageLink}} width=450 height=350></span>
         </div>
         <div>
@@ -25,21 +24,12 @@
             <span>{{mainProp.RealEstateAddress }}</span>
         </div>
         <div>
-            <label for="">City: </label>
-            <span>{{mainProp.RealEstateCity }}</span>
-        </div>
-        <div>
-            <label for="">State: </label>
-            <span>{{mainProp.RealEstateState }}</span>
-        </div>
-        <div>
-            <label for="">Zip Code: </label>
-            <span>{{mainProp.RealEstateZip }}</span>
-        </div>
-        <div>
+            <span>{{mainProp.RealEstateCity }}, {{mainProp.RealEstateState }}  {{mainProp.RealEstateZip }}</span>
+
+        <!-- <div *ngFor="let type of propertyTypes" [value]="type.value">
             <label for="">Property Type: </label>
-            <span>{{mainProp.PropertyType }}</span>
-        </div>
+            <span>{{mainProp.type.viewValue }}</span>
+        </div> -->
         <div>
             <label for="">Bedroom: </label>
             <span>{{mainProp.Bedroom }}</span>
@@ -60,8 +50,12 @@
             <label for="">Pool: </label>
             <span>{{mainProp.HasPool }}</span>
         </div>
-
+        <div *ngFor="let type of propertyTypes">
+            <label for="">Property Type: </label>
+            <span>{{type.viewValue }}</span>
+        </div>
     </div>
+
 
     <button mat-button color="accent" routerLink="/MainProp/Update/{{mainProp.RealEstatePropertyId}}">Edit</button> |
     <button mat-button color="primary" routerLink="/MainProp">Back to List</button>

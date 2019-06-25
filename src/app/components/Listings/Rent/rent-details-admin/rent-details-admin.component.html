@@ -1,16 +1,13 @@
 <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
+
   <div *ngIf="rent">
     <div hidden>
-      <label for="">Property Id: </label>
-      &nbsp;
       <span>{{rent.RealEstatePropertyId}}</span>
     </div>
     <div>
-      <label for="">Property Name: </label>
-      <span>{{rent.RealEstatePropertyName}}</span>
+      <span><h2>{{rent.RealEstatePropertyName}}</h2></span>
     </div>
     <div>
-      <label for="">Image: </label><br>
       <span><img src={{rent.ImageLink}} width=450 height=350></span>
     </div>
     <div>
@@ -22,12 +19,11 @@
       <span>{{rent.RealEstateAddress}}</span>
     </div>
     <div>
-      <label for="">City: </label>
-      <span>{{rent.RealEstateCity }}</span>
+      <span>{{rent.RealEstateCity }}, {{rent.RealEstateState}}  </span>
     </div>
     <div>
       <label for="">State: </label>
-      <span>{{rent.RealEstateState}}</span>
+      <span></span>
     </div>
     <div>
       <label for="">Zip Code: </label>
@@ -63,27 +59,27 @@
     </div>
     <div>
       <label for="">Available: </label>
-      <span>{{rent.DateAvailable}}</span>
+      <span>{{rent.DateAvailable | date:'d MMMM y'}}</span>
     </div>
 
     <div>
-      <label for="">PricePerMonth: </label>
-      <span>{{rent.PricePerMonth}}</span>
+      <label for="">Price Per Month: </label>
+      <span>${{rent.PricePerMonth}}</span>
     </div>
     <div>
       <label for="">Description: </label>
       <span>{{rent.Description}}</span>
     </div>
     <div>
-      <label for="">UtilitiesIncluded: </label>
+      <label for="">Utilities Included: </label>
       <span>{{rent.UtilitiesIncluded}}</span>
     </div>
     <div>
-      <label for="">PetsAllowed: </label>
+      <label for="">Pets Allowed: </label>
       <span>{{rent.PetsAllowed}}</span>
     </div>
     <div>
-      <label for="">IsRentFavorite: </label>
+      <label for="">Rent Favorite: </label>
       <span>{{rent.IsRentFavorite}}</span>
     </div>
 
