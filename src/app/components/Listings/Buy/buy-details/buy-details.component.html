@@ -1,49 +1,40 @@
 <div *ngIf="this.authService.isLoggedIn">
-
   <div class="main-div">
 
-    <h1 mat-dialog-title> Property Name: {{ data.name }} </h1>
+    <h1 mat-dialog-title cdkFocusInitial> {{ data.name }} </h1>
     <h3>Property Type: {{ data.propType }}</h3>
     <img [src]="data.pic" width="450" height="450">
 
-
     <mat-dialog-content class="mat-typography">
-      <h3>${{data.price}}</h3>
-      <h3>{{data.address}}</h3>
-      <h4>{{data.city}}, {{data.state}} {{data.zip}}</h4>
-
+      <h3 class="font-subheader">{{data.address}}</h3>
+      <h4 class="font-subheader">{{data.city}}, {{data.state}} {{data.zip}}</h4>
+      <h3>Price: ${{data.price}}</h3>
       <h4>{{data.sqFoot}} sq. feet</h4>
       <h4>Bedrooms: {{data.bedrooms}}</h4>
       <h4>Bathrooms: {{data.bathrooms}}</h4>
       <h4>Stories: {{data.stories}}</h4>
+      <h4>Date Available: {{data.dateAvail | date:'d MMMM y'}}</h4>
       <hr>
-      <h4>Extra Information:</h4>
+      <p class="font-header">Extra Information:</p>
       <div *ngIf="data.pool">
-        <h5>Has a Pool</h5>
+        <h5>Pool: Yes</h5>
       </div>
       <div *ngIf="!data.pool">
-        <h5>Has no Pool</h5>
+        <h5>Pool: No</h5>
       </div>
-      <!-- <h4>Pool: {{data.pool}}</h4> -->
       <div *ngIf="data.basement">
-        <h5>Has a Basement</h5>
+        <h5>Basement: Yes</h5>
       </div>
       <div *ngIf="!data.basement">
-        <h5>Has no Basement</h5>
+        <h5>Basement: No</h5>
       </div>
-      <!-- <h4>Basement: {{data.basement}}</h4> -->
-      <h4>Description</h4>
-      <h5>{{data.description}}</h5>
-      <h4>Date Available: {{data.dateAvail | date:'d MMMM y'}}</h4>
     </mat-dialog-content>
-
-    <mat-dialog-actions>
-      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Back To List</button>
-      <!-- <button mat-button>Save To Favorites</button> -->
-
-    </mat-dialog-actions>
   </div>
-
+  <p class="font-header">Description</p>
+    <p>{{data.description}}</p>
+    <mat-dialog-actions>
+      <button class="button" mat-button [mat-dialog-close]="true">Back To List</button>
+    </mat-dialog-actions>
 </div>
 
 <div *ngIf="!this.authService.isLoggedIn">

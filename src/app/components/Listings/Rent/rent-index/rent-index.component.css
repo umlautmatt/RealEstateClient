@@ -29,6 +29,14 @@
         color: #cccccc;
     }
 
+    .button:hover {
+        background-color: #8ca2d9;
+    }
+
+    .button {
+        background-color: #c1d0f4;
+    }
+
 /* .buttonRow {
     margin-bottom: 0.5em;
 } */

@@ -1,146 +1,44 @@
 <div *ngIf="this.authService.isLoggedIn">
   <div class="main-div">
 
-    <h1 mat-dialog-title> Property Name: {{ data.name }} </h1>
+    <h1 mat-dialog-title cdkFocusInitial> {{ data.name }} </h1>
     <h3>Property Type: {{ data.propType }}</h3>
     <img [src]="data.pic" width="450" height="450">
 
-
     <mat-dialog-content class="mat-typography">
-      <h3>${{data.pricePerMonth}}</h3>
-      <h3>{{data.address}}</h3>
-      <h4>{{data.city}}, {{data.state}} {{data.zip}}</h4>
-
+      <h3 class="font-subheader">{{data.address}}</h3>
+      <h4 class="font-subheader">{{data.city}}, {{data.state}} {{data.zip}}</h4>
+      <h3>Price per Month: ${{data.pricePerMonth}}</h3>
       <h4>{{data.sqFoot}} sq. feet</h4>
       <h4>Bedrooms: {{data.bedrooms}}</h4>
       <h4>Bathrooms: {{data.bathrooms}}</h4>
       <h4>Stories: {{data.stories}}</h4>
+      <h4>Date Available: {{data.dateAvailable | date:'d MMMM y'}}</h4>
       <hr>
-      <h4>Extra Information:</h4>
+      <p class="font-header">Extra Information</p>
       <div *ngIf="data.pool">
-        <h5>Has a Pool</h5>
-      </div>
-      <div *ngIf="!data.pool">
-          <h5>Has no Pool</h5>
+        <h5>Pool: Yes</h5>
         </div>
-        <!-- <h4>Pool: {{data.pool}}</h4> -->
+        <div *ngIf="!data.pool">
+          <h5>Pool: No</h5>
+        </div>
         <div *ngIf="data.basement">
-          <h5>Has a Basement</h5>
+          <h5>Basement: Yes</h5>
         </div>
         <div *ngIf="!data.basement">
-          <h5>Has no Basement</h5>
+          <h5>Basement: No</h5>
         </div>
-        <!-- <h4>Basement: {{data.basement}}</h4> -->
-      <h4>Description</h4>
-      <h5>{{data.description}}</h5>
-      <h4>Date Available: {{data.dateAvailable | date:'d MMMM y'}}</h4>
     </mat-dialog-content>
-
-    <mat-dialog-actions>
-      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Back To List</button>
-      <!-- <button mat-button>Save To Favorites</button> -->
-
-    </mat-dialog-actions>
   </div>
+    <p class="font-header">Description</p>
+      <p>{{data.description}}</p>
+    <mat-dialog-actions>
+      <button class="button" mat-button [mat-dialog-close]="true">Back To List</button>
+    </mat-dialog-actions>
 </div>
-
 
 <div *ngIf="!this.authService.isLoggedIn">
   <h3>Unauthorized Page</h3>
   <hr>
   <p>Please <a routerLink="/Login">Login</a> To View This Page!</p>
 </div>
-
-<!-- OLD USER INDEX
-
-<div *ngIf="rent">
-  <div hidden>
-    <label for="">Property Id: </label>
-    &nbsp;
-    <span>{{rent.RealEstatePropertyId}}</span>
-  </div>
-  <div>
-    <label for="">Property Name: </label>
-    <span>{{rent.RealEstatePropertyName}}</span>
-  </div>
-  <div>
-    <label for="">Image: </label><br>
-    <span><img src={{rent.ImageLink}} width=450 height=350></span>
-  </div>
-  <div>
-    <label for="">Square Footage: </label>
-    <span>{{rent.SquareFootage}}</span>
-  </div>
-  <div>
-    <label for="">Address: </label>
-    <span>{{rent.RealEstateAddress}}</span>
-  </div>
-  <div>
-    <label for="">City: </label>
-    <span>{{rent.RealEstateCity }}</span>
-  </div>
-  <div>
-    <label for="">State: </label>
-    <span>{{rent.RealEstateState}}</span>
-  </div>
-  <div>
-    <label for="">Zip Code: </label>
-    <span>{{rent.RealEstateZip}}</span>
-  </div>
-  <div>
-    <label for="">Property Type: </label>
-    <span>{{rent.PropertyType}}</span>
-  </div> 
-  <div>
-    <label for="">Bedroom: </label>
-    <span>{{rent.Bedroom}}</span>
-  </div>
-  <div>
-    <label for="">Bathroom: </label>
-    <span>{{rent.Bathroom}}</span>
-  </div>
-  <div>
-    <label for="">Stories: </label>
-    <span>{{rent.Stories}}</span>
-  </div>
-  <div>
-    <label for="">Basement: </label>
-    <span>{{rent.HasBasement}}</span>
-  </div>
-  <div>
-    <label for="">Pool: </label>
-    <span>{{rent.HasPool}}</span>
-  </div>
-  <div hidden>
-    <label for="">RentId: </label>
-    <span>{{rent.RentId}}</span>
-  </div>
-  <div>
-    <label for="">Available: </label>
-    <span>{{rent.Available}}</span>
-  </div>
-  
-  <div>
-    <label for="">PricePerMonth: </label>
-    <span>{{rent.PricePerMonth}}</span>
-  </div>
-  <div>
-    <label for="">Description: </label>
-    <span>{{rent.Description}}</span>
-  </div>
-  <div>
-    <label for="">UtilitiesIncluded: </label>
-    <span>{{rent.UtilitiesIncluded}}</span>
-  </div>
-  <div>
-    <label for="">PetsAllowed: </label>
-    <span>{{rent.PetsAllowed}}</span>
-  </div>
-  <div>
-    <label for="">IsRentFavorite: </label>
-    <span>{{rent.IsRentFavorite}}</span>
-  </div>
-</div>
-
-  <button mat-button color="accent" routerLink="/ForRent/Update/{{rent.RentId}}">Edit</button> |
-  <button mat-button color="primary" routerLink="/ForRent">Back to List</button> -->

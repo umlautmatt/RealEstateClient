@@ -1,6 +1,7 @@
 <div *ngIf="this.authService.isLoggedIn">
   <div class="main-div">
     <h2>Properties For Rent</h2>
+    <hr>
     <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
       <a mat-raised-button color="primary" routerLink="/ForRent/Create" class="nav-btn">Create New</a>
       <a mat-raised-button color="primary" routerLink="/ForRent/Admin/List" class="nav-btn">Admin View</a>
@@ -19,7 +20,7 @@
           <img mat-card-lg-image [src]="rent.ImageLink">
           <br>
           <br>
-          <h4>Price: ${{ rent.PricePerMonth }}</h4>
+          <h4>Price Per Month: ${{ rent.PricePerMonth }}</h4>
           <h4>{{ rent.RealEstateCity }}, {{ rent.RealEstateState }}</h4>
         </mat-card-content>
         <mat-card-actions>

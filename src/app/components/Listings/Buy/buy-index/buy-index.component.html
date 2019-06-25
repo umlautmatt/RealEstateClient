@@ -1,14 +1,13 @@
-  <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
-    <br>
-    <h2>Properties For Sale</h2>
-    <a mat-raised-button color="primary" routerLink="/ForSale/Create" class="nav-btn">Create New</a>
-    <a mat-raised-button color="primary" routerLink="/ForSale/Admin/List" class="nav-btn">Admin View</a>
-
-
-  </div>
-  <h2>Properties For Sale</h2>
   <div *ngIf="this.authService.isLoggedIn">
+    <div class="main-div">
+    <h2>Properties For Sale</h2>
     <hr>
+    <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
+      <a mat-raised-button color="primary" routerLink="/ForSale/Create" class="nav-btn">Create New</a>
+      <a mat-raised-button color="primary" routerLink="/ForSale/Admin/List" class="nav-btn">Admin View</a>
+    </div>
+    <br>
+
     <div class="deck" *ngFor="let buy of _buyProps">
       <mat-card id="card">
         <mat-card-header>
@@ -30,7 +29,7 @@
       </mat-card>
     </div>
   </div>
-
+</div>
 <div *ngIf="!this.authService.isLoggedIn">
   <h3>Unauthorized Page</h3>
   <hr>

@@ -2,3 +2,26 @@
     align-items: center;
     text-align: center;
 }
+
+.button:hover {
+    background-color: #8ca2d9;
+}
+
+.button {
+    background-color: #c1d0f4;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+.font-header {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration-line: underline;
+}
+
+.font-subheader {
+    font-size: 1.1em;
+    font-weight: bold;
+}
