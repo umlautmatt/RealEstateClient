@@ -1,33 +1,36 @@
 <div *ngIf="this.authService.isLoggedIn && this.authService.isAdmin">
-  <hr />
+    <h1>Delete</h1>
+    <h4>Are you sure you want to delete this?</h4>
+
+    <hr />
   <div *ngIf="rent">
-    <div>
+    <div hidden>
       <label for="">RentId:</label>
       <span>{{rent.RentId}}</span>
     </div>
     <div>
-      <label for="">DateAvailable:</label>
+      <label for="">DateAvailable: </label>
       <span>{{rent.DateAvailable | date:'d MMMM y'}}</span>
     </div>
 
     <div>
-      <label for="">PricePerMonth:</label>
-      <span>{{rent.PricePerMonth}}</span>
+      <label for="">Price Per Month: </label>
+      <span>${{rent.PricePerMonth}}</span>
     </div>
     <div>
-      <label for="">Description:</label>
+      <label for="">Description: </label>
       <span>{{rent.Description}}</span>
     </div>
     <div>
-      <label for="">UtilitiesIncluded:</label>
+      <label for="">Utilities Included: </label>
       <span>{{rent.UtilitiesIncluded}}</span>
     </div>
     <div>
-      <label for="">PetsAllowed:</label>
+      <label for="">Pets Allowed: </label>
       <span>{{rent.PetsAllowed}}</span>
     </div>
     <div>
-      <label for="">IsRentFavorite:</label>
+      <label for="">Rent Favorite: </label>
       <span>{{rent.IsRentFavorite}}</span>
     </div>
 

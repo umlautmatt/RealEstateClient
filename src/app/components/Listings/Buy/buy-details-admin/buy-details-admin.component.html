@@ -2,16 +2,12 @@
 
   <div *ngIf="buy">
     <div hidden>
-      <label for="">Property Id: </label>
-      &nbsp;
       <span>{{buy.RealEstatePropertyId}}</span>
     </div>
     <div>
-      <label for="">Property Name: </label>
-      <span>{{buy.RealEstatePropertyName}}</span>
+      <span><h2>{{buy.RealEstatePropertyName}}</h2></span>
     </div>
     <div>
-      <label for="">Image: </label><br>
       <span><img src={{buy.ImageLink}} width=450 height=350></span>
     </div>
     <div>
@@ -23,16 +19,7 @@
       <span>{{buy.RealEstateAddress}}</span>
     </div>
     <div>
-      <label for="">City: </label>
-      <span>{{buy.RealEstateCity }}</span>
-    </div>
-    <div>
-      <label for="">State: </label>
-      <span>{{buy.RealEstateState}}</span>
-    </div>
-    <div>
-      <label for="">Zip Code: </label>
-      <span>{{buy.RealEstateZip}}</span>
+      <span>{{buy.RealEstateCity }}, {{buy.RealEstateState}}  {{buy.RealEstateZip}}</span>
     </div>
     <div>
       <label for="">Property Type: </label>
@@ -64,14 +51,14 @@
     </div>
     <div>
       <label for="">Date Available: </label>
-      <span>{{buy.DateAvail}}</span>
+      <span>{{buy.DateAvail | date:'d MMMM y'}}</span>
     </div>
 
     <div>
       <label for="">Price: </label>
-      <span>{{buy.Price}}</span>
+      <span>${{buy.Price}}</span>
     </div>
-    <div>
+    <div style="width: 300px;">
       <label for="">Description: </label>
       <span>{{buy.Description}}</span>
     </div>
